@@ -2,7 +2,7 @@
 
 Dieser Schritt ist bewusst manuell und **nicht Bestandteil des Software-Release-Gates**. Die technische Version kann ohne physische Verkostung abgeschlossen und veröffentlicht werden. Dieses Dokument dient nur als optionales Werkzeug für spätere empirische Feinabstimmung.
 
-Automatisierte Tests  können prüfen, ob
+Automatisierte Tests können prüfen, ob
 Mengen innerhalb definierter Grenzen liegen, aber nicht, ob ein Smoothie
 tatsächlich angenehm schmeckt oder die Textur stimmt.
 
