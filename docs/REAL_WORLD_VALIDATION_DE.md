@@ -1,6 +1,8 @@
-# Reale Smoothie-Validierung
+# Optionale reale Smoothie-Validierung
 
-Dieser Schritt ist bewusst manuell. Automatisierte Tests können prüfen, ob
+Dieser Schritt ist bewusst manuell und **nicht Bestandteil des Software-Release-Gates**. Die technische Version kann ohne physische Verkostung abgeschlossen und veröffentlicht werden. Dieses Dokument dient nur als optionales Werkzeug für spätere empirische Feinabstimmung.
+
+Automatisierte Tests  können prüfen, ob
 Mengen innerhalb definierter Grenzen liegen, aber nicht, ob ein Smoothie
 tatsächlich angenehm schmeckt oder die Textur stimmt.
 
@@ -27,8 +29,7 @@ Für jeden Test:
 | R5 | Blaubeere, Banane, Chiasamen, Mandeldrink | Samen/Textur |
 | R6 | Orange, Mango, Orangensaft, Ingwer | säure-/intensitätsreicher Grenzfall |
 
-Die Vorratslisten sind **exakt** zu verstehen: keine stillschweigend zusätzlich aktivierten Grundzutaten. Für die Referenzvalidierung sind zugleich alle genannten Zutaten Pflichtbestandteile des Testrezepts. Mindestens R1–R4 sollten vor dem finalen Release physisch getestet werden.
-R5–R6 dienen besonders dazu, Textur- und Intensitätsgrenzen zu prüfen.
+Die Vorratslisten sind **exakt** zu verstehen: keine stillschweigend zusätzlich aktivierten Grundzutaten. Für die Referenzvalidierung sind zugleich alle genannten Zutaten Pflichtbestandteile des Testrezepts. R1–R4 bilden bei freiwilliger manueller Validierung die Kernfälle. R5–R6 dienen zusätzlich dazu, Textur- und Intensitätsgrenzen zu prüfen. Keiner dieser Fälle ist Voraussetzung für den technischen Release.
 
 ## Bewertungsbogen
 
