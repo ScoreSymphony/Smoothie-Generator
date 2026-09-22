@@ -81,11 +81,14 @@ if (!existsSync(join(root, iconPath))) {
 
 const buildScriptPath = "scripts/build-private-android.mjs";
 const buildScript = readFileSync(join(root, buildScriptPath), "utf8");
-if (!buildScript.includes("assembleRelease")) {
-  fail("Android private build must use assembleRelease");
+if (!/run\(gradle, \["assembleRelease"\]/.test(buildScript)) {
+  fail("Android private build must execute assembleRelease");
 }
-if (buildScript.includes("assembleDebug") || buildScript.includes("app-debug.apk")) {
-  fail("Android release build must not depend on a debug APK");
+if (/run\(gradle, \["assembleDebug"\]/.test(buildScript)) {
+  fail("Android release build must not execute assembleDebug");
+}
+if (/outputs[\\/]",?\s*"apk",?\s*"debug"|app-debug\.apk/.test(buildScript)) {
+  fail("Android release build must not depend on a debug APK output");
 }
 if (!buildScript.includes("app-release.apk")) {
   fail("Android release build must assert app-release.apk output");
