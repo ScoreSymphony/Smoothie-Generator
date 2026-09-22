@@ -2,7 +2,7 @@
 
 import streamlit as st
 
-from smoothie import IngredientCategory, load_ingredient_catalog, parse_free_text
+from smoothie import IngredientCategory, load_ingredient_catalog, load_recipe_catalog, parse_free_text, rank_recipes
 
 CATEGORY_LABELS = {
     IngredientCategory.FRUIT: "Obst",
