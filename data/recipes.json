@@ -1,0 +1,647 @@
+[
+  {
+    "id": "strawberry_banana",
+    "name_de": "Erdbeer-Banane",
+    "required": [
+      {
+        "ingredient_id": "banana",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "strawberry",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 200,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "honey",
+        "amount": 1,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk",
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "fruchtig",
+      "cremig"
+    ]
+  },
+  {
+    "id": "berry_breakfast",
+    "name_de": "Beeren-Frühstück",
+    "required": [
+      {
+        "ingredient_id": "banana",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "blueberry",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oats",
+        "amount": 40,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "yogurt",
+        "amount": 150,
+        "unit": "g"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "blueberry",
+        "alternatives": [
+          "strawberry",
+          "raspberry",
+          "blackberry"
+        ]
+      },
+      {
+        "target_id": "yogurt",
+        "alternatives": [
+          "greek_yogurt",
+          "coconut_yogurt"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "frühstück",
+      "sättigend"
+    ]
+  },
+  {
+    "id": "green_mango",
+    "name_de": "Grüner Mango-Smoothie",
+    "required": [
+      {
+        "ingredient_id": "mango",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "spinach",
+        "amount": 50,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 200,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "lemon_juice",
+        "amount": 1,
+        "unit": "EL"
+      },
+      {
+        "ingredient_id": "ginger",
+        "amount": 5,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "spinach",
+        "alternatives": [
+          "kale"
+        ]
+      },
+      {
+        "target_id": "water",
+        "alternatives": [
+          "coconut_water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "grün",
+      "fruchtig"
+    ]
+  },
+  {
+    "id": "peanut_banana",
+    "name_de": "Erdnuss-Banane",
+    "required": [
+      {
+        "ingredient_id": "banana",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "peanut_butter",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 250,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "cocoa",
+        "amount": 1,
+        "unit": "EL"
+      },
+      {
+        "ingredient_id": "cinnamon",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "protein",
+      "cremig"
+    ]
+  },
+  {
+    "id": "tropical",
+    "name_de": "Tropen-Smoothie",
+    "required": [
+      {
+        "ingredient_id": "mango",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "pineapple",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 200,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "mint",
+        "amount": 5,
+        "unit": "Blätter"
+      },
+      {
+        "ingredient_id": "ice",
+        "amount": 4,
+        "unit": "Würfel"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water",
+          "orange_juice"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "tropisch",
+      "frisch"
+    ]
+  },
+  {
+    "id": "berry_yogurt",
+    "name_de": "Beeren-Joghurt",
+    "required": [
+      {
+        "ingredient_id": "strawberry",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "raspberry",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "yogurt",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 100,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "honey",
+        "amount": 1,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "raspberry",
+        "alternatives": [
+          "blueberry",
+          "blackberry"
+        ]
+      },
+      {
+        "target_id": "yogurt",
+        "alternatives": [
+          "greek_yogurt",
+          "coconut_yogurt"
+        ]
+      },
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "beeren",
+      "cremig"
+    ]
+  },
+  {
+    "id": "apple_cinnamon",
+    "name_de": "Apfel-Zimt",
+    "required": [
+      {
+        "ingredient_id": "apple",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "cinnamon",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "oats",
+        "amount": 30,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "mild",
+      "frühstück"
+    ]
+  },
+  {
+    "id": "protein_berry",
+    "name_de": "Protein-Beere",
+    "required": [
+      {
+        "ingredient_id": "banana",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "strawberry",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "protein_powder",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 250,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "strawberry",
+        "alternatives": [
+          "blueberry",
+          "raspberry"
+        ]
+      },
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "protein",
+      "beeren"
+    ]
+  },
+  {
+    "id": "avocado_green",
+    "name_de": "Avocado-Grün",
+    "required": [
+      {
+        "ingredient_id": "avocado",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "spinach",
+        "amount": 50,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cucumber",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 200,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "lemon_juice",
+        "amount": 1,
+        "unit": "EL"
+      },
+      {
+        "ingredient_id": "mint",
+        "amount": 5,
+        "unit": "Blätter"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "spinach",
+        "alternatives": [
+          "kale"
+        ]
+      },
+      {
+        "target_id": "water",
+        "alternatives": [
+          "coconut_water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "grün",
+      "cremig"
+    ]
+  },
+  {
+    "id": "chocolate_banana",
+    "name_de": "Schoko-Banane",
+    "required": [
+      {
+        "ingredient_id": "banana",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "cocoa",
+        "amount": 1,
+        "unit": "EL"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 250,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "peanut_butter",
+        "amount": 20,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "dates",
+        "amount": 2,
+        "unit": "Stück"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "schokolade",
+      "cremig"
+    ]
+  },
+  {
+    "id": "orange_mango",
+    "name_de": "Orange-Mango",
+    "required": [
+      {
+        "ingredient_id": "orange",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "mango",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "orange_juice",
+        "amount": 150,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "ginger",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "ice",
+        "amount": 4,
+        "unit": "Würfel"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "orange_juice",
+        "alternatives": [
+          "water",
+          "coconut_water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "fruchtig",
+      "frisch"
+    ]
+  },
+  {
+    "id": "blueberry_chia",
+    "name_de": "Blaubeer-Chia",
+    "required": [
+      {
+        "ingredient_id": "blueberry",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 1,
+        "unit": "EL"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 220,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "maple_syrup",
+        "amount": 1,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "blueberry",
+        "alternatives": [
+          "strawberry",
+          "raspberry"
+        ]
+      },
+      {
+        "target_id": "almond_milk",
+        "alternatives": [
+          "oat_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "beeren",
+      "samen"
+    ]
+  }
+]
