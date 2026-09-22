@@ -1,13 +1,16 @@
 # Third-party notices
 
-The Smoothie Generator is developed as its own application. During planning,
-the following open-source projects were reviewed for architecture and feature
+The Smoothie Generator is developed as its own **mobile-only React Native/Expo
+application**. During planning and earlier prototypes, the following
+open-source projects were reviewed for architecture, domain and feature
 inspiration.
 
 ## MIT-licensed references
 
 - **hoangsonww/PantryPal-Streamlit-App**
-  - Reference use: Streamlit application structure and pantry-oriented UX ideas.
+  - Historical reference use: pantry-oriented UX/domain ideas during the former
+    web prototype.
+  - Streamlit architecture is not part of the current mobile product.
   - License: MIT.
 - **BeeJoseph/smoothie-generator**
   - Reference use: ingredient-category and smoothie-composition ideas.
@@ -16,7 +19,8 @@ inspiration.
   - Reference use: ingredient-based recipe recommendation concepts.
   - License: MIT.
 - **awaleedpk/Smoothie-Mixer-App-Streamlit**
-  - Reference use: FruityVice/nutrition integration concepts.
+  - Historical reference use: nutrition/integration concepts.
+  - Streamlit architecture is not part of the current mobile product.
   - License: MIT.
 
 No source code from these repositories is currently copied into this
