@@ -229,3 +229,43 @@ def test_personalization_never_pushes_partial_match_above_exact_match() -> None:
     ranked = rank_stored_matches_with_preferences(matches, preferences)
 
     assert ranked[0].recipe.id == "exact"
+
+
+
+def test_celery_allergy_filters_celery_from_pantry() -> None:
+    catalog = load_ingredient_catalog()
+    preferences = UserPreferences(allergies={"celery"})
+
+    filtered = filter_pantry(
+        ["celery", "banana", "water"],
+        preferences,
+        catalog,
+    )
+
+    assert filtered == ["banana", "water"]
+
+
+def test_refreshing_preference_recognizes_erfrischend_tag() -> None:
+    plain = Recipe(
+        id="a_plain",
+        name_de="Neutral",
+        required=(RecipeIngredient("banana", 100, "g"),),
+        tags=("fruchtig",),
+    )
+    refreshing = Recipe(
+        id="z_refreshing",
+        name_de="Erfrischend",
+        required=(RecipeIngredient("mango", 100, "g"),),
+        tags=("erfrischend",),
+    )
+    matches = [
+        RecipeMatch(plain, 1.0, (), ()),
+        RecipeMatch(refreshing, 1.0, (), ()),
+    ]
+
+    ranked = rank_stored_matches_with_preferences(
+        matches,
+        UserPreferences(refreshing=True),
+    )
+
+    assert ranked[0].recipe.id == "z_refreshing"
