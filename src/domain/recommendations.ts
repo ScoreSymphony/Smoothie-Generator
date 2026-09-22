@@ -169,21 +169,44 @@ export function buildRecommendations(
   pantry: PantryState,
   preferences: UserPreferences,
   seed = 17,
+  page = 0,
 ): readonly RecommendationView[] {
   const available = availableIngredientIds(pantry);
   const filtered = filterPantryByPreferences(available, preferences);
+  const normalizedPage = Number.isFinite(page)
+    ? Math.max(0, Math.trunc(page))
+    : 0;
 
-  const stored = rankStoredMatchesWithPreferences(
+  const storedRanked = rankStoredMatchesWithPreferences(
     rankStoredRecipes(filtered, { limit: 24 }),
     preferences,
-  )
-    .slice(0, 4)
-    .map((match) => recommendationFromStoredMatch(match, pantry.servings));
+  );
+  const storedPageSize = 4;
+  const storedOffset =
+    storedRanked.length > 0
+      ? (normalizedPage * storedPageSize) % storedRanked.length
+      : 0;
+  const storedWindow =
+    storedRanked.length <= storedPageSize
+      ? storedRanked
+      : [
+          ...storedRanked.slice(storedOffset, storedOffset + storedPageSize),
+          ...storedRanked.slice(
+            0,
+            Math.max(
+              0,
+              storedOffset + storedPageSize - storedRanked.length,
+            ),
+          ),
+        ];
+  const stored = storedWindow.map((match) =>
+    recommendationFromStoredMatch(match, pantry.servings),
+  );
 
   const generated = generateSmoothiesWithPreferences(
     filtered,
     preferences,
-    { count: 24, seed },
+    { count: 24, seed: seed + normalizedPage },
   );
   const generatedRanked = rankGeneratedCandidatesWithPreferences(
     generated,

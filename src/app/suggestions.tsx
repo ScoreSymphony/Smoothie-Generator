@@ -1,5 +1,5 @@
 import { useRouter } from "expo-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -15,8 +15,9 @@ export default function SuggestionsScreen() {
   const router = useRouter();
   const [pantry, setPantry] = useState<PantryState | null>(null);
   const [preferences, setPreferences] = useState<UserPreferences | null>(null);
-  const [seed, setSeed] = useState(17);
+  const [page, setPage] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  const scrollRef = useRef<ScrollView>(null);
 
   useEffect(() => {
     let active = true;
@@ -31,9 +32,23 @@ export default function SuggestionsScreen() {
   }, []);
 
   const recommendations = useMemo(
-    () => pantry && preferences ? buildRecommendations(pantry, preferences, seed) : [],
-    [pantry, preferences, seed],
+    () => pantry && preferences ? buildRecommendations(pantry, preferences, 17, page) : [],
+    [pantry, preferences, page],
   );
+
+  const nextRecommendations = useMemo(
+    () => pantry && preferences ? buildRecommendations(pantry, preferences, 17, page + 1) : [],
+    [pantry, preferences, page],
+  );
+
+  const hasAlternativeRecommendations =
+    recommendations.map((item) => item.key).join("|") !==
+    nextRecommendations.map((item) => item.key).join("|");
+
+  const showOtherCombinations = () => {
+    setPage((current) => current + 1);
+    scrollRef.current?.scrollTo?.({ y: 0, animated: true });
+  };
 
   const toggleFavorite = (key: string) => {
     if (!preferences) return;
@@ -57,7 +72,7 @@ export default function SuggestionsScreen() {
 
   return (
     <SafeAreaView edges={["bottom"]} style={styles.safeArea}>
-      <ScrollView contentContainerStyle={styles.content}>
+      <ScrollView ref={scrollRef} contentContainerStyle={styles.content}>
         <View style={styles.header}>
           <Text style={styles.title}>Deine Smoothies</Text>
           <Text style={styles.muted}>
@@ -90,14 +105,16 @@ export default function SuggestionsScreen() {
                 />
               ))}
             </View>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Andere Smoothie-Kombinationen erzeugen"
-              onPress={() => setSeed((current) => current + 1)}
-              style={styles.secondary}
-            >
-              <Text style={styles.secondaryText}>Andere Kombinationen</Text>
-            </Pressable>
+            {hasAlternativeRecommendations ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Andere Smoothie-Kombinationen erzeugen"
+                onPress={showOtherCombinations}
+                style={styles.secondary}
+              >
+                <Text style={styles.secondaryText}>Andere Kombinationen</Text>
+              </Pressable>
+            ) : null}
           </>
         )}
       </ScrollView>
