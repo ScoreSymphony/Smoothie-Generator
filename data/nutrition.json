@@ -932,6 +932,30 @@
       "sugar_g": 1.7,
       "fat_g": 4.2,
       "fiber_g": 8.5
+    },
+    "garlic": {
+      "calories": 149,
+      "protein_g": 6.4,
+      "carbohydrates_g": 33.1,
+      "sugar_g": 1,
+      "fat_g": 0.5,
+      "fiber_g": 2.1
+    },
+    "pumpkin": {
+      "calories": 26,
+      "protein_g": 1,
+      "carbohydrates_g": 6.5,
+      "sugar_g": 2.8,
+      "fat_g": 0.1,
+      "fiber_g": 0.5
+    },
+    "nettle": {
+      "calories": 42,
+      "protein_g": 2.7,
+      "carbohydrates_g": 7.5,
+      "sugar_g": 0.3,
+      "fat_g": 0.1,
+      "fiber_g": 6.9
     }
   }
 }
