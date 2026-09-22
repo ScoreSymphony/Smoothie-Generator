@@ -3,11 +3,14 @@
 import streamlit as st
 
 from smoothie import (
+    CandidateScorer,
     IngredientCategory,
+    ScoringContext,
     SmoothieGenerator,
     load_ingredient_catalog,
     load_recipe_catalog,
     parse_free_text,
+    rank_generated_candidates,
     rank_recipes,
 )
 
@@ -117,17 +120,25 @@ def main() -> None:
 
     st.divider()
     st.subheader("Neu aus deinen Zutaten generiert")
-    generated = SmoothieGenerator(catalog).generate(selected_ids, count=3, seed=0)
+    candidate_pool = SmoothieGenerator(catalog).generate(selected_ids, count=100, seed=0)
+    generated = rank_generated_candidates(
+        candidate_pool,
+        CandidateScorer(catalog),
+        ScoringContext(pantry_ids=frozenset(selected_ids)),
+        limit=3,
+    )
     if generated:
-        for index, candidate in enumerate(generated, 1):
+        for index, scored in enumerate(generated, 1):
+            candidate = scored.candidate
             with st.container(border=True):
-                st.markdown(f"**Vorschlag {index}**")
+                st.markdown(f"**Vorschlag {index} · {scored.total:.0f}/100**")
                 st.write(", ".join(by_id[item_id].name_de for item_id in candidate.ingredient_ids))
                 role_text = ", ".join(
                     f"{by_id[item_id].name_de}: {role.replace('_', ' ')}"
                     for item_id, role in candidate.roles
                 )
                 st.caption(role_text)
+                st.caption(" · ".join(scored.explanations))
     else:
         st.caption(
             "Für eine Generierung brauchst du mindestens Obst oder Beeren und eine passende Flüssigkeit."
