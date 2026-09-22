@@ -293,7 +293,7 @@ describe("soft preference ranking", () => {
   test("stored favorite is a bounded boost within the same match kind", () => {
     const recipes = loadBundledRecipeCatalog();
     const first = recipes.require("strawberry_banana");
-    const second = recipes.require("berry_oat");
+    const second = recipes.require("berry_oat_vegan");
     const pantry = [
       ...new Set([
         ...first.required.map((item) => item.ingredientId),
@@ -319,7 +319,7 @@ describe("soft preference ranking", () => {
   test("personalization never pushes a partial match above an exact match", () => {
     const recipes = loadBundledRecipeCatalog();
     const exactRecipe = recipes.require("strawberry_banana");
-    const partialRecipe = recipes.require("berry_oat");
+    const partialRecipe = recipes.require("berry_oat_vegan");
 
     const exact = matchRecipe(
       exactRecipe,
