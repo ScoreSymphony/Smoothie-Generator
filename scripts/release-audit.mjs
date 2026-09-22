@@ -52,7 +52,9 @@ if (forbidden.length > 0) {
 }
 
 const app = readJson("app.json").expo;
+const packageJson = readJson("package.json");
 const platforms = [...(app.platforms ?? [])].sort();
+
 if (JSON.stringify(platforms) !== JSON.stringify(["android", "ios"])) {
   fail(`Expo platforms must be exactly android + ios, got: ${platforms.join(", ")}`);
 }
@@ -61,6 +63,32 @@ if (app.ios?.supportsTablet !== false) {
 }
 if (!app.android?.package || !app.ios?.bundleIdentifier) {
   fail("Android package and iOS bundle identifier must be configured");
+}
+if (app.version !== packageJson.version) {
+  fail(`Expo version ${app.version} must match package version ${packageJson.version}`);
+}
+if (!Number.isInteger(app.android?.versionCode) || app.android.versionCode < 1) {
+  fail("Android versionCode must be a positive integer");
+}
+
+const iconPath = app.android?.icon ?? app.icon;
+if (!iconPath) {
+  fail("an application icon must be configured");
+}
+if (!existsSync(join(root, iconPath))) {
+  fail(`configured application icon does not exist: ${iconPath}`);
+}
+
+const buildScriptPath = "scripts/build-private-android.mjs";
+const buildScript = readFileSync(join(root, buildScriptPath), "utf8");
+if (!buildScript.includes("assembleRelease")) {
+  fail("Android private build must use assembleRelease");
+}
+if (buildScript.includes("assembleDebug") || buildScript.includes("app-debug.apk")) {
+  fail("Android release build must not depend on a debug APK");
+}
+if (!buildScript.includes("app-release.apk")) {
+  fail("Android release build must assert app-release.apk output");
 }
 
 const requiredRoutes = [
@@ -113,7 +141,6 @@ for (const path of requiredStorage) {
   if (!existsSync(join(root, path))) fail(`required local persistence module missing: ${path}`);
 }
 
-const packageJson = readJson("package.json");
 const dependencyNames = Object.keys({
   ...(packageJson.dependencies ?? {}),
   ...(packageJson.devDependencies ?? {}),
@@ -123,6 +150,10 @@ if (dependencyNames.some((name) => /server|express|next|vite/i.test(name))) {
 }
 
 console.log("Mobile release audit PASS");
+console.log(`- App version: ${app.version}`);
+console.log(`- Android versionCode: ${app.android.versionCode}`);
+console.log(`- App icon: ${iconPath}`);
+console.log("- Android APK variant: release");
 console.log(`- Expo platforms: ${platforms.join(", ")}`);
 console.log(`- Ingredient corpus: ${ingredients.length}`);
 console.log(`- Recipe corpus: ${recipes.length}`);
