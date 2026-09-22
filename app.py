@@ -2,19 +2,28 @@
 
 import streamlit as st
 
+from components.preferences_panel import render_preference_panel, render_recipe_feedback
 from smoothie import (
     CandidateScorer,
     IngredientCategory,
     NutritionCalculator,
+    PreferenceStore,
     QuantityCalculator,
-    ScoringContext,
+    ScoringWeights,
     SmoothieGenerator,
+    candidate_allowed,
+    filter_pantry,
+    generated_feedback_key,
     load_ingredient_catalog,
     load_nutrition_catalog,
     load_recipe_catalog,
     parse_free_text,
     rank_generated_candidates,
     rank_recipes,
+    rank_stored_matches_with_preferences,
+    recipe_allowed,
+    scoring_context_from_preferences,
+    stored_feedback_key,
 )
 
 CATEGORY_LABELS = {
@@ -47,13 +56,16 @@ def main() -> None:
     ingredients = catalog.all()
     by_id = {item.id: item for item in ingredients}
     quantity_calculator = QuantityCalculator(catalog)
-    nutrition_calculator = NutritionCalculator(
-        catalog,
-        load_nutrition_catalog(ingredient_catalog=catalog),
-    )
+    nutrition_catalog = load_nutrition_catalog(ingredient_catalog=catalog)
+    nutrition_calculator = NutritionCalculator(catalog, nutrition_catalog)
+    preference_store = PreferenceStore()
+    if "preferences" not in st.session_state:
+        st.session_state["preferences"] = preference_store.load()
+    preferences = st.session_state["preferences"]
 
     st.title("Smoothie Generator")
     st.write("Was hast du gerade zu Hause? Wähle deine Zutaten aus.")
+    preferences = render_preference_panel(preferences, preference_store, ingredients)
 
     query = st.text_input("Zutaten suchen", placeholder="z. B. Banane, Haferdrink oder Spinat")
     normalized_query = catalog.normalize(query)
@@ -115,10 +127,18 @@ def main() -> None:
     if st.session_state.always_ice and "ice" not in selected_ids:
         selected_ids.append("ice")
 
+    usable_ids = filter_pantry(selected_ids, preferences, catalog)
+    blocked_ids = [item_id for item_id in selected_ids if item_id not in usable_ids]
+
     st.subheader("Deine Auswahl")
     if selected_ids:
         st.write(", ".join(by_id[item_id].name_de for item_id in selected_ids))
         st.caption(f"{len(selected_ids)} Zutaten · {st.session_state.servings} Portion(en)")
+        if blocked_ids:
+            st.caption(
+                "Durch persönliche Einschränkungen ausgeschlossen: "
+                + ", ".join(by_id[item_id].name_de for item_id in blocked_ids)
+            )
     else:
         st.info("Wähle mindestens eine Zutat aus.")
 
@@ -128,11 +148,28 @@ def main() -> None:
 
     st.divider()
     st.subheader("Neu aus deinen Zutaten generiert")
-    candidate_pool = SmoothieGenerator(catalog).generate(selected_ids, count=100, seed=0)
+    candidate_pool = SmoothieGenerator(catalog).generate(
+        usable_ids,
+        count=100,
+        seed=0,
+        vegan=preferences.vegan,
+        excluded_allergens=frozenset(
+            preferences.allergies | ({"milk"} if preferences.dairy_free else set())
+        ),
+    )
+    candidate_pool = [
+        candidate
+        for candidate in candidate_pool
+        if candidate_allowed(candidate, preferences)
+    ]
     generated = rank_generated_candidates(
         candidate_pool,
-        CandidateScorer(catalog),
-        ScoringContext(pantry_ids=frozenset(selected_ids)),
+        CandidateScorer(
+            catalog,
+            ScoringWeights(preference_fit=2.0),
+            nutrition_catalog=nutrition_catalog,
+        ),
+        scoring_context_from_preferences(preferences, usable_ids),
         limit=3,
     )
     if generated:
@@ -162,14 +199,25 @@ def main() -> None:
                     f"{facts.fat_g:g} g Fett · {facts.fiber_g:g} g Ballaststoffe"
                 )
                 st.caption(" · ".join(scored.explanations))
+                render_recipe_feedback(
+                    generated_feedback_key(candidate),
+                    preferences,
+                    preference_store,
+                )
     else:
         st.caption(
             "Für eine Generierung brauchst du mindestens Obst oder Beeren und eine passende Flüssigkeit."
         )
 
     st.subheader("Passende gespeicherte Rezepte")
-    matches = rank_recipes(
-        load_recipe_catalog(ingredient_catalog=catalog), set(selected_ids)
+    recipes = [
+        recipe
+        for recipe in load_recipe_catalog(ingredient_catalog=catalog)
+        if recipe_allowed(recipe, preferences, catalog)
+    ]
+    matches = rank_stored_matches_with_preferences(
+        rank_recipes(recipes, set(usable_ids)),
+        preferences,
     )
     for match in matches[:5]:
         percent = round(match.score * 100)
@@ -200,6 +248,11 @@ def main() -> None:
                     for target, replacement in match.substitutions_used
                 )
                 st.caption("Mögliche Ersetzung: " + substitutions)
+            render_recipe_feedback(
+                stored_feedback_key(match.recipe),
+                preferences,
+                preference_store,
+            )
 
 
 if __name__ == "__main__":
