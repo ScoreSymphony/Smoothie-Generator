@@ -3066,5 +3066,997 @@
       "cremig",
       "mild"
     ]
+  },
+  {
+    "id": "mn_green_power",
+    "name_de": "Green Power",
+    "required": [
+      {
+        "ingredient_id": "spinach",
+        "amount": 35,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cucumber",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "apple",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "lemon",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "ginger",
+        "amount": 4,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 180,
+        "unit": "ml"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "grün",
+      "frisch",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_berry_boost",
+    "name_de": "Berry Boost",
+    "required": [
+      {
+        "ingredient_id": "strawberry",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "blueberry",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oats",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 10,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "cinnamon",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "beeren",
+      "frühstück",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_tropical_glow",
+    "name_de": "Tropical Glow",
+    "required": [
+      {
+        "ingredient_id": "mango",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "pineapple",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "lime",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 10,
+        "unit": "g"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "tropisch",
+      "fruchtig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_waldkraft",
+    "name_de": "Waldkraft",
+    "required": [
+      {
+        "ingredient_id": "blueberry",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "blackberry",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "flax_seeds",
+        "amount": 10,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oats",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 220,
+        "unit": "ml"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "beeren",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_detox_green",
+    "name_de": "Detox Green",
+    "required": [
+      {
+        "ingredient_id": "kale",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cucumber",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "celery",
+        "amount": 50,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "apple",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "lemon",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "parsley",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "ginger",
+        "amount": 4,
+        "unit": "g"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "grün",
+      "herb",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_sunshine",
+    "name_de": "Sunshine",
+    "required": [
+      {
+        "ingredient_id": "orange",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "carrot",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "mango",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "ginger",
+        "amount": 4,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "lemon",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "turmeric",
+        "amount": 1,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 180,
+        "unit": "ml"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "fruchtig",
+      "würzig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_pink_paradise",
+    "name_de": "Pink Paradise",
+    "required": [
+      {
+        "ingredient_id": "raspberry",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "beetroot",
+        "amount": 50,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oats",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "cinnamon",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "beeren",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_garden_fresh",
+    "name_de": "Garden Fresh",
+    "required": [
+      {
+        "ingredient_id": "spinach",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "avocado",
+        "amount": 70,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cucumber",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "apple",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "mint",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "lemon",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 180,
+        "unit": "ml"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "grün",
+      "frisch",
+      "cremig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_exotik_energie",
+    "name_de": "Exotik Energie",
+    "required": [
+      {
+        "ingredient_id": "pineapple",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "mango",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "passion_fruit",
+        "amount": 60,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "lime",
+        "amount": 0.5,
+        "unit": "Stück"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "tropisch",
+      "fruchtig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_knoblauch_power",
+    "name_de": "Knoblauch Power",
+    "required": [
+      {
+        "ingredient_id": "spinach",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cucumber",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "parsley",
+        "amount": 5,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "apple",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "garlic",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "lemon",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "ginger",
+        "amount": 3,
+        "unit": "g"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "grün",
+      "würzig",
+      "herb",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_schoko_banane",
+    "name_de": "Schoko Banane",
+    "required": [
+      {
+        "ingredient_id": "banana",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cocoa",
+        "amount": 1,
+        "unit": "EL"
+      },
+      {
+        "ingredient_id": "oats",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almond_butter",
+        "amount": 20,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "cinnamon",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "schokoladig",
+      "cremig",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_rote_kraft",
+    "name_de": "Rote Kraft",
+    "required": [
+      {
+        "ingredient_id": "beetroot",
+        "amount": 60,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "carrot",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "apple",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "ginger",
+        "amount": 4,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "lemon",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 200,
+        "unit": "ml"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "erdig",
+      "frisch",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_summer_fresh",
+    "name_de": "Summer Fresh",
+    "required": [
+      {
+        "ingredient_id": "watermelon",
+        "amount": 250,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "strawberry",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "mint",
+        "amount": 4,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "lime",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 10,
+        "unit": "g"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "sommer",
+      "frisch",
+      "fruchtig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_protein_green",
+    "name_de": "Protein Green",
+    "required": [
+      {
+        "ingredient_id": "spinach",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "skyr",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "flax_seeds",
+        "amount": 10,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cucumber",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "lemon",
+        "amount": 0.5,
+        "unit": "Stück"
+      }
+    ],
+    "optional": [],
+    "substitutions": [
+      {
+        "target_id": "skyr",
+        "alternatives": [
+          "yogurt"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "grün",
+      "protein",
+      "sättigend"
+    ]
+  },
+  {
+    "id": "mn_apfel_zimt",
+    "name_de": "Apfel Zimt",
+    "required": [
+      {
+        "ingredient_id": "apple",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oats",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "cinnamon",
+        "amount": 0.5,
+        "unit": "TL"
+      },
+      {
+        "ingredient_id": "flax_seeds",
+        "amount": 10,
+        "unit": "g"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "frühstück",
+      "sättigend",
+      "cremig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_herbst_mix",
+    "name_de": "Herbst Mix",
+    "required": [
+      {
+        "ingredient_id": "pumpkin",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "apple",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "carrot",
+        "amount": 70,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "ginger",
+        "amount": 4,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cinnamon",
+        "amount": 0.5,
+        "unit": "TL"
+      },
+      {
+        "ingredient_id": "oats",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 220,
+        "unit": "ml"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "herbst",
+      "würzig",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_fruchtiger_fruehling",
+    "name_de": "Fruchtiger Frühling",
+    "required": [
+      {
+        "ingredient_id": "kiwi",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "spinach",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "apple",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "lemon",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "mint",
+        "amount": 4,
+        "unit": "g"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "fruchtig",
+      "grün",
+      "frisch",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_beeren_gruen",
+    "name_de": "Beeren Grün",
+    "required": [
+      {
+        "ingredient_id": "blueberry",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "spinach",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 10,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "lemon",
+        "amount": 0.5,
+        "unit": "Stück"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "beeren",
+      "grün",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_creamy_avocado",
+    "name_de": "Creamy Avocado",
+    "required": [
+      {
+        "ingredient_id": "avocado",
+        "amount": 70,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "spinach",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "lime",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 10,
+        "unit": "g"
+      }
+    ],
+    "optional": [],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "cremig",
+      "grün",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mn_wild_nature",
+    "name_de": "Wild Nature",
+    "required": [
+      {
+        "ingredient_id": "kale",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "spinach",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cucumber",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "apple",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "ginger",
+        "amount": 4,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "lemon",
+        "amount": 0.5,
+        "unit": "Stück"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "nettle",
+        "amount": 10,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [],
+    "instructions_de": [
+      "Alle Zutaten vorbereiten und in den Mixer geben.",
+      "Cremig mixen und bei Bedarf mit etwas Flüssigkeit auf die gewünschte Konsistenz bringen."
+    ],
+    "tags": [
+      "grün",
+      "herb",
+      "vegan"
+    ]
   }
 ]
