@@ -4,12 +4,13 @@ from __future__ import annotations
 from dataclasses import dataclass, asdict
 from datetime import datetime, timezone
 import json
+import os
 from pathlib import Path
 from typing import Any
 
-DEFAULT_HISTORY_PATH = (
-    Path(__file__).resolve().parents[1] / "data" / "recipe_history.local.json"
-)
+_PROJECT_DATA_DIR = Path(__file__).resolve().parents[1] / "data"
+_STATE_DIR = Path(os.environ.get("SMOOTHIE_STATE_DIR", _PROJECT_DATA_DIR))
+DEFAULT_HISTORY_PATH = _STATE_DIR / "recipe_history.local.json"
 
 
 @dataclass(frozen=True)
