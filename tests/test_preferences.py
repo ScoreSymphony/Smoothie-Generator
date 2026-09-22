@@ -204,3 +204,28 @@ def test_stored_favorite_is_bounded_soft_boost() -> None:
     ranked = rank_stored_matches_with_preferences(matches, preferences)
 
     assert ranked[0].recipe.id == "second"
+
+
+def test_personalization_never_pushes_partial_match_above_exact_match() -> None:
+    exact_recipe = Recipe(
+        id="exact",
+        name_de="Exakt",
+        required=(RecipeIngredient("banana", 100, "g"),),
+    )
+    partial_recipe = Recipe(
+        id="partial",
+        name_de="Teiltreffer",
+        required=(RecipeIngredient("mango", 100, "g"),),
+    )
+    matches = [
+        RecipeMatch(exact_recipe, 1.0, (), ()),
+        RecipeMatch(partial_recipe, 0.9, ("mango",), ()),
+    ]
+    preferences = UserPreferences(
+        favorite_recipes={stored_feedback_key(partial_recipe)},
+        feedback={stored_feedback_key(partial_recipe): FeedbackValue.LIKED},
+    )
+
+    ranked = rank_stored_matches_with_preferences(matches, preferences)
+
+    assert ranked[0].recipe.id == "exact"
