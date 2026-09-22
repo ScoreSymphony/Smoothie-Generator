@@ -126,14 +126,14 @@ def render_preference_panel(preferences, store, ingredients):
 
 
 def render_recipe_feedback(recipe_key, preferences, store):
-    """Render persistent favorite/feedback actions for one recommendation."""
+    """Render persistent favorite/feedback actions with mobile-friendly controls."""
     current = preferences.feedback.get(recipe_key)
     is_favorite = recipe_key in preferences.favorite_recipes
-    favorite_col, like_col, neutral_col, hide_col = st.columns(4)
 
-    with favorite_col:
+    first_left, first_right = st.columns(2)
+    with first_left:
         if st.button(
-            "Favorit entfernen" if is_favorite else "Als Favorit",
+            "Favorit entfernen" if is_favorite else "Als Favorit speichern",
             key=f"favorite:{recipe_key}",
             use_container_width=True,
         ):
@@ -143,7 +143,7 @@ def render_recipe_feedback(recipe_key, preferences, store):
                 preferences.favorite_recipes.add(recipe_key)
             store.save(preferences)
             st.rerun()
-    with like_col:
+    with first_right:
         if st.button(
             "Gefällt mir",
             key=f"like:{recipe_key}",
@@ -153,7 +153,9 @@ def render_recipe_feedback(recipe_key, preferences, store):
             set_feedback(preferences, recipe_key, FeedbackValue.LIKED)
             store.save(preferences)
             st.rerun()
-    with neutral_col:
+
+    second_left, second_right = st.columns(2)
+    with second_left:
         if st.button(
             "Neutral",
             key=f"neutral:{recipe_key}",
@@ -162,9 +164,9 @@ def render_recipe_feedback(recipe_key, preferences, store):
             set_feedback(preferences, recipe_key, FeedbackValue.NEUTRAL)
             store.save(preferences)
             st.rerun()
-    with hide_col:
+    with second_right:
         if st.button(
-            "Nicht mehr",
+            "Nicht mehr vorschlagen",
             key=f"hide:{recipe_key}",
             use_container_width=True,
         ):
