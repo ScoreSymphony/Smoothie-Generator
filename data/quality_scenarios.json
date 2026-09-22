@@ -1,0 +1,590 @@
+[
+  {
+    "id": "sparse_banana_water",
+    "kind": "sparse",
+    "pantry": [
+      "banana",
+      "water"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 1,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "sparse_strawberry_oat",
+    "kind": "sparse",
+    "pantry": [
+      "strawberry",
+      "oat_milk"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 1,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "sparse_mango_coconut",
+    "kind": "sparse",
+    "pantry": [
+      "mango",
+      "coconut_water"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 1,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "sparse_apple_almond",
+    "kind": "sparse",
+    "pantry": [
+      "apple",
+      "almond_milk"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 1,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "sparse_blueberry_water",
+    "kind": "sparse",
+    "pantry": [
+      "blueberry",
+      "water"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 1,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "missing_liquid_banana",
+    "kind": "sparse",
+    "pantry": [
+      "banana"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 0,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "missing_fruit_water",
+    "kind": "sparse",
+    "pantry": [
+      "water"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 0,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "greens_without_fruit",
+    "kind": "sparse",
+    "pantry": [
+      "spinach",
+      "water"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 0,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "ice_not_primary_liquid",
+    "kind": "sparse",
+    "pantry": [
+      "banana",
+      "ice"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 0,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "creamy_without_liquid",
+    "kind": "sparse",
+    "pantry": [
+      "strawberry",
+      "yogurt"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 0,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "banana_strawberry_oat",
+    "kind": "standard",
+    "pantry": [
+      "banana",
+      "strawberry",
+      "oat_milk"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 3,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "mango_pineapple_coconut",
+    "kind": "standard",
+    "pantry": [
+      "mango",
+      "pineapple",
+      "coconut_water"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 3,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "banana_peanut_oat",
+    "kind": "standard",
+    "pantry": [
+      "banana",
+      "peanut_butter",
+      "oat_milk"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 2,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "blueberry_chia_almond",
+    "kind": "standard",
+    "pantry": [
+      "blueberry",
+      "chia_seeds",
+      "almond_milk"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 2,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "banana_yogurt_oat",
+    "kind": "standard",
+    "pantry": [
+      "banana",
+      "yogurt",
+      "oat_milk"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 2,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "mango_spinach_coconut",
+    "kind": "standard",
+    "pantry": [
+      "mango",
+      "spinach",
+      "coconut_water"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 2,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "apple_cinnamon_oat",
+    "kind": "standard",
+    "pantry": [
+      "apple",
+      "cinnamon",
+      "oat_milk"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 2,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "orange_mango_juice",
+    "kind": "standard",
+    "pantry": [
+      "orange",
+      "mango",
+      "orange_juice"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 3,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "banana_avocado_water",
+    "kind": "standard",
+    "pantry": [
+      "banana",
+      "avocado",
+      "water"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 2,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "banana_protein_water",
+    "kind": "standard",
+    "pantry": [
+      "banana",
+      "protein_powder",
+      "water"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 2,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "large_classic",
+    "kind": "large",
+    "pantry": [
+      "banana",
+      "strawberry",
+      "mango",
+      "water",
+      "oat_milk",
+      "yogurt",
+      "protein_powder",
+      "honey",
+      "cinnamon"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 10,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "large_tropical",
+    "kind": "large",
+    "pantry": [
+      "mango",
+      "pineapple",
+      "orange",
+      "coconut_water",
+      "orange_juice",
+      "coconut_yogurt",
+      "chia_seeds",
+      "ginger"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 10,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "large_berries",
+    "kind": "large",
+    "pantry": [
+      "strawberry",
+      "blueberry",
+      "raspberry",
+      "blackberry",
+      "water",
+      "oat_milk",
+      "yogurt",
+      "chia_seeds",
+      "mint"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 10,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "large_green",
+    "kind": "large",
+    "pantry": [
+      "banana",
+      "mango",
+      "kiwi",
+      "water",
+      "coconut_water",
+      "spinach",
+      "kale",
+      "cucumber",
+      "ginger"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 10,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "large_breakfast",
+    "kind": "large",
+    "pantry": [
+      "banana",
+      "apple",
+      "blueberry",
+      "oat_milk",
+      "yogurt",
+      "oats",
+      "chia_seeds",
+      "cinnamon",
+      "maple_syrup"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 10,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "vegan_filters_dairy_honey",
+    "kind": "restriction",
+    "pantry": [
+      "banana",
+      "strawberry",
+      "oat_milk",
+      "yogurt",
+      "honey"
+    ],
+    "vegan": true,
+    "excluded_allergens": [],
+    "min_candidates": 1,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "vegan_keeps_base",
+    "kind": "restriction",
+    "pantry": [
+      "banana",
+      "water",
+      "yogurt",
+      "greek_yogurt"
+    ],
+    "vegan": true,
+    "excluded_allergens": [],
+    "min_candidates": 1,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "nut_allergy_has_water_fallback",
+    "kind": "restriction",
+    "pantry": [
+      "banana",
+      "almond_milk",
+      "water"
+    ],
+    "vegan": false,
+    "excluded_allergens": [
+      "nuts"
+    ],
+    "min_candidates": 1,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "nut_allergy_removes_only_liquid",
+    "kind": "restriction",
+    "pantry": [
+      "banana",
+      "almond_milk"
+    ],
+    "vegan": false,
+    "excluded_allergens": [
+      "nuts"
+    ],
+    "min_candidates": 0,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "peanut_allergy",
+    "kind": "restriction",
+    "pantry": [
+      "banana",
+      "peanut_butter",
+      "oat_milk"
+    ],
+    "vegan": false,
+    "excluded_allergens": [
+      "peanuts"
+    ],
+    "min_candidates": 1,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "milk_allergy",
+    "kind": "restriction",
+    "pantry": [
+      "banana",
+      "yogurt",
+      "oat_milk"
+    ],
+    "vegan": false,
+    "excluded_allergens": [
+      "milk"
+    ],
+    "min_candidates": 1,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "gluten_allergy_water_fallback",
+    "kind": "restriction",
+    "pantry": [
+      "banana",
+      "oat_milk",
+      "water"
+    ],
+    "vegan": false,
+    "excluded_allergens": [
+      "gluten"
+    ],
+    "min_candidates": 1,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "soy_allergy",
+    "kind": "restriction",
+    "pantry": [
+      "banana",
+      "silken_tofu",
+      "water"
+    ],
+    "vegan": false,
+    "excluded_allergens": [
+      "soy"
+    ],
+    "min_candidates": 1,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "vegan_coconut_yogurt",
+    "kind": "restriction",
+    "pantry": [
+      "strawberry",
+      "banana",
+      "coconut_yogurt",
+      "coconut_water"
+    ],
+    "vegan": true,
+    "excluded_allergens": [],
+    "min_candidates": 2,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "acidic_intense_set",
+    "kind": "difficult",
+    "pantry": [
+      "orange",
+      "pineapple",
+      "orange_juice",
+      "ginger",
+      "lemon_juice"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 5,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "multiple_intense_extras",
+    "kind": "difficult",
+    "pantry": [
+      "banana",
+      "water",
+      "cinnamon",
+      "ginger",
+      "cocoa"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 4,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "protein_and_spice",
+    "kind": "difficult",
+    "pantry": [
+      "mango",
+      "water",
+      "protein_powder",
+      "cinnamon"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 4,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "two_dominant_options",
+    "kind": "difficult",
+    "pantry": [
+      "banana",
+      "peanut_butter",
+      "water",
+      "cinnamon"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 3,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "citrus_ginger",
+    "kind": "difficult",
+    "pantry": [
+      "orange",
+      "orange_juice",
+      "ginger"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 2,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "green_intense",
+    "kind": "difficult",
+    "pantry": [
+      "kiwi",
+      "water",
+      "kale",
+      "ginger"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 3,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "dark_berries_mint",
+    "kind": "difficult",
+    "pantry": [
+      "raspberry",
+      "blackberry",
+      "water",
+      "mint"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 5,
+    "mode": "strict_pantry_only"
+  },
+  {
+    "id": "sweet_choices_vanilla",
+    "kind": "difficult",
+    "pantry": [
+      "banana",
+      "dates",
+      "maple_syrup",
+      "oat_milk",
+      "vanilla"
+    ],
+    "vegan": false,
+    "excluded_allergens": [],
+    "min_candidates": 5,
+    "mode": "strict_pantry_only"
+  }
+]

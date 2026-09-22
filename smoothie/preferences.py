@@ -4,6 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from enum import StrEnum
 import json
+import os
 from pathlib import Path
 from typing import Any
 
@@ -13,9 +14,9 @@ from .matcher import RecipeMatch
 from .recipes import Recipe
 from .scoring import ScoringContext
 
-DEFAULT_PREFERENCES_PATH = (
-    Path(__file__).resolve().parents[1] / "data" / "user_preferences.local.json"
-)
+_PROJECT_DATA_DIR = Path(__file__).resolve().parents[1] / "data"
+_STATE_DIR = Path(os.environ.get("SMOOTHIE_STATE_DIR", _PROJECT_DATA_DIR))
+DEFAULT_PREFERENCES_PATH = _STATE_DIR / "user_preferences.local.json"
 
 
 class FeedbackValue(StrEnum):
