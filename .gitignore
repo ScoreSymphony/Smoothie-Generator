@@ -28,3 +28,4 @@ Thumbs.db
 data/user_preferences.local.json
 data/recipe_history.local.json
 private-data/
+private-data-backup-*/
