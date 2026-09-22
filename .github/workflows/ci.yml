@@ -22,6 +22,12 @@ jobs:
         with:
           node-version: "22.13.0"
 
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
       - name: Install dependencies
         run: npm install
 
@@ -37,5 +43,11 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Run mobile release audit
+        run: npm run audit:release
+
       - name: Export Android bundle
         run: npx expo export --platform android --output-dir dist/android
+
+      - name: Build installable private Android APK
+        run: npm run build:android:private
