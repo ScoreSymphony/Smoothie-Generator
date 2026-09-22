@@ -2,6 +2,7 @@ import {
   loadBundledIngredientCatalog,
   type IngredientCatalog,
 } from "@/data/ingredientCatalog";
+import { loadBundledNutritionCatalog } from "@/data/nutritionCatalog";
 import type { Ingredient } from "@/domain/ingredients";
 import type {
   GeneratedSmoothie,
@@ -283,6 +284,33 @@ function scorePantryAvailability(
   return available / candidate.ingredientIds.length;
 }
 
+function nutritionValue(
+  ingredientId: string,
+  nutrient: string,
+): number | undefined {
+  const facts = loadBundledNutritionCatalog().require(ingredientId);
+  const aliases: Readonly<Record<string, keyof typeof facts>> = {
+    calories: "calories",
+    protein: "proteinG",
+    protein_g: "proteinG",
+    proteinG: "proteinG",
+    carbohydrates: "carbohydratesG",
+    carbohydrates_g: "carbohydratesG",
+    carbohydratesG: "carbohydratesG",
+    sugar: "sugarG",
+    sugar_g: "sugarG",
+    sugarG: "sugarG",
+    fat: "fatG",
+    fat_g: "fatG",
+    fatG: "fatG",
+    fiber: "fiberG",
+    fiber_g: "fiberG",
+    fiberG: "fiberG",
+  };
+  const key = aliases[nutrient];
+  return key ? facts[key] : undefined;
+}
+
 function scoreNutritionFit(
   ingredients: readonly Ingredient[],
   context: ScoringContext,
@@ -300,11 +328,8 @@ function scoreNutritionFit(
 
   for (const [nutrient, target] of targets) {
     const values = ingredients
-      .map((ingredient) => ingredient.nutritionPer100g[nutrient])
-      .filter(
-        (value): value is number =>
-          typeof value === "number" && Number.isFinite(value),
-      );
+      .map((ingredient) => nutritionValue(ingredient.id, nutrient))
+      .filter((value): value is number => value !== undefined);
 
     if (values.length > 0) {
       scores.push(Math.min(1, average(values) / target));
@@ -402,17 +427,11 @@ function scorePreferenceFit(
   }
 
   if (goals.has("lower_calorie")) {
-    const calories = ingredients
-      .map((ingredient) => ingredient.nutritionPer100g.calories)
-      .filter(
-        (value): value is number =>
-          typeof value === "number" && Number.isFinite(value),
-      );
-    scores.push(
-      calories.length > 0
-        ? clamp01(1 - average(calories) / 400)
-        : 0.5,
+    const calories = ingredients.map(
+      (ingredient) =>
+        loadBundledNutritionCatalog().require(ingredient.id).calories,
     );
+    scores.push(clamp01(1 - average(calories) / 400));
   }
 
   if (goals.has("breakfast")) {

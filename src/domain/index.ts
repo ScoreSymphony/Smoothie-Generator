@@ -50,3 +50,33 @@ export {
   type ScoringGoal,
   type ScoringWeights,
 } from "./candidateScoring";
+
+export {
+  MAX_RECIPE_SERVINGS,
+  MIN_RECIPE_SERVINGS,
+  QUANTITY_UNITS,
+  QUANTITY_UNIT_LABELS_DE,
+  createQuantity,
+  formatQuantityAmount,
+  normalizeQuantityUnit,
+  quantifyGeneratedSmoothie,
+  quantifyStoredRecipe,
+  quantityLabelDe,
+  type QuantifiedIngredient,
+  type QuantifiedRecipe,
+  type QuantifiedSmoothie,
+  type Quantity,
+  type QuantityUnit,
+} from "./quantities";
+
+export {
+  EMPTY_NUTRITION_FACTS,
+  NutritionValidationError,
+  addNutritionFacts,
+  calculateNutrition,
+  quantityToApproximateGrams,
+  roundNutritionFacts,
+  scaleNutritionFacts,
+  type NutritionCatalogLike,
+  type NutritionFacts,
+} from "./nutrition";
