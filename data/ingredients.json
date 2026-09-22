@@ -2613,7 +2613,9 @@
       "liquid"
     ],
     "vegan": true,
-    "allergens": [],
+    "allergens": [
+      "celery"
+    ],
     "typical_amount": {
       "min": 20,
       "max": 100,
