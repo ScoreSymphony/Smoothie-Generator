@@ -1,189 +1,147 @@
 # Smoothie Generator
 
-A private Streamlit application that will suggest and generate smoothies from
-ingredients that are already available.
+Private **mobile-only** Smoothie Generator for Android and iOS.
 
-The project starts deliberately small and local-first. Core recipe matching,
-generation, scoring, quantities, nutrition, and personalization will be built
-as deterministic Python domain logic rather than being coupled to the UI or a
-paid AI service.
+The product is a React Native app built with Expo and TypeScript. It is not a
+Streamlit application, website, Docker service, or browser-first product.
 
-## Current status
+## Product direction
 
-The application now implements the complete technical roadmap through **M9**:
+The finished app will let the intended user:
 
-- searchable pantry input with aliases and category filtering
-- curated stored recipes plus deterministic pantry matching
-- rule-based generation from available ingredients
-- transparent scoring and recommendation ranking
-- serving-scaled quantities and fully offline approximate nutrition
-- private local preferences, restrictions, favorites, and feedback
-- polished German recipe cards with preparation instructions
-- alternative recommendation pages
-- private local recipe history
-- mobile-friendly actions, empty/error/loading states, and a lightweight theme
-- pytest and GitHub Actions CI
-- 42 representative strict-pantry quality scenarios
-- reproducible Docker Compose deployment bound to localhost only
-- automated fresh-deployment health check in CI
-- documented private backup/update procedure
+1. select ingredients that are currently available;
+2. set restrictions and preferences;
+3. receive several stored or generated smoothie recommendations;
+4. view quantities, substitutions and approximate nutrition;
+5. save favorites and revisit history;
+6. use the core product offline without a mandatory backend or paid API.
 
-No external API is required for the core user flow.
+The existing curated ingredient, recipe, nutrition and quality data remains in
+the repository and is bundled locally with the app.
 
-The technical release is complete. Optional physical taste/texture experiments are documented in [docs/REAL_WORLD_VALIDATION_DE.md](docs/REAL_WORLD_VALIDATION_DE.md), but they are not required for the software release.
+## Mobile stack
+
+- React Native
+- Expo SDK 57
+- TypeScript
+- React Navigation
+- on-device persistence
+- Android and iOS from one codebase
+- offline-first domain/data architecture
+
+Expo SDK 57 targets React Native 0.86 and React 19.2.3.
 
 ## Requirements
 
-- Python 3.12 recommended
-- pip
+- Node.js 22.13 or newer
+- npm
+- Android Studio / Android Emulator for Android development, or a physical Android device
+- Xcode / iOS Simulator for local iOS development on macOS, or a physical iPhone where supported
 
-No Gemini, Unsplash, paid AI API, or other external service is required to
-start the application.
+No Python runtime, Streamlit server, Docker container, browser, paid AI API, or
+mandatory backend is required for the app.
 
-## Empfohlener privater Start mit Docker
+## Local development
 
-Für die alltägliche Nutzung ist Docker Compose der empfohlene Weg:
-
-```bash
-docker compose up -d --build
-```
-
-Danach im Browser öffnen:
-
-```text
-http://127.0.0.1:8501
-```
-
-Die mitgelieferte Konfiguration bindet den Port ausschließlich an localhost.
-Persönliche Einstellungen, Favoriten und Verlauf werden im gitignorierten
-Ordner `private-data/` gespeichert.
-
-Update, Backup und Restore sind ausführlich dokumentiert in
-[docs/PRIVATE_DEPLOYMENT_DE.md](docs/PRIVATE_DEPLOYMENT_DE.md).
-
-## Local setup
-
-Clone the repository and enter it:
+Clone the repository:
 
 ```bash
 git clone https://github.com/ScoreSymphony/Smoothie-Generator.git
 cd Smoothie-Generator
 ```
 
-Create and activate a virtual environment.
-
-### Windows PowerShell
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-```
-
-### Linux / macOS
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
 Install dependencies:
 
 ```bash
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+npm install
 ```
 
-Run the app:
+Start Expo:
 
 ```bash
-streamlit run app.py
+npm start
 ```
 
-Streamlit will print the local URL, usually `http://localhost:8501`.
+Then open the app on an Android/iOS device or emulator. The product scope does
+not include a web build.
 
-## Tests
-
-Run the test suite with:
+Convenience commands:
 
 ```bash
-python -m pytest -q
+npm run android
+npm run ios
 ```
 
-The test suite covers the domain logic, persistence, ranking, quantities,
-nutrition, personalization, recommendation alternatives, and the Streamlit
-user flow through `streamlit.testing.v1.AppTest`.
+## Quality checks
+
+```bash
+npm run lint
+npm run typecheck
+npm test
+```
+
+GitHub Actions runs linting, TypeScript checks, tests, Expo dependency
+compatibility validation, and an Android JavaScript bundle export.
 
 ## Project structure
 
 ```text
 Smoothie-Generator/
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-├── components/
-│   └── __init__.py
+├── .github/workflows/ci.yml
+├── assets/
 ├── data/
-│   └── README.md
-├── smoothie/
-│   └── __init__.py
+│   ├── ingredients.json
+│   ├── nutrition.json
+│   ├── quality_scenarios.json
+│   └── recipes.json
+├── docs/
+├── src/
+│   ├── components/
+│   ├── data/
+│   ├── domain/
+│   ├── navigation/
+│   ├── screens/
+│   ├── storage/
+│   ├── theme/
+│   └── utils/
 ├── tests/
-│   └── test_app_smoke.py
-├── utils/
-│   └── __init__.py
-├── .gitignore
-├── app.py
-├── LICENSE
-├── README.md
-├── requirements.txt
-└── THIRD_PARTY_NOTICES.md
+├── App.tsx
+├── app.json
+├── package.json
+└── tsconfig.json
 ```
 
 ## Architecture rules
 
-The codebase follows these boundaries from the start:
+- The shipped product is exclusively a phone app.
+- Domain logic is pure TypeScript and independent from UI components.
+- Curated application data is local and available offline.
+- Personal state stays on-device by default.
+- External services are optional adapters only.
+- No Python/Streamlit runtime is part of the mobile baseline.
+- No localhost or server workflow is required for normal use.
+- German is the default user-facing language.
 
-- `app.py` and `components/` contain presentation/UI concerns.
-- `smoothie/` contains domain logic and must remain independent of Streamlit.
-- `data/` contains local structured data required by the application.
-- `utils/` contains infrastructure helpers and optional external adapters.
-- External APIs must be optional and must not be required for the core app to
-  start or generate recipes.
-- Core functionality should remain testable without network access.
+## Roadmap
 
-## Planned development
+The mobile roadmap is tracked in GitHub issues #1 through #10, with #11 as the
+central mobile-only roadmap.
 
-The project roadmap is tracked in GitHub issues:
+The immediate implementation sequence is:
 
-1. M0 — Project foundation
-2. M1 — Ingredient domain model and database
-3. M2 — Pantry input UX
-4. M3 — Stored recipe matcher
-5. M4 — Rule-based generator
-6. M5 — Candidate scoring and flavor balance
-7. M6 — Quantities, servings and nutrition
-8. M7 — Preferences, restrictions and feedback
-9. M8 — Complete user experience
-10. M9 — Final validation and private deployment
-
-See issue #11 for the complete roadmap and dependency graph.
-
-## Release validation
-
-The technical release audit is documented in
-[docs/RELEASE_AUDIT_M9.md](docs/RELEASE_AUDIT_M9.md). The automated gates
-include domain tests, the 42-scenario pantry quality set, Streamlit end-to-end
-smoke coverage, and a Docker Compose deployment health check.
-
-Physical recipe validation is available as an optional manual follow-up in [docs/REAL_WORLD_VALIDATION_DE.md](docs/REAL_WORLD_VALIDATION_DE.md). It is intentionally outside the software release gate; no taste or texture result is claimed by the automated release.
+- #1 / M0 — native mobile foundation
+- #2 / M1 — TypeScript ingredient domain and mobile data catalog
+- #3 / M2 — native pantry selection UX
+- #4 / M3 — on-device stored-recipe matcher
+- #5 / M4 — on-device rule-based generator
+- #6 / M5 — scoring and recommendation ranking
+- #7 / M6 — quantities and offline nutrition
+- #8 / M7 — preferences, restrictions and feedback
+- #9 / M8 — complete native UX
+- #10 / M9 — final mobile audit and private distribution
 
 ## Third-party references
 
-Open-source projects reviewed during planning are documented in
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
-
-Code must only be reused when its license permits it, and required notices must
-be retained.
-
-## License
-
-See [LICENSE](LICENSE).
+Open-source projects reviewed during planning remain documented in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Code is reused only where
+licensing permits it and required notices are retained.
