@@ -8,6 +8,7 @@ from typing import Mapping
 from .generator import GeneratedSmoothie
 from .ingredient_catalog import IngredientCatalog
 from .ingredients import Ingredient, IngredientCategory
+from .nutrition import NutritionCatalog
 
 
 def _range_score(value: float, low: float, high: float, minimum: float = 0.0, maximum: float = 5.0) -> float:
@@ -59,6 +60,10 @@ class ScoringContext:
     pantry_ids: frozenset[str] = frozenset()
     preferred_ids: frozenset[str] = frozenset()
     nutrition_minimums: Mapping[str, float] = field(default_factory=dict)
+    desired_sweetness: int | None = None
+    desired_creaminess: int | None = None
+    goals: frozenset[str] = frozenset()
+    liked_candidate_keys: frozenset[str] = frozenset()
 
 
 @dataclass(frozen=True)
@@ -73,9 +78,15 @@ class CandidateScore:
 class CandidateScorer:
     """Score valid candidates using inspectable domain heuristics."""
 
-    def __init__(self, catalog: IngredientCatalog, weights: ScoringWeights | None = None) -> None:
+    def __init__(
+        self,
+        catalog: IngredientCatalog,
+        weights: ScoringWeights | None = None,
+        nutrition_catalog: NutritionCatalog | None = None,
+    ) -> None:
         self.catalog = catalog
         self.weights = weights or ScoringWeights()
+        self.nutrition_catalog = nutrition_catalog
 
     def score(self, candidate: GeneratedSmoothie, context: ScoringContext | None = None) -> CandidateScore:
         context = context or ScoringContext()
@@ -104,7 +115,7 @@ class CandidateScorer:
         intensity = _range_score(averages["intensity"], 1.0, 3.5)
         availability = self._availability_score(candidate, context)
         nutrition = self._nutrition_score(ingredients, context)
-        preference = self._preference_score(candidate, context)
+        preference = self._preference_score(candidate, ingredients, averages, context)
 
         components = {
             "pantry_availability": availability,
@@ -161,10 +172,75 @@ class CandidateScorer:
             return 1.0
         return sum(item_id in context.pantry_ids for item_id in candidate.ingredient_ids) / len(candidate.ingredient_ids)
 
-    def _preference_score(self, candidate: GeneratedSmoothie, context: ScoringContext) -> float:
-        if not context.preferred_ids:
-            return 0.5
-        return len(set(candidate.ingredient_ids) & context.preferred_ids) / len(context.preferred_ids)
+    def _preference_score(
+        self,
+        candidate: GeneratedSmoothie,
+        ingredients: tuple[Ingredient, ...],
+        averages: Mapping[str, float],
+        context: ScoringContext,
+    ) -> float:
+        scores: list[float] = []
+        ids = set(candidate.ingredient_ids)
+
+        if context.preferred_ids:
+            scores.append(
+                len(ids & context.preferred_ids) / len(context.preferred_ids)
+            )
+        if context.desired_sweetness is not None:
+            scores.append(1.0 - abs(averages["sweetness"] - context.desired_sweetness) / 5.0)
+        if context.desired_creaminess is not None:
+            scores.append(1.0 - abs(averages["creaminess"] - context.desired_creaminess) / 5.0)
+
+        categories = {item.category for item in ingredients}
+        roles = {role for _, role in candidate.roles}
+        if "refreshing" in context.goals:
+            water = sum(item.water_contribution for item in ingredients) / len(ingredients) / 5.0
+            lightness = 1.0 - averages["creaminess"] / 5.0
+            scores.append((water + lightness) / 2)
+        if "filling" in context.goals:
+            filling_ids = {"oats", "chia_seeds", "flax_seeds", "hemp_seeds"}
+            filling = (
+                bool(ids & filling_ids)
+                or IngredientCategory.PROTEIN in categories
+                or IngredientCategory.NUTS in categories
+                or IngredientCategory.CREAMY_BASE in categories
+            )
+            scores.append(1.0 if filling else 0.25)
+        if "protein_rich" in context.goals:
+            protein = IngredientCategory.PROTEIN in categories or "protein" in roles
+            scores.append(1.0 if protein else 0.0)
+        if "lower_calorie" in context.goals:
+            if self.nutrition_catalog is None:
+                scores.append(0.5)
+            else:
+                average_calories = sum(
+                    self.nutrition_catalog.require(item.id).calories
+                    for item in ingredients
+                ) / len(ingredients)
+                scores.append(_clamp01(1.0 - average_calories / 400.0))
+        if "breakfast" in context.goals:
+            breakfast_ids = {
+                "banana",
+                "oats",
+                "yogurt",
+                "greek_yogurt",
+                "coconut_yogurt",
+                "chia_seeds",
+                "flax_seeds",
+            }
+            scores.append(min(1.0, len(ids & breakfast_ids) / 2.0))
+        if "post_workout" in context.goals:
+            has_protein = IngredientCategory.PROTEIN in categories or "protein" in roles
+            has_fruit = bool(
+                categories & {IngredientCategory.FRUIT, IngredientCategory.BERRIES}
+            )
+            scores.append((float(has_protein) + float(has_fruit)) / 2.0)
+
+        candidate_key = "generated:" + ",".join(sorted(candidate.ingredient_ids))
+        if candidate_key in context.liked_candidate_keys:
+            scores.append(1.0)
+
+        return sum(scores) / len(scores) if scores else 0.5
 
     def _nutrition_score(self, ingredients: tuple[Ingredient, ...], context: ScoringContext) -> float:
         if not context.nutrition_minimums:
@@ -173,7 +249,18 @@ class CandidateScorer:
         for nutrient, target in context.nutrition_minimums.items():
             if target <= 0:
                 continue
-            values = [item.nutrition_per_100g[nutrient] for item in ingredients if nutrient in item.nutrition_per_100g]
+            if self.nutrition_catalog is not None:
+                values = [
+                    getattr(self.nutrition_catalog.require(item.id), nutrient, None)
+                    for item in ingredients
+                ]
+                values = [value for value in values if value is not None]
+            else:
+                values = [
+                    item.nutrition_per_100g[nutrient]
+                    for item in ingredients
+                    if nutrient in item.nutrition_per_100g
+                ]
             if values:
                 scores.append(min(1.0, (sum(values) / len(values)) / target))
         return sum(scores) / len(scores) if scores else 0.5
