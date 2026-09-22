@@ -28,7 +28,7 @@ def test_balanced_candidate_outranks_overly_acidic_intense_candidate() -> None:
         ("orange", "main_fruit"),
         ("pineapple", "main_fruit"),
         ("orange_juice", "liquid"),
-        ("ginger", "extra"),
+        ("lemon_juice", "extra"),
     )
 
     ranked = rank_generated_candidates([harsh, balanced], scorer)
