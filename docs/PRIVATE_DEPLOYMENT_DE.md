@@ -60,26 +60,28 @@ Vor einem Update die App beenden:
 docker compose down
 ```
 
-Anschließend den kompletten Ordner `private-data/` kopieren.
+Anschließend den kompletten Ordner `private-data/` **außerhalb des Repositorys** kopieren. So können sensible lokale Einstellungen und Verlauf nicht versehentlich mit Git erfasst werden.
 
 ### Windows PowerShell
 
 ```powershell
 $stamp = Get-Date -Format "yyyyMMdd-HHmmss"
-Copy-Item -Recurse private-data "private-data-backup-$stamp"
+New-Item -ItemType Directory -Force "..\\Smoothie-Generator-backups" | Out-Null
+Copy-Item -Recurse private-data "..\\Smoothie-Generator-backups\\private-data-backup-$stamp"
 ```
 
 ### Linux / macOS
 
 ```bash
-cp -a private-data "private-data-backup-$(date +%Y%m%d-%H%M%S)"
+mkdir -p ../Smoothie-Generator-backups
+cp -a private-data "../Smoothie-Generator-backups/private-data-backup-$(date +%Y%m%d-%H%M%S)"
 ```
 
 ## Restore
 
 1. App mit `docker compose down` beenden.
 2. Den aktuellen `private-data/`-Ordner sichern oder entfernen.
-3. Den gewünschten Backup-Ordner wieder als `private-data/` ablegen.
+3. Den gewünschten Backup-Ordner aus dem externen Backup-Verzeichnis wieder als `private-data/` im Repository ablegen.
 4. `docker compose up -d` ausführen.
 
 ## Update
