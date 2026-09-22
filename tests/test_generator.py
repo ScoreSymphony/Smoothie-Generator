@@ -27,3 +27,12 @@ def test_allergen_filter_excludes_matching_ingredients() -> None:
     pantry={"banana","strawberry","oat_milk","peanut_butter","water"}
     result=generator().generate(pantry,count=20,seed=3,excluded_allergens={"peanuts"})
     assert all("peanut_butter" not in x.ingredient_ids for x in result)
+
+
+def test_sparse_compatibility_tags_do_not_block_valid_two_fruit_smoothie() -> None:
+    pantry={"banana","strawberry","water"}
+    result=generator().generate(pantry,count=20,seed=1)
+    assert any(
+        set(candidate.ingredient_ids)=={"banana","strawberry","water"}
+        for candidate in result
+    )
