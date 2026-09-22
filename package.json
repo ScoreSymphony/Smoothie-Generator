@@ -12,13 +12,15 @@
     "ios": "expo start --ios",
     "lint": "expo lint",
     "typecheck": "tsc --noEmit",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "check": "npm run lint && npm run typecheck && npm run test"
   },
   "dependencies": {
     "expo": "~57.0.22",
     "expo-constants": "~57.0.19",
     "expo-linking": "~57.0.10",
     "expo-router": "~57.0.22",
+    "expo-sqlite": "~57.0.3",
     "expo-status-bar": "~57.0.1",
     "react": "19.2.3",
     "react-native": "0.86.3",
@@ -36,6 +38,9 @@
     "typescript": "^5.9.2"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    }
   }
 }
