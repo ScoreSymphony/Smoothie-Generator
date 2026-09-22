@@ -2,7 +2,6 @@
 node_modules/
 .expo/
 dist/
-web-build/
 *.tsbuildinfo
 
 # Native build output / local signing
@@ -27,17 +26,3 @@ coverage/
 .idea/
 .DS_Store
 Thumbs.db
-
-# Legacy Python migration artifacts (not part of shipped runtime)
-__pycache__/
-*.py[cod]
-.pytest_cache/
-.venv/
-venv/
-env/
-
-# Legacy/private local app state
-data/user_preferences.local.json
-data/recipe_history.local.json
-private-data/
-private-data-backup-*/
