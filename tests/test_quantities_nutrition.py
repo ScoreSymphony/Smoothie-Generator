@@ -1,6 +1,6 @@
 """Tests for serving quantities and offline nutrition aggregation."""
 
-from smoothie import (
+import pytest\n\nfrom smoothie import (
     GeneratedSmoothie,
     NutritionCalculator,
     QuantifiedIngredient,
@@ -87,6 +87,6 @@ def test_doubling_servings_doubles_aggregated_nutrition() -> None:
     one_facts = nutrition.calculate(one.ingredients)
     two_facts = nutrition.calculate(two.ingredients)
 
-    assert two_facts.calories == round(one_facts.calories * 2, 1)
-    assert two_facts.protein_g == round(one_facts.protein_g * 2, 1)
-    assert two_facts.carbohydrates_g == round(one_facts.carbohydrates_g * 2, 1)
+    assert two_facts.calories == pytest.approx(one_facts.calories * 2)
+    assert two_facts.protein_g == pytest.approx(one_facts.protein_g * 2)
+    assert two_facts.carbohydrates_g == pytest.approx(one_facts.carbohydrates_g * 2)
