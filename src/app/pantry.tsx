@@ -8,6 +8,7 @@ import {
   TextInput,
   View,
 } from "react-native";
+import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
@@ -58,6 +59,7 @@ const CATEGORY_FILTERS: readonly PantryCategoryFilter[] = [
 const ALWAYS_AVAILABLE_OPTIONS = ["water", "ice"] as const;
 
 export default function PantryScreen() {
+  const router = useRouter();
   const [pantry, setPantry] = useState<PantryState>(DEFAULT_PANTRY_STATE);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<PantryCategoryFilter>("all");
@@ -327,6 +329,30 @@ export default function PantryScreen() {
       </View>
 
       <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Weiter</Text>
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => router.push("/settings")}
+          style={({ pressed }) => [
+            styles.secondaryNavButton,
+            pressed && styles.pressed,
+          ]}
+        >
+          <Text style={styles.secondaryNavText}>Vorlieben einstellen</Text>
+        </Pressable>
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => router.push("/suggestions")}
+          style={({ pressed }) => [
+            styles.primaryButton,
+            pressed && styles.pressed,
+          ]}
+        >
+          <Text style={styles.primaryButtonText}>Empfehlungen anzeigen</Text>
+        </Pressable>
+      </View>
+
+      <View style={styles.section}>
         <Text style={styles.sectionTitle}>Schnell eingeben</Text>
         <Text style={styles.helper}>
           Mehrere Zutaten mit Komma, Semikolon oder Zeilenumbruch trennen.
@@ -579,6 +605,21 @@ const styles = StyleSheet.create({
   },
   primaryButtonText: {
     color: colors.onAccent,
+    fontSize: typography.body,
+    fontWeight: "700",
+  },
+  secondaryNavButton: {
+    alignItems: "center",
+    backgroundColor: colors.surface,
+    borderColor: colors.accent,
+    borderRadius: 14,
+    borderWidth: 1,
+    justifyContent: "center",
+    minHeight: 48,
+    paddingHorizontal: spacing.md,
+  },
+  secondaryNavText: {
+    color: colors.accent,
     fontSize: typography.body,
     fontWeight: "700",
   },
