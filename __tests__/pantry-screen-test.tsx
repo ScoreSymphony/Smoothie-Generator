@@ -26,7 +26,7 @@ describe("<PantryScreen />", () => {
     const screen = await render(<PantryScreen />);
 
     const banana = await screen.findByLabelText("Banane auswählen");
-    fireEvent.press(banana);
+    await fireEvent.press(banana);
 
     await waitFor(() =>
       expect(mockedSave).toHaveBeenCalledWith({
@@ -44,11 +44,11 @@ describe("<PantryScreen />", () => {
 
     await screen.findByText("Was hast du da?");
 
-    fireEvent.changeText(
+    await fireEvent.changeText(
       screen.getByLabelText("Zutaten als Freitext"),
       "Heidelbeere, Hafermilch, Mystery",
     );
-    fireEvent.press(screen.getByText("Freitext hinzufügen"));
+    await fireEvent.press(screen.getByText("Freitext hinzufügen"));
 
     await waitFor(() =>
       expect(mockedSave).toHaveBeenCalledWith({
@@ -65,13 +65,13 @@ describe("<PantryScreen />", () => {
     const screen = await render(<PantryScreen />);
 
     await screen.findByText("Was hast du da?");
-    fireEvent.changeText(screen.getByLabelText("Zutaten suchen"), "Heidel");
+    await fireEvent.changeText(screen.getByLabelText("Zutaten suchen"), "Heidel");
 
     await waitFor(() => screen.getByText("Blaubeere"));
     expect(screen.queryByText("Banane")).toBeNull();
 
-    fireEvent.changeText(screen.getByLabelText("Zutaten suchen"), "");
-    fireEvent.press(screen.getByText("Flüssigkeit"));
+    await fireEvent.changeText(screen.getByLabelText("Zutaten suchen"), "");
+    await fireEvent.press(screen.getByText("Flüssigkeit"));
 
     await waitFor(() => screen.getByText("Haferdrink"));
   });
