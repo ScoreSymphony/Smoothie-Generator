@@ -1,0 +1,377 @@
+{
+  "_meta": {
+    "basis": "per_100g",
+    "approximate": true,
+    "note_de": "Generische Näherungswerte pro 100 g. Naturprodukte und insbesondere verarbeitete Produkte können je nach Sorte bzw. Marke abweichen."
+  },
+  "ingredients": {
+    "banana": {
+      "calories": 89,
+      "protein_g": 1.1,
+      "carbohydrates_g": 22.8,
+      "sugar_g": 12.2,
+      "fat_g": 0.3,
+      "fiber_g": 2.6
+    },
+    "apple": {
+      "calories": 52,
+      "protein_g": 0.3,
+      "carbohydrates_g": 13.8,
+      "sugar_g": 10.4,
+      "fat_g": 0.2,
+      "fiber_g": 2.4
+    },
+    "pear": {
+      "calories": 57,
+      "protein_g": 0.4,
+      "carbohydrates_g": 15.2,
+      "sugar_g": 9.8,
+      "fat_g": 0.1,
+      "fiber_g": 3.1
+    },
+    "mango": {
+      "calories": 60,
+      "protein_g": 0.8,
+      "carbohydrates_g": 15,
+      "sugar_g": 13.7,
+      "fat_g": 0.4,
+      "fiber_g": 1.6
+    },
+    "pineapple": {
+      "calories": 50,
+      "protein_g": 0.5,
+      "carbohydrates_g": 13.1,
+      "sugar_g": 9.9,
+      "fat_g": 0.1,
+      "fiber_g": 1.4
+    },
+    "orange": {
+      "calories": 47,
+      "protein_g": 0.9,
+      "carbohydrates_g": 11.8,
+      "sugar_g": 9.4,
+      "fat_g": 0.1,
+      "fiber_g": 2.4
+    },
+    "kiwi": {
+      "calories": 61,
+      "protein_g": 1.1,
+      "carbohydrates_g": 14.7,
+      "sugar_g": 9,
+      "fat_g": 0.5,
+      "fiber_g": 3
+    },
+    "peach": {
+      "calories": 39,
+      "protein_g": 0.9,
+      "carbohydrates_g": 9.5,
+      "sugar_g": 8.4,
+      "fat_g": 0.3,
+      "fiber_g": 1.5
+    },
+    "nectarine": {
+      "calories": 44,
+      "protein_g": 1.1,
+      "carbohydrates_g": 10.6,
+      "sugar_g": 7.9,
+      "fat_g": 0.3,
+      "fiber_g": 1.7
+    },
+    "watermelon": {
+      "calories": 30,
+      "protein_g": 0.6,
+      "carbohydrates_g": 7.6,
+      "sugar_g": 6.2,
+      "fat_g": 0.2,
+      "fiber_g": 0.4
+    },
+    "strawberry": {
+      "calories": 32,
+      "protein_g": 0.7,
+      "carbohydrates_g": 7.7,
+      "sugar_g": 4.9,
+      "fat_g": 0.3,
+      "fiber_g": 2
+    },
+    "blueberry": {
+      "calories": 57,
+      "protein_g": 0.7,
+      "carbohydrates_g": 14.5,
+      "sugar_g": 10,
+      "fat_g": 0.3,
+      "fiber_g": 2.4
+    },
+    "raspberry": {
+      "calories": 52,
+      "protein_g": 1.2,
+      "carbohydrates_g": 11.9,
+      "sugar_g": 4.4,
+      "fat_g": 0.7,
+      "fiber_g": 6.5
+    },
+    "blackberry": {
+      "calories": 43,
+      "protein_g": 1.4,
+      "carbohydrates_g": 9.6,
+      "sugar_g": 4.9,
+      "fat_g": 0.5,
+      "fiber_g": 5.3
+    },
+    "cherry": {
+      "calories": 63,
+      "protein_g": 1.1,
+      "carbohydrates_g": 16,
+      "sugar_g": 12.8,
+      "fat_g": 0.2,
+      "fiber_g": 2.1
+    },
+    "water": {
+      "calories": 0,
+      "protein_g": 0,
+      "carbohydrates_g": 0,
+      "sugar_g": 0,
+      "fat_g": 0,
+      "fiber_g": 0
+    },
+    "oat_milk": {
+      "calories": 45,
+      "protein_g": 1,
+      "carbohydrates_g": 6.7,
+      "sugar_g": 4,
+      "fat_g": 1.5,
+      "fiber_g": 0.8
+    },
+    "almond_milk": {
+      "calories": 15,
+      "protein_g": 0.5,
+      "carbohydrates_g": 0.3,
+      "sugar_g": 0.2,
+      "fat_g": 1.2,
+      "fiber_g": 0.2
+    },
+    "coconut_water": {
+      "calories": 19,
+      "protein_g": 0.7,
+      "carbohydrates_g": 3.7,
+      "sugar_g": 2.6,
+      "fat_g": 0.2,
+      "fiber_g": 1.1
+    },
+    "orange_juice": {
+      "calories": 45,
+      "protein_g": 0.7,
+      "carbohydrates_g": 10.4,
+      "sugar_g": 8.4,
+      "fat_g": 0.2,
+      "fiber_g": 0.2
+    },
+    "yogurt": {
+      "calories": 61,
+      "protein_g": 3.5,
+      "carbohydrates_g": 4.7,
+      "sugar_g": 4.7,
+      "fat_g": 3.3,
+      "fiber_g": 0
+    },
+    "greek_yogurt": {
+      "calories": 97,
+      "protein_g": 9,
+      "carbohydrates_g": 3.9,
+      "sugar_g": 3.6,
+      "fat_g": 5,
+      "fiber_g": 0
+    },
+    "coconut_yogurt": {
+      "calories": 80,
+      "protein_g": 1,
+      "carbohydrates_g": 6,
+      "sugar_g": 4,
+      "fat_g": 6,
+      "fiber_g": 1
+    },
+    "avocado": {
+      "calories": 160,
+      "protein_g": 2,
+      "carbohydrates_g": 8.5,
+      "sugar_g": 0.7,
+      "fat_g": 14.7,
+      "fiber_g": 6.7
+    },
+    "spinach": {
+      "calories": 23,
+      "protein_g": 2.9,
+      "carbohydrates_g": 3.6,
+      "sugar_g": 0.4,
+      "fat_g": 0.4,
+      "fiber_g": 2.2
+    },
+    "kale": {
+      "calories": 49,
+      "protein_g": 4.3,
+      "carbohydrates_g": 8.8,
+      "sugar_g": 2.3,
+      "fat_g": 0.9,
+      "fiber_g": 3.6
+    },
+    "cucumber": {
+      "calories": 15,
+      "protein_g": 0.7,
+      "carbohydrates_g": 3.6,
+      "sugar_g": 1.7,
+      "fat_g": 0.1,
+      "fiber_g": 0.5
+    },
+    "protein_powder": {
+      "calories": 380,
+      "protein_g": 75,
+      "carbohydrates_g": 8,
+      "sugar_g": 4,
+      "fat_g": 5,
+      "fiber_g": 2
+    },
+    "silken_tofu": {
+      "calories": 55,
+      "protein_g": 4.8,
+      "carbohydrates_g": 2.9,
+      "sugar_g": 0.6,
+      "fat_g": 2.7,
+      "fiber_g": 0.3
+    },
+    "peanut_butter": {
+      "calories": 588,
+      "protein_g": 25,
+      "carbohydrates_g": 20,
+      "sugar_g": 9.2,
+      "fat_g": 50,
+      "fiber_g": 6
+    },
+    "honey": {
+      "calories": 304,
+      "protein_g": 0.3,
+      "carbohydrates_g": 82.4,
+      "sugar_g": 82.1,
+      "fat_g": 0,
+      "fiber_g": 0
+    },
+    "maple_syrup": {
+      "calories": 260,
+      "protein_g": 0,
+      "carbohydrates_g": 67,
+      "sugar_g": 60,
+      "fat_g": 0,
+      "fiber_g": 0
+    },
+    "dates": {
+      "calories": 282,
+      "protein_g": 2.5,
+      "carbohydrates_g": 75,
+      "sugar_g": 63,
+      "fat_g": 0.4,
+      "fiber_g": 8
+    },
+    "almonds": {
+      "calories": 579,
+      "protein_g": 21.2,
+      "carbohydrates_g": 21.6,
+      "sugar_g": 4.4,
+      "fat_g": 49.9,
+      "fiber_g": 12.5
+    },
+    "cashews": {
+      "calories": 553,
+      "protein_g": 18.2,
+      "carbohydrates_g": 30.2,
+      "sugar_g": 5.9,
+      "fat_g": 43.8,
+      "fiber_g": 3.3
+    },
+    "chia_seeds": {
+      "calories": 486,
+      "protein_g": 16.5,
+      "carbohydrates_g": 42.1,
+      "sugar_g": 0,
+      "fat_g": 30.7,
+      "fiber_g": 34.4
+    },
+    "flax_seeds": {
+      "calories": 534,
+      "protein_g": 18.3,
+      "carbohydrates_g": 28.9,
+      "sugar_g": 1.6,
+      "fat_g": 42.2,
+      "fiber_g": 27.3
+    },
+    "hemp_seeds": {
+      "calories": 553,
+      "protein_g": 31.6,
+      "carbohydrates_g": 8.7,
+      "sugar_g": 1.5,
+      "fat_g": 48.8,
+      "fiber_g": 4
+    },
+    "cinnamon": {
+      "calories": 247,
+      "protein_g": 4,
+      "carbohydrates_g": 80.6,
+      "sugar_g": 2.2,
+      "fat_g": 1.2,
+      "fiber_g": 53.1
+    },
+    "ginger": {
+      "calories": 80,
+      "protein_g": 1.8,
+      "carbohydrates_g": 17.8,
+      "sugar_g": 1.7,
+      "fat_g": 0.8,
+      "fiber_g": 2
+    },
+    "vanilla": {
+      "calories": 288,
+      "protein_g": 0.1,
+      "carbohydrates_g": 12.7,
+      "sugar_g": 12.7,
+      "fat_g": 0.1,
+      "fiber_g": 0
+    },
+    "cocoa": {
+      "calories": 228,
+      "protein_g": 19.6,
+      "carbohydrates_g": 57.9,
+      "sugar_g": 1.8,
+      "fat_g": 13.7,
+      "fiber_g": 37
+    },
+    "oats": {
+      "calories": 389,
+      "protein_g": 16.9,
+      "carbohydrates_g": 66.3,
+      "sugar_g": 0.9,
+      "fat_g": 6.9,
+      "fiber_g": 10.6
+    },
+    "lemon_juice": {
+      "calories": 22,
+      "protein_g": 0.4,
+      "carbohydrates_g": 6.9,
+      "sugar_g": 2.5,
+      "fat_g": 0.2,
+      "fiber_g": 0.3
+    },
+    "mint": {
+      "calories": 44,
+      "protein_g": 3.3,
+      "carbohydrates_g": 8.4,
+      "sugar_g": 0,
+      "fat_g": 0.7,
+      "fiber_g": 6.8
+    },
+    "ice": {
+      "calories": 0,
+      "protein_g": 0,
+      "carbohydrates_g": 0,
+      "sugar_g": 0,
+      "fat_g": 0,
+      "fiber_g": 0
+    }
+  }
+}
