@@ -27,12 +27,11 @@ export default function RecipeScreen() {
   const [pantry, setPantry] = useState<PantryState | null>(null);
   const [preferences, setPreferences] = useState<UserPreferences | null>(null);
   const [recommendation, setRecommendation] = useState<RecommendationView | null>(null);
-  const [notFound, setNotFound] = useState(false);
+  const [resolutionFailed, setResolutionFailed] = useState(false);
 
   useEffect(() => {
     let active = true;
     if (!rawKey) {
-      setNotFound(true);
       return;
     }
     void Promise.all([loadPantryState(), loadUserPreferences()]).then(([p, prefs]) => {
@@ -41,7 +40,7 @@ export default function RecipeScreen() {
       setPreferences(prefs);
       const resolved = resolveRecommendationKey(rawKey, p, prefs);
       if (!resolved) {
-        setNotFound(true);
+        setResolutionFailed(true);
         return;
       }
       setRecommendation(resolved);
@@ -50,7 +49,7 @@ export default function RecipeScreen() {
     return () => { active = false; };
   }, [rawKey]);
 
-  if (notFound) {
+  if (!rawKey || resolutionFailed) {
     return <SafeAreaView edges={["bottom"]} style={styles.safeArea}><View style={styles.center}><Text style={styles.title}>Rezept nicht gefunden</Text><Text style={styles.muted}>Dieses Rezept ist nicht mehr verfügbar.</Text></View></SafeAreaView>;
   }
 
