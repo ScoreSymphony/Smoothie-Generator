@@ -1,5 +1,6 @@
 """Core Smoothie Generator domain package."""
-from .generator import GeneratedSmoothie, SmoothieGenerator\nfrom .ingredient_catalog import IngredientCatalog, load_ingredient_catalog
+from .generator import GeneratedSmoothie, SmoothieGenerator
+from .ingredient_catalog import IngredientCatalog, load_ingredient_catalog
 from .ingredients import AmountRange, Ingredient, IngredientCategory
 from .matcher import RecipeMatch, match_recipe, rank_recipes
 from .pantry import PantryState, parse_free_text
