@@ -36,3 +36,40 @@ def test_sparse_compatibility_tags_do_not_block_valid_two_fruit_smoothie() -> No
         set(candidate.ingredient_ids)=={"banana","strawberry","water"}
         for candidate in result
     )
+
+
+
+def test_nuts_can_be_used_as_generated_extras() -> None:
+    result = generator().generate(
+        {"banana", "water", "walnuts"},
+        count=10,
+        seed=4,
+    )
+
+    assert any("walnuts" in candidate.ingredient_ids for candidate in result)
+
+
+def test_expanded_full_pantry_generation_is_bounded(monkeypatch) -> None:
+    catalog = load_ingredient_catalog()
+    smoothie_generator = SmoothieGenerator(catalog)
+    pantry = {item.id for item in catalog.all()}
+    evaluations = 0
+    original = smoothie_generator._candidate_from_choices
+
+    def counted(choices):
+        nonlocal evaluations
+        evaluations += 1
+        return original(choices)
+
+    monkeypatch.setattr(
+        smoothie_generator,
+        "_candidate_from_choices",
+        counted,
+    )
+
+    result = smoothie_generator.generate(pantry, count=20, seed=17)
+
+    assert len(result) == 20
+    assert len({item.ingredient_ids for item in result}) == 20
+    assert all(set(item.ingredient_ids) <= pantry for item in result)
+    assert evaluations <= 2_000

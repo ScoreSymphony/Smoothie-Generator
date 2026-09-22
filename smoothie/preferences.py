@@ -257,13 +257,14 @@ def rank_stored_matches_with_preferences(
                 len(required & preferences.favorite_ingredients) / len(required)
             ) * 0.05
         goal_tags = {
-            "breakfast": "frühstück",
-            "protein_rich": "protein",
-            "refreshing": "frisch",
-            "filling": "sättigend",
+            "breakfast": {"frühstück"},
+            "protein_rich": {"protein"},
+            "refreshing": {"frisch", "erfrischend"},
+            "filling": {"sättigend"},
         }
-        for goal, tag in goal_tags.items():
-            if getattr(preferences, goal) and tag in match.recipe.tags:
+        recipe_tags = set(match.recipe.tags)
+        for goal, tags in goal_tags.items():
+            if getattr(preferences, goal) and recipe_tags.intersection(tags):
                 value += 0.03
         return min(value, 0.20)
 
