@@ -28,6 +28,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Verify private state stays ignored
+        run: |
+          mkdir -p private-data private-data-backup-ci
+          touch private-data/preferences.json private-data-backup-ci/history.json
+          git check-ignore private-data/preferences.json
+          git check-ignore private-data-backup-ci/history.json
+
       - name: Run tests
         run: python -m pytest -q
 
