@@ -2,7 +2,14 @@
 
 import streamlit as st
 
-from smoothie import IngredientCategory, SmoothieGenerator, load_ingredient_catalog, load_recipe_catalog, parse_free_text, rank_recipes
+from smoothie import (
+    IngredientCategory,
+    SmoothieGenerator,
+    load_ingredient_catalog,
+    load_recipe_catalog,
+    parse_free_text,
+    rank_recipes,
+)
 
 CATEGORY_LABELS = {
     IngredientCategory.FRUIT: "Obst",
@@ -40,13 +47,16 @@ def main() -> None:
     query = st.text_input("Zutaten suchen", placeholder="z. B. Banane, Haferdrink oder Spinat")
     normalized_query = catalog.normalize(query)
     visible = [
-        item for item in ingredients
+        item
+        for item in ingredients
         if not normalized_query
         or normalized_query in catalog.normalize(item.name_de)
         or any(normalized_query in catalog.normalize(alias) for alias in item.aliases)
     ]
 
-    category_options = [category for category in IngredientCategory if any(i.category == category for i in visible)]
+    category_options = [
+        category for category in IngredientCategory if any(i.category == category for i in visible)
+    ]
     selected_category = st.selectbox(
         "Kategorie",
         options=[None, *category_options],
@@ -56,15 +66,14 @@ def main() -> None:
         visible = [item for item in visible if item.category == selected_category]
 
     labels = {item.id: item.name_de for item in ingredients}
+    visible_ids = {item.id for item in visible}
     chosen = st.multiselect(
         "Vorhandene Zutaten",
         options=[item.id for item in visible],
-        default=[item_id for item_id in st.session_state.pantry_ids if item_id in {i.id for i in visible}],
+        default=[item_id for item_id in st.session_state.pantry_ids if item_id in visible_ids],
         format_func=lambda item_id: labels[item_id],
         placeholder="Zutaten auswählen",
     )
-    # Keep selections made in other filtered views and update only currently visible options.
-    visible_ids = {item.id for item in visible}
     retained = [item_id for item_id in st.session_state.pantry_ids if item_id not in visible_ids]
     st.session_state.pantry_ids = list(dict.fromkeys([*retained, *chosen]))
 
@@ -72,7 +81,9 @@ def main() -> None:
         free_text = st.text_area("Freie Eingabe", placeholder="z. B. Banane, Haferdrink, Mango")
         if st.button("Eingabe hinzufügen", use_container_width=True):
             resolved, unknown = parse_free_text(free_text, catalog)
-            st.session_state.pantry_ids = list(dict.fromkeys([*st.session_state.pantry_ids, *resolved]))
+            st.session_state.pantry_ids = list(
+                dict.fromkeys([*st.session_state.pantry_ids, *resolved])
+            )
             if resolved:
                 st.success(f"{len(resolved)} Zutat(en) hinzugefügt.")
             if unknown:
@@ -105,7 +116,45 @@ def main() -> None:
         st.rerun()
 
     st.divider()
-    st.caption("Als Nächstes werden daraus passende gespeicherte Smoothie-Rezepte ermittelt.")
+    st.subheader("Neu aus deinen Zutaten generiert")
+    generated = SmoothieGenerator(catalog).generate(selected_ids, count=3, seed=0)
+    if generated:
+        for index, candidate in enumerate(generated, 1):
+            with st.container(border=True):
+                st.markdown(f"**Vorschlag {index}**")
+                st.write(", ".join(by_id[item_id].name_de for item_id in candidate.ingredient_ids))
+                role_text = ", ".join(
+                    f"{by_id[item_id].name_de}: {role.replace('_', ' ')}"
+                    for item_id, role in candidate.roles
+                )
+                st.caption(role_text)
+    else:
+        st.caption(
+            "Für eine Generierung brauchst du mindestens Obst oder Beeren und eine passende Flüssigkeit."
+        )
+
+    st.subheader("Passende gespeicherte Rezepte")
+    matches = rank_recipes(
+        load_recipe_catalog(ingredient_catalog=catalog), set(selected_ids)
+    )
+    for match in matches[:5]:
+        percent = round(match.score * 100)
+        with st.container(border=True):
+            st.markdown(f"**{match.recipe.name_de} · {percent}% verfügbar**")
+            required = ", ".join(
+                f"{by_id[item.ingredient_id].name_de} ({item.amount:g} {item.unit})"
+                for item in match.recipe.required
+            )
+            st.write("Benötigt: " + required)
+            if match.missing_required:
+                missing = ", ".join(by_id[item_id].name_de for item_id in match.missing_required)
+                st.caption("Fehlt: " + missing)
+            if match.substitutions_used:
+                substitutions = ", ".join(
+                    f"{by_id[target].name_de} → {by_id[replacement].name_de}"
+                    for target, replacement in match.substitutions_used
+                )
+                st.caption("Mögliche Ersetzung: " + substitutions)
 
 
 if __name__ == "__main__":
