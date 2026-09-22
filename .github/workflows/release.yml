@@ -6,6 +6,10 @@ on:
       - main
     paths:
       - package.json
+      - app.json
+      - assets/branding/smoothie-generator-icon.png
+      - docs/RELEASE_V*.md
+      - .github/workflows/release.yml
 
 permissions:
   contents: write
