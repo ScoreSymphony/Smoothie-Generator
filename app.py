@@ -5,9 +5,12 @@ import streamlit as st
 from smoothie import (
     CandidateScorer,
     IngredientCategory,
+    NutritionCalculator,
+    QuantityCalculator,
     ScoringContext,
     SmoothieGenerator,
     load_ingredient_catalog,
+    load_nutrition_catalog,
     load_recipe_catalog,
     parse_free_text,
     rank_generated_candidates,
@@ -43,6 +46,11 @@ def main() -> None:
     catalog = load_ingredient_catalog()
     ingredients = catalog.all()
     by_id = {item.id: item for item in ingredients}
+    quantity_calculator = QuantityCalculator(catalog)
+    nutrition_calculator = NutritionCalculator(
+        catalog,
+        load_nutrition_catalog(ingredient_catalog=catalog),
+    )
 
     st.title("Smoothie Generator")
     st.write("Was hast du gerade zu Hause? Wähle deine Zutaten aus.")
@@ -132,12 +140,27 @@ def main() -> None:
             candidate = scored.candidate
             with st.container(border=True):
                 st.markdown(f"**Vorschlag {index} · {scored.total:.0f}/100**")
-                st.write(", ".join(by_id[item_id].name_de for item_id in candidate.ingredient_ids))
+                quantified = quantity_calculator.for_generated(
+                    candidate,
+                    servings=st.session_state.servings,
+                )
+                quantities = ", ".join(
+                    f"{by_id[item.ingredient_id].name_de} "
+                    f"({item.quantity.amount:g} {item.quantity.label_de})"
+                    for item in quantified.ingredients
+                )
+                st.write(quantities)
                 role_text = ", ".join(
                     f"{by_id[item_id].name_de}: {role.replace('_', ' ')}"
                     for item_id, role in candidate.roles
                 )
                 st.caption(role_text)
+                facts = nutrition_calculator.calculate(quantified.ingredients)
+                st.caption(
+                    f"ca. {facts.calories:g} kcal · {facts.protein_g:g} g Protein · "
+                    f"{facts.carbohydrates_g:g} g Kohlenhydrate · {facts.sugar_g:g} g Zucker · "
+                    f"{facts.fat_g:g} g Fett · {facts.fiber_g:g} g Ballaststoffe"
+                )
                 st.caption(" · ".join(scored.explanations))
     else:
         st.caption(
@@ -152,11 +175,22 @@ def main() -> None:
         percent = round(match.score * 100)
         with st.container(border=True):
             st.markdown(f"**{match.recipe.name_de} · {percent}% verfügbar**")
+            quantified_recipe = quantity_calculator.for_stored(
+                match.recipe,
+                servings=st.session_state.servings,
+            )
             required = ", ".join(
-                f"{by_id[item.ingredient_id].name_de} ({item.amount:g} {item.unit})"
-                for item in match.recipe.required
+                f"{by_id[item.ingredient_id].name_de} "
+                f"({item.quantity.amount:g} {item.quantity.label_de})"
+                for item in quantified_recipe.required
             )
             st.write("Benötigt: " + required)
+            facts = nutrition_calculator.calculate(quantified_recipe.required)
+            st.caption(
+                f"ca. {facts.calories:g} kcal · {facts.protein_g:g} g Protein · "
+                f"{facts.carbohydrates_g:g} g Kohlenhydrate · {facts.sugar_g:g} g Zucker · "
+                f"{facts.fat_g:g} g Fett · {facts.fiber_g:g} g Ballaststoffe"
+            )
             if match.missing_required:
                 missing = ", ".join(by_id[item_id].name_de for item_id in match.missing_required)
                 st.caption("Fehlt: " + missing)
