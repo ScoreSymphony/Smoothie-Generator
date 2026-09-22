@@ -33,3 +33,20 @@ def test_normal_mode_does_not_render_internal_scoring_debug_text() -> None:
 
     assert "Kompatibilität 0." not in visible_text
     assert "Flüssigkeitsbalance 0." not in visible_text
+
+
+
+def test_end_to_end_pantry_to_recommendations_smoke() -> None:
+    app_path = Path(__file__).resolve().parents[1] / "app.py"
+    app = AppTest.from_file(str(app_path))
+    app.session_state["pantry_ids"] = ["banana", "strawberry", "oat_milk"]
+    app.session_state["servings"] = 2
+    app = app.run(timeout=10)
+
+    assert not app.exception
+    markdown = [
+        item.value for item in app.markdown if isinstance(item.value, str)
+    ]
+    assert any("Für dich generiert" in value for value in markdown)
+    assert any("Passende gespeicherte Rezepte" in value for value in markdown)
+    assert app.success
