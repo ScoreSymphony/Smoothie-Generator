@@ -3576,5 +3576,101 @@
       "filling"
     ],
     "nutrition_per_100g": {}
+  },
+  {
+    "id": "garlic",
+    "name_de": "Knoblauch",
+    "aliases": [
+      "Knoblauchzehe",
+      "garlic"
+    ],
+    "category": "spices",
+    "subcategory": "spice",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 0,
+    "intensity": 5,
+    "water_contribution": 3,
+    "roles": [
+      "extra"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 2,
+      "max": 8,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "spicy",
+      "green"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "pumpkin",
+    "name_de": "Kürbis",
+    "aliases": [
+      "Hokkaido",
+      "Butternut-Kürbis",
+      "pumpkin"
+    ],
+    "category": "greens",
+    "subcategory": "vegetable",
+    "sweetness": 2,
+    "acidity": 0,
+    "bitterness": 0,
+    "creaminess": 3,
+    "intensity": 2,
+    "water_contribution": 4,
+    "roles": [
+      "greens",
+      "creamy"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 50,
+      "max": 150,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "earthy",
+      "mild"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "nettle",
+    "name_de": "Brennnessel",
+    "aliases": [
+      "Brennessel",
+      "nettle"
+    ],
+    "category": "greens",
+    "subcategory": "herb",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 3,
+    "creaminess": 0,
+    "intensity": 4,
+    "water_contribution": 3,
+    "roles": [
+      "greens",
+      "extra"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 5,
+      "max": 30,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "green",
+      "herbal"
+    ],
+    "nutrition_per_100g": {}
   }
 ]
