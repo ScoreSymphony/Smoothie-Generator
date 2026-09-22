@@ -434,7 +434,7 @@
       "water"
     ],
     "category": "liquid",
-    "subcategory": null,
+    "subcategory": "water",
     "sweetness": 0,
     "acidity": 0,
     "bitterness": 0,
@@ -462,7 +462,7 @@
       "oat milk"
     ],
     "category": "liquid",
-    "subcategory": null,
+    "subcategory": "plant_based",
     "sweetness": 2,
     "acidity": 0,
     "bitterness": 0,
@@ -495,7 +495,7 @@
       "almond milk"
     ],
     "category": "liquid",
-    "subcategory": null,
+    "subcategory": "plant_based",
     "sweetness": 1,
     "acidity": 0,
     "bitterness": 0,
@@ -526,7 +526,7 @@
       "coconut water"
     ],
     "category": "liquid",
-    "subcategory": null,
+    "subcategory": "water",
     "sweetness": 2,
     "acidity": 1,
     "bitterness": 0,
@@ -555,7 +555,7 @@
       "orange juice"
     ],
     "category": "liquid",
-    "subcategory": null,
+    "subcategory": "juice",
     "sweetness": 3,
     "acidity": 4,
     "bitterness": 1,
@@ -585,7 +585,7 @@
       "yogurt"
     ],
     "category": "creamy_base",
-    "subcategory": null,
+    "subcategory": "dairy",
     "sweetness": 1,
     "acidity": 2,
     "bitterness": 0,
@@ -617,7 +617,7 @@
       "Greek yogurt"
     ],
     "category": "creamy_base",
-    "subcategory": null,
+    "subcategory": "dairy",
     "sweetness": 1,
     "acidity": 2,
     "bitterness": 0,
@@ -649,7 +649,7 @@
       "coconut yogurt"
     ],
     "category": "creamy_base",
-    "subcategory": null,
+    "subcategory": "plant_based",
     "sweetness": 2,
     "acidity": 1,
     "bitterness": 0,
@@ -707,7 +707,7 @@
       "spinach"
     ],
     "category": "greens",
-    "subcategory": null,
+    "subcategory": "leafy_green",
     "sweetness": 0,
     "acidity": 0,
     "bitterness": 2,
@@ -736,7 +736,7 @@
       "kale"
     ],
     "category": "greens",
-    "subcategory": null,
+    "subcategory": "leafy_green",
     "sweetness": 0,
     "acidity": 0,
     "bitterness": 4,
@@ -765,7 +765,7 @@
       "cucumber"
     ],
     "category": "greens",
-    "subcategory": null,
+    "subcategory": "vegetable",
     "sweetness": 0,
     "acidity": 1,
     "bitterness": 1,
@@ -1253,7 +1253,7 @@
       "oats"
     ],
     "category": "boosters",
-    "subcategory": null,
+    "subcategory": "grain",
     "sweetness": 1,
     "acidity": 0,
     "bitterness": 0,
@@ -1345,7 +1345,7 @@
       "ice"
     ],
     "category": "ice",
-    "subcategory": null,
+    "subcategory": "water",
     "sweetness": 0,
     "acidity": 0,
     "bitterness": 0,
@@ -1365,6 +1365,2213 @@
     },
     "compatibility_tags": [
       "cold"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "apricot",
+    "name_de": "Aprikose",
+    "aliases": [
+      "Marille",
+      "apricot"
+    ],
+    "category": "fruit",
+    "subcategory": "stone_fruit",
+    "sweetness": 4,
+    "acidity": 2,
+    "bitterness": 0,
+    "creaminess": 2,
+    "intensity": 3,
+    "water_contribution": 4,
+    "roles": [
+      "fruit"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 50,
+      "max": 150,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "plum",
+    "name_de": "Pflaume",
+    "aliases": [
+      "Zwetschge",
+      "plum"
+    ],
+    "category": "fruit",
+    "subcategory": "stone_fruit",
+    "sweetness": 4,
+    "acidity": 3,
+    "bitterness": 0,
+    "creaminess": 2,
+    "intensity": 3,
+    "water_contribution": 4,
+    "roles": [
+      "fruit"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 60,
+      "max": 170,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "grapes",
+    "name_de": "Weintrauben",
+    "aliases": [
+      "Trauben",
+      "Weintraube",
+      "grapes"
+    ],
+    "category": "fruit",
+    "subcategory": "grape",
+    "sweetness": 5,
+    "acidity": 2,
+    "bitterness": 0,
+    "creaminess": 1,
+    "intensity": 3,
+    "water_contribution": 4,
+    "roles": [
+      "fruit"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 60,
+      "max": 160,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "grapefruit",
+    "name_de": "Grapefruit",
+    "aliases": [
+      "Pampelmuse",
+      "grapefruit"
+    ],
+    "category": "fruit",
+    "subcategory": "citrus",
+    "sweetness": 2,
+    "acidity": 5,
+    "bitterness": 3,
+    "creaminess": 0,
+    "intensity": 5,
+    "water_contribution": 5,
+    "roles": [
+      "fruit"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 70,
+      "max": 180,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "citrus",
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "lemon",
+    "name_de": "Zitrone",
+    "aliases": [
+      "Zitronenfrucht",
+      "lemon"
+    ],
+    "category": "fruit",
+    "subcategory": "citrus",
+    "sweetness": 1,
+    "acidity": 5,
+    "bitterness": 2,
+    "creaminess": 0,
+    "intensity": 5,
+    "water_contribution": 4,
+    "roles": [
+      "fruit"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 10,
+      "max": 60,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "citrus"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "lime",
+    "name_de": "Limette",
+    "aliases": [
+      "lime"
+    ],
+    "category": "fruit",
+    "subcategory": "citrus",
+    "sweetness": 1,
+    "acidity": 5,
+    "bitterness": 2,
+    "creaminess": 0,
+    "intensity": 5,
+    "water_contribution": 4,
+    "roles": [
+      "fruit"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 10,
+      "max": 60,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "citrus"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "passion_fruit",
+    "name_de": "Passionsfrucht",
+    "aliases": [
+      "Maracuja",
+      "Passionsfrüchte",
+      "passion fruit"
+    ],
+    "category": "fruit",
+    "subcategory": "tropical",
+    "sweetness": 4,
+    "acidity": 5,
+    "bitterness": 1,
+    "creaminess": 1,
+    "intensity": 5,
+    "water_contribution": 3,
+    "roles": [
+      "fruit"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 20,
+      "max": 80,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "tropical",
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "papaya",
+    "name_de": "Papaya",
+    "aliases": [
+      "papaya"
+    ],
+    "category": "fruit",
+    "subcategory": "tropical",
+    "sweetness": 4,
+    "acidity": 2,
+    "bitterness": 0,
+    "creaminess": 3,
+    "intensity": 3,
+    "water_contribution": 4,
+    "roles": [
+      "fruit",
+      "creamy"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 70,
+      "max": 180,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "tropical"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "guava",
+    "name_de": "Guave",
+    "aliases": [
+      "guava"
+    ],
+    "category": "fruit",
+    "subcategory": "tropical",
+    "sweetness": 4,
+    "acidity": 3,
+    "bitterness": 0,
+    "creaminess": 2,
+    "intensity": 4,
+    "water_contribution": 3,
+    "roles": [
+      "fruit"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 50,
+      "max": 140,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "tropical"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "pomegranate",
+    "name_de": "Granatapfel",
+    "aliases": [
+      "Granatapfelkerne",
+      "pomegranate"
+    ],
+    "category": "fruit",
+    "subcategory": "seeded_fruit",
+    "sweetness": 4,
+    "acidity": 4,
+    "bitterness": 1,
+    "creaminess": 0,
+    "intensity": 4,
+    "water_contribution": 3,
+    "roles": [
+      "fruit"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 40,
+      "max": 130,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "fig",
+    "name_de": "Feige",
+    "aliases": [
+      "Feigen",
+      "fig"
+    ],
+    "category": "fruit",
+    "subcategory": "mediterranean",
+    "sweetness": 5,
+    "acidity": 1,
+    "bitterness": 0,
+    "creaminess": 4,
+    "intensity": 4,
+    "water_contribution": 2,
+    "roles": [
+      "fruit",
+      "creamy"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 40,
+      "max": 120,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "sweet"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "persimmon",
+    "name_de": "Kaki",
+    "aliases": [
+      "Persimone",
+      "Sharonfrucht",
+      "persimmon"
+    ],
+    "category": "fruit",
+    "subcategory": "sweet_fruit",
+    "sweetness": 5,
+    "acidity": 1,
+    "bitterness": 0,
+    "creaminess": 4,
+    "intensity": 3,
+    "water_contribution": 2,
+    "roles": [
+      "fruit",
+      "creamy"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 70,
+      "max": 180,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "sweet"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "cantaloupe",
+    "name_de": "Cantaloupe-Melone",
+    "aliases": [
+      "Cantaloupe",
+      "Zuckermelone",
+      "cantaloupe"
+    ],
+    "category": "fruit",
+    "subcategory": "melon",
+    "sweetness": 4,
+    "acidity": 1,
+    "bitterness": 0,
+    "creaminess": 1,
+    "intensity": 2,
+    "water_contribution": 5,
+    "roles": [
+      "fruit",
+      "liquid"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 100,
+      "max": 250,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "honeydew",
+    "name_de": "Honigmelone",
+    "aliases": [
+      "Honig-Melone",
+      "honeydew"
+    ],
+    "category": "fruit",
+    "subcategory": "melon",
+    "sweetness": 4,
+    "acidity": 1,
+    "bitterness": 0,
+    "creaminess": 1,
+    "intensity": 2,
+    "water_contribution": 5,
+    "roles": [
+      "fruit",
+      "liquid"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 100,
+      "max": 250,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "dragon_fruit",
+    "name_de": "Drachenfrucht",
+    "aliases": [
+      "Pitahaya",
+      "Pitaya",
+      "dragon fruit"
+    ],
+    "category": "fruit",
+    "subcategory": "tropical",
+    "sweetness": 3,
+    "acidity": 1,
+    "bitterness": 0,
+    "creaminess": 2,
+    "intensity": 2,
+    "water_contribution": 4,
+    "roles": [
+      "fruit"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 70,
+      "max": 180,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "tropical"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "red_currant",
+    "name_de": "Rote Johannisbeere",
+    "aliases": [
+      "Rote Johannisbeeren",
+      "red currant"
+    ],
+    "category": "berries",
+    "subcategory": "currant",
+    "sweetness": 2,
+    "acidity": 5,
+    "bitterness": 1,
+    "creaminess": 0,
+    "intensity": 4,
+    "water_contribution": 4,
+    "roles": [
+      "berry"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 30,
+      "max": 120,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "berry",
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "black_currant",
+    "name_de": "Schwarze Johannisbeere",
+    "aliases": [
+      "Schwarze Johannisbeeren",
+      "black currant"
+    ],
+    "category": "berries",
+    "subcategory": "currant",
+    "sweetness": 2,
+    "acidity": 5,
+    "bitterness": 2,
+    "creaminess": 0,
+    "intensity": 5,
+    "water_contribution": 3,
+    "roles": [
+      "berry"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 30,
+      "max": 110,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "berry"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "gooseberry",
+    "name_de": "Stachelbeere",
+    "aliases": [
+      "Stachelbeeren",
+      "gooseberry"
+    ],
+    "category": "berries",
+    "subcategory": "gooseberry",
+    "sweetness": 2,
+    "acidity": 4,
+    "bitterness": 1,
+    "creaminess": 0,
+    "intensity": 3,
+    "water_contribution": 4,
+    "roles": [
+      "berry"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 40,
+      "max": 120,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "berry",
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "cranberry",
+    "name_de": "Cranberry",
+    "aliases": [
+      "Moosbeere",
+      "Kranbeere",
+      "cranberries"
+    ],
+    "category": "berries",
+    "subcategory": "cranberry",
+    "sweetness": 1,
+    "acidity": 5,
+    "bitterness": 2,
+    "creaminess": 0,
+    "intensity": 4,
+    "water_contribution": 3,
+    "roles": [
+      "berry"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 20,
+      "max": 80,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "berry"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "acai_puree",
+    "name_de": "Açaí-Püree",
+    "aliases": [
+      "Acai-Püree",
+      "Acaipüree",
+      "acai puree"
+    ],
+    "category": "berries",
+    "subcategory": "acai",
+    "sweetness": 2,
+    "acidity": 2,
+    "bitterness": 2,
+    "creaminess": 4,
+    "intensity": 4,
+    "water_contribution": 1,
+    "roles": [
+      "berry",
+      "creamy"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 40,
+      "max": 120,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "berry",
+      "creamy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "aronia_berry",
+    "name_de": "Aroniabeere",
+    "aliases": [
+      "Apfelbeere",
+      "Aronia",
+      "aronia berry"
+    ],
+    "category": "berries",
+    "subcategory": "aronia",
+    "sweetness": 1,
+    "acidity": 5,
+    "bitterness": 4,
+    "creaminess": 0,
+    "intensity": 5,
+    "water_contribution": 2,
+    "roles": [
+      "berry"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 20,
+      "max": 70,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "berry"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "cow_milk",
+    "name_de": "Milch",
+    "aliases": [
+      "Kuhmilch",
+      "Vollmilch",
+      "cow milk"
+    ],
+    "category": "liquid",
+    "subcategory": "dairy",
+    "sweetness": 2,
+    "acidity": 0,
+    "bitterness": 0,
+    "creaminess": 4,
+    "intensity": 2,
+    "water_contribution": 5,
+    "roles": [
+      "liquid",
+      "creamy"
+    ],
+    "vegan": false,
+    "allergens": [
+      "milk"
+    ],
+    "typical_amount": {
+      "min": 100,
+      "max": 300,
+      "unit": "ml"
+    },
+    "compatibility_tags": [
+      "creamy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "soy_milk",
+    "name_de": "Sojadrink",
+    "aliases": [
+      "Sojamilch",
+      "soy milk"
+    ],
+    "category": "liquid",
+    "subcategory": "plant_based",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 3,
+    "intensity": 2,
+    "water_contribution": 5,
+    "roles": [
+      "liquid",
+      "creamy",
+      "protein"
+    ],
+    "vegan": true,
+    "allergens": [
+      "soy"
+    ],
+    "typical_amount": {
+      "min": 100,
+      "max": 300,
+      "unit": "ml"
+    },
+    "compatibility_tags": [
+      "creamy",
+      "protein"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "rice_milk",
+    "name_de": "Reisdrink",
+    "aliases": [
+      "Reismilch",
+      "rice milk"
+    ],
+    "category": "liquid",
+    "subcategory": "plant_based",
+    "sweetness": 3,
+    "acidity": 0,
+    "bitterness": 0,
+    "creaminess": 1,
+    "intensity": 2,
+    "water_contribution": 5,
+    "roles": [
+      "liquid"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 100,
+      "max": 300,
+      "unit": "ml"
+    },
+    "compatibility_tags": [
+      "mild"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "coconut_drink",
+    "name_de": "Kokosdrink",
+    "aliases": [
+      "Kokosmilchdrink",
+      "coconut drink"
+    ],
+    "category": "liquid",
+    "subcategory": "plant_based",
+    "sweetness": 2,
+    "acidity": 0,
+    "bitterness": 0,
+    "creaminess": 3,
+    "intensity": 3,
+    "water_contribution": 5,
+    "roles": [
+      "liquid",
+      "creamy"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 100,
+      "max": 300,
+      "unit": "ml"
+    },
+    "compatibility_tags": [
+      "tropical",
+      "creamy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "cashew_milk",
+    "name_de": "Cashewdrink",
+    "aliases": [
+      "Cashewmilch",
+      "cashew milk"
+    ],
+    "category": "liquid",
+    "subcategory": "plant_based",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 0,
+    "creaminess": 3,
+    "intensity": 2,
+    "water_contribution": 5,
+    "roles": [
+      "liquid",
+      "creamy"
+    ],
+    "vegan": true,
+    "allergens": [
+      "nuts"
+    ],
+    "typical_amount": {
+      "min": 100,
+      "max": 300,
+      "unit": "ml"
+    },
+    "compatibility_tags": [
+      "nutty",
+      "creamy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "pea_milk",
+    "name_de": "Erbsendrink",
+    "aliases": [
+      "Erbsenmilch",
+      "pea milk"
+    ],
+    "category": "liquid",
+    "subcategory": "plant_based",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 3,
+    "intensity": 3,
+    "water_contribution": 5,
+    "roles": [
+      "liquid",
+      "protein"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 100,
+      "max": 300,
+      "unit": "ml"
+    },
+    "compatibility_tags": [
+      "protein"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "apple_juice",
+    "name_de": "Apfelsaft",
+    "aliases": [
+      "apple juice"
+    ],
+    "category": "liquid",
+    "subcategory": "juice",
+    "sweetness": 4,
+    "acidity": 3,
+    "bitterness": 0,
+    "creaminess": 0,
+    "intensity": 3,
+    "water_contribution": 5,
+    "roles": [
+      "liquid"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 80,
+      "max": 250,
+      "unit": "ml"
+    },
+    "compatibility_tags": [
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "pineapple_juice",
+    "name_de": "Ananassaft",
+    "aliases": [
+      "pineapple juice"
+    ],
+    "category": "liquid",
+    "subcategory": "juice",
+    "sweetness": 4,
+    "acidity": 4,
+    "bitterness": 0,
+    "creaminess": 0,
+    "intensity": 4,
+    "water_contribution": 5,
+    "roles": [
+      "liquid"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 80,
+      "max": 250,
+      "unit": "ml"
+    },
+    "compatibility_tags": [
+      "tropical",
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "green_tea",
+    "name_de": "Grüner Tee",
+    "aliases": [
+      "Grüntee",
+      "green tea"
+    ],
+    "category": "liquid",
+    "subcategory": "tea",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 2,
+    "creaminess": 0,
+    "intensity": 2,
+    "water_contribution": 5,
+    "roles": [
+      "liquid"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 100,
+      "max": 300,
+      "unit": "ml"
+    },
+    "compatibility_tags": [
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "coffee",
+    "name_de": "Kaffee",
+    "aliases": [
+      "Filterkaffee",
+      "kalter Kaffee",
+      "coffee"
+    ],
+    "category": "liquid",
+    "subcategory": "coffee",
+    "sweetness": 0,
+    "acidity": 1,
+    "bitterness": 4,
+    "creaminess": 0,
+    "intensity": 5,
+    "water_contribution": 5,
+    "roles": [
+      "liquid"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 50,
+      "max": 180,
+      "unit": "ml"
+    },
+    "compatibility_tags": [
+      "coffee"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "skyr",
+    "name_de": "Skyr",
+    "aliases": [
+      "Natur-Skyr",
+      "skyr"
+    ],
+    "category": "creamy_base",
+    "subcategory": "dairy",
+    "sweetness": 1,
+    "acidity": 2,
+    "bitterness": 0,
+    "creaminess": 5,
+    "intensity": 2,
+    "water_contribution": 2,
+    "roles": [
+      "creamy",
+      "protein"
+    ],
+    "vegan": false,
+    "allergens": [
+      "milk"
+    ],
+    "typical_amount": {
+      "min": 50,
+      "max": 180,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "creamy",
+      "protein"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "lowfat_quark",
+    "name_de": "Magerquark",
+    "aliases": [
+      "Quark",
+      "Speisequark mager",
+      "low-fat quark"
+    ],
+    "category": "creamy_base",
+    "subcategory": "dairy",
+    "sweetness": 1,
+    "acidity": 2,
+    "bitterness": 0,
+    "creaminess": 5,
+    "intensity": 3,
+    "water_contribution": 1,
+    "roles": [
+      "creamy",
+      "protein"
+    ],
+    "vegan": false,
+    "allergens": [
+      "milk"
+    ],
+    "typical_amount": {
+      "min": 40,
+      "max": 150,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "creamy",
+      "protein"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "kefir",
+    "name_de": "Kefir",
+    "aliases": [
+      "Milchkefir",
+      "kefir"
+    ],
+    "category": "creamy_base",
+    "subcategory": "dairy",
+    "sweetness": 1,
+    "acidity": 3,
+    "bitterness": 0,
+    "creaminess": 4,
+    "intensity": 3,
+    "water_contribution": 3,
+    "roles": [
+      "creamy",
+      "protein"
+    ],
+    "vegan": false,
+    "allergens": [
+      "milk"
+    ],
+    "typical_amount": {
+      "min": 80,
+      "max": 220,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "creamy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "soy_yogurt",
+    "name_de": "Sojajoghurt",
+    "aliases": [
+      "Soja-Joghurt",
+      "soy yogurt"
+    ],
+    "category": "creamy_base",
+    "subcategory": "plant_based",
+    "sweetness": 1,
+    "acidity": 2,
+    "bitterness": 0,
+    "creaminess": 5,
+    "intensity": 2,
+    "water_contribution": 2,
+    "roles": [
+      "creamy",
+      "protein"
+    ],
+    "vegan": true,
+    "allergens": [
+      "soy"
+    ],
+    "typical_amount": {
+      "min": 50,
+      "max": 180,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "creamy",
+      "protein"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "oat_yogurt",
+    "name_de": "Haferjoghurt",
+    "aliases": [
+      "Hafer-Joghurt",
+      "oat yogurt"
+    ],
+    "category": "creamy_base",
+    "subcategory": "plant_based",
+    "sweetness": 2,
+    "acidity": 2,
+    "bitterness": 0,
+    "creaminess": 5,
+    "intensity": 2,
+    "water_contribution": 2,
+    "roles": [
+      "creamy"
+    ],
+    "vegan": true,
+    "allergens": [
+      "gluten"
+    ],
+    "typical_amount": {
+      "min": 50,
+      "max": 180,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "creamy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "coconut_milk",
+    "name_de": "Kokosmilch",
+    "aliases": [
+      "Kokosmilch aus der Dose",
+      "coconut milk"
+    ],
+    "category": "creamy_base",
+    "subcategory": "plant_based",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 0,
+    "creaminess": 5,
+    "intensity": 4,
+    "water_contribution": 1,
+    "roles": [
+      "creamy",
+      "fat"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 30,
+      "max": 120,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "tropical",
+      "creamy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "romaine_lettuce",
+    "name_de": "Römersalat",
+    "aliases": [
+      "Romanasalat",
+      "Römischer Salat",
+      "romaine lettuce"
+    ],
+    "category": "greens",
+    "subcategory": "leafy_green",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 0,
+    "intensity": 1,
+    "water_contribution": 5,
+    "roles": [
+      "greens"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 20,
+      "max": 80,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "green",
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "lambs_lettuce",
+    "name_de": "Feldsalat",
+    "aliases": [
+      "Rapunzel",
+      "lamb's lettuce"
+    ],
+    "category": "greens",
+    "subcategory": "leafy_green",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 0,
+    "intensity": 2,
+    "water_contribution": 4,
+    "roles": [
+      "greens"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 15,
+      "max": 60,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "green"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "celery",
+    "name_de": "Stangensellerie",
+    "aliases": [
+      "Selleriestange",
+      "Staudensellerie",
+      "celery"
+    ],
+    "category": "greens",
+    "subcategory": "vegetable",
+    "sweetness": 0,
+    "acidity": 1,
+    "bitterness": 2,
+    "creaminess": 0,
+    "intensity": 4,
+    "water_contribution": 5,
+    "roles": [
+      "greens",
+      "liquid"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 20,
+      "max": 100,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "fresh",
+      "green"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "carrot",
+    "name_de": "Karotte",
+    "aliases": [
+      "Möhre",
+      "Mohrrübe",
+      "carrot"
+    ],
+    "category": "greens",
+    "subcategory": "vegetable",
+    "sweetness": 3,
+    "acidity": 1,
+    "bitterness": 0,
+    "creaminess": 1,
+    "intensity": 3,
+    "water_contribution": 3,
+    "roles": [
+      "greens"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 30,
+      "max": 120,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "earthy",
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "beetroot",
+    "name_de": "Rote Bete",
+    "aliases": [
+      "Rote Beete",
+      "Randen",
+      "beetroot"
+    ],
+    "category": "greens",
+    "subcategory": "vegetable",
+    "sweetness": 3,
+    "acidity": 1,
+    "bitterness": 2,
+    "creaminess": 1,
+    "intensity": 5,
+    "water_contribution": 3,
+    "roles": [
+      "greens"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 20,
+      "max": 100,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "earthy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "zucchini",
+    "name_de": "Zucchini",
+    "aliases": [
+      "Zucchetti",
+      "zucchini"
+    ],
+    "category": "greens",
+    "subcategory": "vegetable",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 0,
+    "creaminess": 1,
+    "intensity": 1,
+    "water_contribution": 5,
+    "roles": [
+      "greens",
+      "liquid"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 40,
+      "max": 140,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "mild",
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "fennel",
+    "name_de": "Fenchel",
+    "aliases": [
+      "Fenchelknolle",
+      "fennel"
+    ],
+    "category": "greens",
+    "subcategory": "vegetable",
+    "sweetness": 1,
+    "acidity": 1,
+    "bitterness": 1,
+    "creaminess": 0,
+    "intensity": 4,
+    "water_contribution": 4,
+    "roles": [
+      "greens"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 20,
+      "max": 90,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "fresh"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "parsley",
+    "name_de": "Petersilie",
+    "aliases": [
+      "Glattpetersilie",
+      "parsley"
+    ],
+    "category": "greens",
+    "subcategory": "herb",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 2,
+    "creaminess": 0,
+    "intensity": 4,
+    "water_contribution": 2,
+    "roles": [
+      "greens",
+      "extra"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 3,
+      "max": 20,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "green",
+      "herbal"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "basil",
+    "name_de": "Basilikum",
+    "aliases": [
+      "basil"
+    ],
+    "category": "greens",
+    "subcategory": "herb",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 0,
+    "intensity": 4,
+    "water_contribution": 2,
+    "roles": [
+      "greens",
+      "extra"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 3,
+      "max": 20,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "green",
+      "herbal"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "coriander",
+    "name_de": "Koriandergrün",
+    "aliases": [
+      "Koriander",
+      "Cilantro",
+      "coriander"
+    ],
+    "category": "greens",
+    "subcategory": "herb",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 2,
+    "creaminess": 0,
+    "intensity": 5,
+    "water_contribution": 2,
+    "roles": [
+      "greens",
+      "extra"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 2,
+      "max": 15,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "green",
+      "herbal"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "whey_protein",
+    "name_de": "Molkenprotein",
+    "aliases": [
+      "Whey",
+      "Whey-Protein",
+      "whey protein"
+    ],
+    "category": "protein",
+    "subcategory": "powder",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 3,
+    "intensity": 4,
+    "water_contribution": 0,
+    "roles": [
+      "protein"
+    ],
+    "vegan": false,
+    "allergens": [
+      "milk"
+    ],
+    "typical_amount": {
+      "min": 15,
+      "max": 40,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "protein"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "pea_protein",
+    "name_de": "Erbsenprotein",
+    "aliases": [
+      "Erbsenproteinpulver",
+      "pea protein"
+    ],
+    "category": "protein",
+    "subcategory": "powder",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 2,
+    "creaminess": 2,
+    "intensity": 4,
+    "water_contribution": 0,
+    "roles": [
+      "protein"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 15,
+      "max": 40,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "protein"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "hemp_protein",
+    "name_de": "Hanfprotein",
+    "aliases": [
+      "Hanfproteinpulver",
+      "hemp protein"
+    ],
+    "category": "protein",
+    "subcategory": "powder",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 3,
+    "creaminess": 2,
+    "intensity": 5,
+    "water_contribution": 0,
+    "roles": [
+      "protein"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 15,
+      "max": 40,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "protein",
+      "nutty"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "soy_protein",
+    "name_de": "Sojaprotein",
+    "aliases": [
+      "Sojaproteinpulver",
+      "soy protein"
+    ],
+    "category": "protein",
+    "subcategory": "powder",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 2,
+    "intensity": 4,
+    "water_contribution": 0,
+    "roles": [
+      "protein"
+    ],
+    "vegan": true,
+    "allergens": [
+      "soy"
+    ],
+    "typical_amount": {
+      "min": 15,
+      "max": 40,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "protein"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "walnuts",
+    "name_de": "Walnüsse",
+    "aliases": [
+      "Walnuss",
+      "walnuts"
+    ],
+    "category": "nuts",
+    "subcategory": "whole_nut",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 2,
+    "creaminess": 3,
+    "intensity": 4,
+    "water_contribution": 0,
+    "roles": [
+      "extra",
+      "fat"
+    ],
+    "vegan": true,
+    "allergens": [
+      "nuts"
+    ],
+    "typical_amount": {
+      "min": 8,
+      "max": 30,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "nutty"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "hazelnuts",
+    "name_de": "Haselnüsse",
+    "aliases": [
+      "Haselnuss",
+      "hazelnuts"
+    ],
+    "category": "nuts",
+    "subcategory": "whole_nut",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 3,
+    "intensity": 4,
+    "water_contribution": 0,
+    "roles": [
+      "extra",
+      "fat"
+    ],
+    "vegan": true,
+    "allergens": [
+      "nuts"
+    ],
+    "typical_amount": {
+      "min": 8,
+      "max": 30,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "nutty"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "pecans",
+    "name_de": "Pekannüsse",
+    "aliases": [
+      "Pekannuss",
+      "pecans"
+    ],
+    "category": "nuts",
+    "subcategory": "whole_nut",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 4,
+    "intensity": 4,
+    "water_contribution": 0,
+    "roles": [
+      "extra",
+      "fat"
+    ],
+    "vegan": true,
+    "allergens": [
+      "nuts"
+    ],
+    "typical_amount": {
+      "min": 8,
+      "max": 30,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "nutty"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "pistachios",
+    "name_de": "Pistazien",
+    "aliases": [
+      "Pistazie",
+      "pistachios"
+    ],
+    "category": "nuts",
+    "subcategory": "whole_nut",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 3,
+    "intensity": 4,
+    "water_contribution": 0,
+    "roles": [
+      "extra",
+      "protein"
+    ],
+    "vegan": true,
+    "allergens": [
+      "nuts"
+    ],
+    "typical_amount": {
+      "min": 8,
+      "max": 30,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "nutty"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "macadamia",
+    "name_de": "Macadamianüsse",
+    "aliases": [
+      "Macadamia",
+      "Macadamianuss",
+      "macadamia nuts"
+    ],
+    "category": "nuts",
+    "subcategory": "whole_nut",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 5,
+    "intensity": 4,
+    "water_contribution": 0,
+    "roles": [
+      "extra",
+      "fat"
+    ],
+    "vegan": true,
+    "allergens": [
+      "nuts"
+    ],
+    "typical_amount": {
+      "min": 8,
+      "max": 25,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "nutty",
+      "creamy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "almond_butter",
+    "name_de": "Mandelmus",
+    "aliases": [
+      "Mandelbutter",
+      "almond butter"
+    ],
+    "category": "nuts",
+    "subcategory": "nut_butter",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 5,
+    "intensity": 4,
+    "water_contribution": 0,
+    "roles": [
+      "creamy",
+      "protein"
+    ],
+    "vegan": true,
+    "allergens": [
+      "nuts"
+    ],
+    "typical_amount": {
+      "min": 10,
+      "max": 35,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "nutty",
+      "creamy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "sunflower_seeds",
+    "name_de": "Sonnenblumenkerne",
+    "aliases": [
+      "Sonnenblumenkerne geschält",
+      "sunflower seeds"
+    ],
+    "category": "seeds",
+    "subcategory": "seed",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 2,
+    "intensity": 3,
+    "water_contribution": 0,
+    "roles": [
+      "extra",
+      "protein"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 5,
+      "max": 25,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "nutty"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "pumpkin_seeds",
+    "name_de": "Kürbiskerne",
+    "aliases": [
+      "Kürbiskern",
+      "pumpkin seeds"
+    ],
+    "category": "seeds",
+    "subcategory": "seed",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 2,
+    "intensity": 4,
+    "water_contribution": 0,
+    "roles": [
+      "extra",
+      "protein"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 5,
+      "max": 25,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "nutty"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "sesame_seeds",
+    "name_de": "Sesam",
+    "aliases": [
+      "Sesamsamen",
+      "sesame seeds"
+    ],
+    "category": "seeds",
+    "subcategory": "seed",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 2,
+    "intensity": 4,
+    "water_contribution": 0,
+    "roles": [
+      "extra"
+    ],
+    "vegan": true,
+    "allergens": [
+      "sesame"
+    ],
+    "typical_amount": {
+      "min": 4,
+      "max": 20,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "nutty"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "tahini",
+    "name_de": "Tahini",
+    "aliases": [
+      "Sesammus",
+      "Sesampaste",
+      "tahini"
+    ],
+    "category": "seeds",
+    "subcategory": "seed_butter",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 2,
+    "creaminess": 5,
+    "intensity": 5,
+    "water_contribution": 0,
+    "roles": [
+      "creamy",
+      "protein"
+    ],
+    "vegan": true,
+    "allergens": [
+      "sesame"
+    ],
+    "typical_amount": {
+      "min": 5,
+      "max": 25,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "nutty",
+      "creamy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "agave_syrup",
+    "name_de": "Agavendicksaft",
+    "aliases": [
+      "Agavensirup",
+      "agave syrup"
+    ],
+    "category": "sweetener",
+    "subcategory": "syrup",
+    "sweetness": 5,
+    "acidity": 0,
+    "bitterness": 0,
+    "creaminess": 0,
+    "intensity": 4,
+    "water_contribution": 1,
+    "roles": [
+      "sweetener"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 5,
+      "max": 25,
+      "unit": "ml"
+    },
+    "compatibility_tags": [
+      "sweet"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "date_syrup",
+    "name_de": "Dattelsirup",
+    "aliases": [
+      "Datteldicksaft",
+      "date syrup"
+    ],
+    "category": "sweetener",
+    "subcategory": "syrup",
+    "sweetness": 5,
+    "acidity": 0,
+    "bitterness": 0,
+    "creaminess": 1,
+    "intensity": 4,
+    "water_contribution": 1,
+    "roles": [
+      "sweetener"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 5,
+      "max": 25,
+      "unit": "ml"
+    },
+    "compatibility_tags": [
+      "sweet"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "coconut_sugar",
+    "name_de": "Kokosblütenzucker",
+    "aliases": [
+      "Kokoszucker",
+      "coconut sugar"
+    ],
+    "category": "sweetener",
+    "subcategory": "granulated",
+    "sweetness": 5,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 0,
+    "intensity": 4,
+    "water_contribution": 0,
+    "roles": [
+      "sweetener"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 3,
+      "max": 18,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "sweet"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "turmeric",
+    "name_de": "Kurkuma",
+    "aliases": [
+      "Gelbwurz",
+      "turmeric"
+    ],
+    "category": "spices",
+    "subcategory": "spice",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 3,
+    "creaminess": 0,
+    "intensity": 5,
+    "water_contribution": 0,
+    "roles": [
+      "extra"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 1,
+      "max": 6,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "spicy",
+      "earthy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "cardamom",
+    "name_de": "Kardamom",
+    "aliases": [
+      "cardamom"
+    ],
+    "category": "spices",
+    "subcategory": "spice",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 2,
+    "creaminess": 0,
+    "intensity": 5,
+    "water_contribution": 0,
+    "roles": [
+      "extra"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 0.2,
+      "max": 2,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "spicy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "nutmeg",
+    "name_de": "Muskatnuss",
+    "aliases": [
+      "Muskat",
+      "nutmeg"
+    ],
+    "category": "spices",
+    "subcategory": "spice",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 3,
+    "creaminess": 0,
+    "intensity": 5,
+    "water_contribution": 0,
+    "roles": [
+      "extra"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 0.1,
+      "max": 1.5,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "spicy"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "matcha",
+    "name_de": "Matcha",
+    "aliases": [
+      "Matcha-Pulver",
+      "matcha powder"
+    ],
+    "category": "spices",
+    "subcategory": "tea_powder",
+    "sweetness": 0,
+    "acidity": 0,
+    "bitterness": 4,
+    "creaminess": 0,
+    "intensity": 5,
+    "water_contribution": 0,
+    "roles": [
+      "extra"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 1,
+      "max": 5,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "green",
+      "tea"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "quinoa_flakes",
+    "name_de": "Quinoaflocken",
+    "aliases": [
+      "Quinoa-Flocken",
+      "quinoa flakes"
+    ],
+    "category": "boosters",
+    "subcategory": "grain",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 2,
+    "intensity": 2,
+    "water_contribution": 0,
+    "roles": [
+      "extra"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 10,
+      "max": 40,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "grain",
+      "filling"
+    ],
+    "nutrition_per_100g": {}
+  },
+  {
+    "id": "millet_flakes",
+    "name_de": "Hirseflocken",
+    "aliases": [
+      "Hirse-Flocken",
+      "millet flakes"
+    ],
+    "category": "boosters",
+    "subcategory": "grain",
+    "sweetness": 1,
+    "acidity": 0,
+    "bitterness": 1,
+    "creaminess": 2,
+    "intensity": 2,
+    "water_contribution": 0,
+    "roles": [
+      "extra"
+    ],
+    "vegan": true,
+    "allergens": [],
+    "typical_amount": {
+      "min": 10,
+      "max": 40,
+      "unit": "g"
+    },
+    "compatibility_tags": [
+      "grain",
+      "filling"
     ],
     "nutrition_per_100g": {}
   }
