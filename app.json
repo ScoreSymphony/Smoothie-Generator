@@ -2,16 +2,18 @@
   "expo": {
     "name": "Smoothie Generator",
     "slug": "smoothie-generator",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "scheme": "smoothie-generator",
     "platforms": ["android", "ios"],
     "android": {
-      "package": "com.scoresymphony.smoothiegenerator"
+      "package": "com.scoresymphony.smoothiegenerator",
+      "versionCode": 1
     },
     "ios": {
       "bundleIdentifier": "com.scoresymphony.smoothiegenerator",
+      "buildNumber": "1",
       "supportsTablet": false
     },
     "plugins": ["expo-router"],

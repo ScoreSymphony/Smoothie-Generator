@@ -1,0 +1,79 @@
+name: Publish v1.0.0
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - package.json
+      - app.json
+      - .github/workflows/release-v1.0.0.yml
+      - docs/RELEASE_V1.0.0.md
+
+permissions:
+  contents: write
+
+jobs:
+  publish-android-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.13.0"
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Verify v1.0.0 metadata
+        run: |
+          test "$(node -p "require('./package.json').version")" = "1.0.0"
+          test "$(node -p "require('./app.json').expo.version")" = "1.0.0"
+          test "$(node -p "require('./app.json').expo.android.versionCode")" = "1"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Verify Expo dependency compatibility
+        run: npx expo install --check
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Run tests
+        run: npm test
+
+      - name: Run mobile release audit
+        run: npm run audit:release
+
+      - name: Build installable Android APK
+        run: npm run build:android:private
+
+      - name: Stage v1.0.0 APK
+        run: |
+          mkdir -p release
+          cp android/app/build/outputs/apk/debug/app-debug.apk release/Smoothie-Generator-v1.0.0.apk
+          test -s release/Smoothie-Generator-v1.0.0.apk
+
+      - name: Publish GitHub Release v1.0.0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v1.0.0 >/dev/null 2>&1; then
+            gh release upload v1.0.0 release/Smoothie-Generator-v1.0.0.apk --clobber
+          else
+            gh release create v1.0.0 release/Smoothie-Generator-v1.0.0.apk \
+              --target "$GITHUB_SHA" \
+              --title "Smoothie Generator v1.0.0" \
+              --notes-file docs/RELEASE_V1.0.0.md
+          fi
