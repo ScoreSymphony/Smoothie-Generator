@@ -1,0 +1,34 @@
+[
+  {
+    "recipe_id": "strawberry_banana",
+    "focus": "klassischer cremiger Frucht-Smoothie und Basisverhältnis"
+  },
+  {
+    "recipe_id": "tropical",
+    "focus": "tropische Frucht-Säure- und Flüssigkeitsbalance"
+  },
+  {
+    "recipe_id": "green_mango",
+    "focus": "grüner Smoothie mit Frucht-Gemüse-Balance"
+  },
+  {
+    "recipe_id": "berry_breakfast",
+    "focus": "Frühstück, Hafer und Sättigung"
+  },
+  {
+    "recipe_id": "peanut_banana",
+    "focus": "proteinreich, nussig und cremig"
+  },
+  {
+    "recipe_id": "watermelon_mint",
+    "focus": "leichte erfrischende Konsistenz"
+  },
+  {
+    "recipe_id": "silken_tofu_mango",
+    "focus": "vegane Proteinbasis mit Seidentofu"
+  },
+  {
+    "recipe_id": "apple_cucumber_fresh",
+    "focus": "wenig cremige, frische Frucht-Gemüse-Kombination"
+  }
+]
