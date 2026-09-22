@@ -52,17 +52,24 @@ jobs:
       - name: Build installable private Android APK
         run: npm run build:android:private
 
+      - name: Read app version
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        id: app-version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
       - name: Stage versioned Android APK
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           mkdir -p release
-          cp android/app/build/outputs/apk/debug/app-debug.apk release/smoothie-generator-v0.1.0-android.apk
+          cp android/app/build/outputs/apk/debug/app-debug.apk "release/smoothie-generator-v${{ steps.app-version.outputs.version }}-android.apk"
 
       - name: Upload private Android APK artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v4
         with:
-          name: smoothie-generator-android-v0.1.0
-          path: release/smoothie-generator-v0.1.0-android.apk
+          name: smoothie-generator-android-v${{ steps.app-version.outputs.version }}
+          path: release/smoothie-generator-v${{ steps.app-version.outputs.version }}-android.apk
           if-no-files-found: error
           retention-days: 30
