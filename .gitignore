@@ -27,3 +27,4 @@ Thumbs.db
 # Private local app state
 data/user_preferences.local.json
 data/recipe_history.local.json
+private-data/
