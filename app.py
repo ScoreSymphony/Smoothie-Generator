@@ -155,7 +155,7 @@ def main() -> None:
                     for item_id, role in candidate.roles
                 )
                 st.caption(role_text)
-                facts = nutrition_calculator.calculate(quantified.ingredients)
+                facts = nutrition_calculator.calculate(quantified.ingredients).rounded()
                 st.caption(
                     f"ca. {facts.calories:g} kcal · {facts.protein_g:g} g Protein · "
                     f"{facts.carbohydrates_g:g} g Kohlenhydrate · {facts.sugar_g:g} g Zucker · "
@@ -185,7 +185,7 @@ def main() -> None:
                 for item in quantified_recipe.required
             )
             st.write("Benötigt: " + required)
-            facts = nutrition_calculator.calculate(quantified_recipe.required)
+            facts = nutrition_calculator.calculate(quantified_recipe.required).rounded()
             st.caption(
                 f"ca. {facts.calories:g} kcal · {facts.protein_g:g} g Protein · "
                 f"{facts.carbohydrates_g:g} g Kohlenhydrate · {facts.sugar_g:g} g Zucker · "
