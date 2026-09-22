@@ -1,5 +1,6 @@
 """Core Smoothie Generator domain package."""
 from .generator import GeneratedSmoothie, SmoothieGenerator
+from .history import HistoryEntry, RecipeHistoryStore
 from .ingredient_catalog import IngredientCatalog, load_ingredient_catalog
 from .ingredients import AmountRange, Ingredient, IngredientCategory
 from .matcher import RecipeMatch, match_recipe, rank_recipes
@@ -49,6 +50,7 @@ __all__ = [
     "CandidateScorer",
     "FeedbackValue",
     "GeneratedSmoothie",
+    "HistoryEntry",
     "Ingredient",
     "IngredientCatalog",
     "IngredientCategory",
@@ -64,6 +66,7 @@ __all__ = [
     "QuantityCalculator",
     "QuantityUnit",
     "Recipe",
+    "RecipeHistoryStore",
     "RecipeIngredient",
     "RecipeMatch",
     "ScoringContext",
