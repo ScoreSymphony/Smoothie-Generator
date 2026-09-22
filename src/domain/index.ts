@@ -23,7 +23,9 @@ export {
   type RecipeMatch,
   type RecipeMatchKind,
   type RecipeSubstitutionUse,
-} from "./recipeMatcher";\n\nexport {
+} from "./recipeMatcher";
+
+export {
   EXHAUSTIVE_COMBINATION_LIMIT,
   MAX_COMBINATION_EVALUATIONS,
   generateSmoothies,
