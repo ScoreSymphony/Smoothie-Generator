@@ -10,6 +10,7 @@ from typing import Any
 from .generator import GeneratedSmoothie
 from .ingredient_catalog import IngredientCatalog
 from .recipes import Recipe
+from .scoring import ScoringContext
 
 DEFAULT_PREFERENCES_PATH = (
     Path(__file__).resolve().parents[1] / "data" / "user_preferences.local.json"
@@ -185,3 +186,48 @@ def candidate_allowed(candidate: GeneratedSmoothie, preferences: UserPreferences
         preferences.feedback.get(generated_feedback_key(candidate))
         != FeedbackValue.DO_NOT_SUGGEST
     )
+
+
+def scoring_context_from_preferences(
+    preferences: UserPreferences,
+    pantry_ids: list[str] | tuple[str, ...] | set[str] | frozenset[str],
+) -> ScoringContext:
+    goals = {
+        name
+        for name in (
+            "refreshing",
+            "filling",
+            "protein_rich",
+            "lower_calorie",
+            "breakfast",
+            "post_workout",
+        )
+        if getattr(preferences, name)
+    }
+    liked = {
+        key
+        for key, value in preferences.feedback.items()
+        if value == FeedbackValue.LIKED and key.startswith("generated:")
+    }
+    return ScoringContext(
+        pantry_ids=frozenset(pantry_ids),
+        preferred_ids=frozenset(preferences.favorite_ingredients),
+        desired_sweetness=preferences.desired_sweetness,
+        desired_creaminess=preferences.desired_creaminess,
+        goals=frozenset(goals),
+        liked_candidate_keys=frozenset(liked),
+    )
+
+
+def set_feedback(
+    preferences: UserPreferences,
+    recipe_key: str,
+    value: FeedbackValue,
+) -> None:
+    if not recipe_key:
+        raise ValueError("recipe_key must not be empty")
+    preferences.feedback[recipe_key] = value
+
+
+def clear_feedback(preferences: UserPreferences) -> None:
+    preferences.feedback.clear()
