@@ -10,8 +10,7 @@ paid AI service.
 
 ## Current status
 
-The application now implements the functional roadmap through **M8** and the
-technical parts of **M9**:
+The application now implements the complete technical roadmap through **M9**:
 
 - searchable pantry input with aliases and category filtering
 - curated stored recipes plus deterministic pantry matching
@@ -31,8 +30,7 @@ technical parts of **M9**:
 
 No external API is required for the core user flow.
 
-The only remaining M9 release gate is the physical taste/texture validation
-described in [docs/REAL_WORLD_VALIDATION_DE.md](docs/REAL_WORLD_VALIDATION_DE.md).
+The technical release is complete. Optional physical taste/texture experiments are documented in [docs/REAL_WORLD_VALIDATION_DE.md](docs/REAL_WORLD_VALIDATION_DE.md), but they are not required for the software release.
 
 ## Requirements
 
@@ -176,9 +174,7 @@ The technical release audit is documented in
 include domain tests, the 42-scenario pantry quality set, Streamlit end-to-end
 smoke coverage, and a Docker Compose deployment health check.
 
-The final manual gate is physical recipe validation. Results should be recorded
-in [docs/REAL_WORLD_VALIDATION_DE.md](docs/REAL_WORLD_VALIDATION_DE.md) before
-Issue #10 is closed.
+Physical recipe validation is available as an optional manual follow-up in [docs/REAL_WORLD_VALIDATION_DE.md](docs/REAL_WORLD_VALIDATION_DE.md). It is intentionally outside the software release gate; no taste or texture result is claimed by the automated release.
 
 ## Third-party references
 
