@@ -56,6 +56,18 @@ def _init_session() -> None:
     st.session_state.setdefault("selected_recipe_key", None)
 
 
+def _select_generated_page(ranked, seed: int, page_size: int = 3):
+    """Return a deterministic alternatives page from ranked candidates."""
+    if page_size < 1:
+        raise ValueError("page_size must be positive")
+    if not ranked:
+        return []
+    page_count = (len(ranked) + page_size - 1) // page_size
+    page = seed % page_count
+    start = page * page_size
+    return ranked[start : start + page_size]
+
+
 def _load_preferences(store: PreferenceStore) -> UserPreferences:
     if "preferences" in st.session_state:
         return st.session_state["preferences"]
@@ -279,12 +291,10 @@ def main() -> None:
             scoring_context_from_preferences(preferences, usable_ids),
             limit=12,
         )
-        if ranked_generated:
-            page_count = (len(ranked_generated) + 2) // 3
-            page = st.session_state["generation_seed"] % page_count
-            generated = ranked_generated[page * 3 : page * 3 + 3]
-        else:
-            generated = []
+        generated = _select_generated_page(
+            ranked_generated,
+            st.session_state["generation_seed"],
+        )
 
         allowed_recipes = [
             recipe
