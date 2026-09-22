@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
+import { inflateSync } from "node:zlib";
 
 const root = process.cwd();
 
@@ -9,6 +10,95 @@ function fail(message) {
 
 function readJson(path) {
   return JSON.parse(readFileSync(join(root, path), "utf8"));
+}
+
+function validatePng(path) {
+  const data = readFileSync(join(root, path));
+  const signature = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+
+  if (data.length < 33 || !data.subarray(0, 8).equals(signature)) {
+    fail(`application icon is not a valid PNG: ${path}`);
+  }
+
+  let offset = 8;
+  let width;
+  let height;
+  let bitDepth;
+  let colorType;
+  let compression;
+  let filterMethod;
+  let interlace;
+  const idat = [];
+
+  while (offset + 12 <= data.length) {
+    const length = data.readUInt32BE(offset);
+    const type = data.toString("ascii", offset + 4, offset + 8);
+    const start = offset + 8;
+    const end = start + length;
+
+    if (end + 4 > data.length) {
+      fail(`application icon contains a truncated PNG chunk: ${path}`);
+    }
+
+    if (type === "IHDR") {
+      width = data.readUInt32BE(start);
+      height = data.readUInt32BE(start + 4);
+      bitDepth = data[start + 8];
+      colorType = data[start + 9];
+      compression = data[start + 10];
+      filterMethod = data[start + 11];
+      interlace = data[start + 12];
+    } else if (type === "IDAT") {
+      idat.push(data.subarray(start, end));
+    } else if (type === "IEND") {
+      break;
+    }
+
+    offset = end + 4;
+  }
+
+  if (!width || !height || width !== height || width < 256) {
+    fail(`application icon must be a square PNG of at least 256x256 pixels: ${path}`);
+  }
+  if (
+    bitDepth !== 8 ||
+    ![3, 6].includes(colorType) ||
+    compression !== 0 ||
+    filterMethod !== 0 ||
+    interlace !== 0
+  ) {
+    fail(
+      `application icon must use non-interlaced 8-bit indexed or RGBA PNG encoding compatible with Expo/Jimp: ${path}`,
+    );
+  }
+  if (idat.length === 0) {
+    fail(`application icon PNG contains no image data: ${path}`);
+  }
+
+  let raw;
+  try {
+    raw = inflateSync(Buffer.concat(idat));
+  } catch {
+    fail(`application icon PNG image data cannot be inflated: ${path}`);
+  }
+
+  const bytesPerPixel = colorType === 6 ? 4 : 1;
+  const rowLength = width * bytesPerPixel;
+  const expectedLength = height * (rowLength + 1);
+  if (raw.length !== expectedLength) {
+    fail(`application icon PNG has unexpected scanline data: ${path}`);
+  }
+
+  for (let row = 0; row < height; row += 1) {
+    const filterType = raw[row * (rowLength + 1)];
+    if (filterType > 4) {
+      fail(
+        `application icon PNG uses unsupported scanline filter ${filterType} on row ${row}: ${path}`,
+      );
+    }
+  }
+
+  return { width, height, colorType };
 }
 
 const SKIP_DIRECTORIES = new Set([
@@ -78,6 +168,7 @@ if (!iconPath) {
 if (!existsSync(join(root, iconPath))) {
   fail(`configured application icon does not exist: ${iconPath}`);
 }
+const iconInfo = validatePng(iconPath);
 
 const buildScriptPath = "scripts/build-private-android.mjs";
 const buildScript = readFileSync(join(root, buildScriptPath), "utf8");
@@ -155,7 +246,7 @@ if (dependencyNames.some((name) => /server|express|next|vite/i.test(name))) {
 console.log("Mobile release audit PASS");
 console.log(`- App version: ${app.version}`);
 console.log(`- Android versionCode: ${app.android.versionCode}`);
-console.log(`- App icon: ${iconPath}`);
+console.log(`- App icon: ${iconPath} (${iconInfo.width}x${iconInfo.height} PNG, color type ${iconInfo.colorType})`);
 console.log("- Android APK variant: release");
 console.log(`- Expo platforms: ${platforms.join(", ")}`);
 console.log(`- Ingredient corpus: ${ingredients.length}`);
