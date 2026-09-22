@@ -12,11 +12,6 @@ interface AppMetaRow {
   value: string;
 }
 
-interface PreferencesEnvelope {
-  readonly version: number;
-  readonly data: unknown;
-}
-
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
