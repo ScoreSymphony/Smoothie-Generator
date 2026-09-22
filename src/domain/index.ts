@@ -80,3 +80,25 @@ export {
   type NutritionCatalogLike,
   type NutritionFacts,
 } from "./nutrition";
+
+export {
+  DEFAULT_USER_PREFERENCES,
+  FEEDBACK_VALUES,
+  candidateAllowedByPreferences,
+  clearPreferenceFeedback,
+  filterPantryByPreferences,
+  generateSmoothiesWithPreferences,
+  generatedFeedbackKey,
+  ingredientAllowedByPreferences,
+  rankGeneratedCandidatesWithPreferences,
+  rankStoredMatchesWithPreferences,
+  recipeAllowedByPreferences,
+  sanitizeUserPreferences,
+  scoringContextFromPreferences,
+  storedFeedbackKey,
+  toggleFavoriteIngredient,
+  toggleFavoriteRecipe,
+  withFeedback,
+  type FeedbackValue,
+  type UserPreferences,
+} from "./preferences";

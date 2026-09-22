@@ -31,6 +31,7 @@ export interface SmoothieGenerationOptions {
   readonly seed?: number;
   readonly vegan?: boolean;
   readonly excludedAllergens?: readonly string[];
+  readonly excludedIngredientIds?: readonly string[];
   readonly missingIngredientMode?: "none" | "one";
 }
 
@@ -119,7 +120,11 @@ function ingredientAllowed(
   ingredient: Ingredient,
   vegan: boolean,
   excludedAllergens: ReadonlySet<string>,
+  excludedIngredientIds: ReadonlySet<string>,
 ): boolean {
+  if (excludedIngredientIds.has(ingredient.id)) {
+    return false;
+  }
   if (vegan && !ingredient.vegan) {
     return false;
   }
@@ -133,6 +138,7 @@ function canonicalPantryIngredients(
   catalog: IngredientCatalog,
   vegan: boolean,
   excludedAllergens: ReadonlySet<string>,
+  excludedIngredientIds: ReadonlySet<string>,
 ): readonly Ingredient[] {
   const ids = new Set<string>();
   const result: Ingredient[] = [];
@@ -143,7 +149,14 @@ function canonicalPantryIngredients(
       continue;
     }
     ids.add(ingredient.id);
-    if (ingredientAllowed(ingredient, vegan, excludedAllergens)) {
+    if (
+      ingredientAllowed(
+        ingredient,
+        vegan,
+        excludedAllergens,
+        excludedIngredientIds,
+      )
+    ) {
       result.push(ingredient);
     }
   }
@@ -428,6 +441,11 @@ export function generateSmoothies(
   const seed = Number.isFinite(options.seed) ? Math.trunc(options.seed ?? 0) : 0;
   const vegan = options.vegan ?? false;
   const excludedAllergens = new Set(options.excludedAllergens ?? []);
+  const excludedIngredientIds = new Set(
+    (options.excludedIngredientIds ?? [])
+      .map((value) => catalog.resolveId(value))
+      .filter((value): value is string => Boolean(value)),
+  );
   const missingIngredientMode = options.missingIngredientMode ?? "none";
 
   const allowed = canonicalPantryIngredients(
@@ -435,6 +453,7 @@ export function generateSmoothies(
     catalog,
     vegan,
     excludedAllergens,
+    excludedIngredientIds,
   );
   const strict = coreGenerate(allowed, count, seed).map((candidate) =>
     finalizeCandidate(candidate, []),
@@ -454,7 +473,12 @@ export function generateSmoothies(
       (ingredient) =>
         !pantryIdSet.has(ingredient.id) &&
         GENERATABLE_CATEGORIES.has(ingredient.category) &&
-        ingredientAllowed(ingredient, vegan, excludedAllergens),
+        ingredientAllowed(
+          ingredient,
+          vegan,
+          excludedAllergens,
+          excludedIngredientIds,
+        ),
     )
     .sort((left, right) =>
       left.id < right.id ? -1 : left.id > right.id ? 1 : 0,
