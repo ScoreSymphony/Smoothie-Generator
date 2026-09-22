@@ -1,6 +1,8 @@
 """Tests for serving quantities and offline nutrition aggregation."""
 
-import pytest\n\nfrom smoothie import (
+import pytest
+
+from smoothie import (
     GeneratedSmoothie,
     NutritionCalculator,
     QuantifiedIngredient,
