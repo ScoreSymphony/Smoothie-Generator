@@ -256,7 +256,7 @@ def main() -> None:
     with st.spinner("Passende Smoothies werden zusammengestellt …"):
         candidate_pool = SmoothieGenerator(catalog).generate(
             usable_ids,
-            count=100,
+            count=300,
             seed=st.session_state["generation_seed"],
             vegan=preferences.vegan,
             excluded_allergens=frozenset(
@@ -269,7 +269,7 @@ def main() -> None:
             for candidate in candidate_pool
             if candidate_allowed(candidate, preferences)
         ]
-        generated = rank_generated_candidates(
+        ranked_generated = rank_generated_candidates(
             candidate_pool,
             CandidateScorer(
                 catalog,
@@ -277,8 +277,14 @@ def main() -> None:
                 nutrition_catalog=nutrition_catalog,
             ),
             scoring_context_from_preferences(preferences, usable_ids),
-            limit=3,
+            limit=12,
         )
+        if ranked_generated:
+            page_count = (len(ranked_generated) + 2) // 3
+            page = st.session_state["generation_seed"] % page_count
+            generated = ranked_generated[page * 3 : page * 3 + 3]
+        else:
+            generated = []
 
         allowed_recipes = [
             recipe
