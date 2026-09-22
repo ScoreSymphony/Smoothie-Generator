@@ -45,21 +45,21 @@ jeweiligen Kategorie vorkommt:
 - `vegan`: 63 Rezepte
 - `würzig`: 3 Rezepte
 
-## Repräsentativer M9-Geschmackstest-Subset
+## Repräsentativer M9-Software-Regressions-Subset
 
-Der folgende feste Subset ist für die spätere physische Verhältnis- und
-Geschmackskontrolle in #10 / M9 vorgesehen:
+Für das finale technische Release-Gate wird ein fester Satz gespeicherter
+Rezepte automatisiert geladen, auf eine Portion quantifiziert und mit der
+lokalen Nährwertdatenbank aggregiert:
 
-- `strawberry_banana` — klassischer cremiger Frucht-Smoothie und Basisverhältnis
-- `tropical` — tropische Frucht-Säure- und Flüssigkeitsbalance
-- `green_mango` — grüner Smoothie mit Frucht-Gemüse-Balance
-- `berry_breakfast` — Frühstück, Hafer und Sättigung
-- `peanut_banana` — proteinreich, nussig und cremig
-- `watermelon_mint` — leichte erfrischende Konsistenz
-- `silken_tofu_mango` — vegane Proteinbasis mit Seidentofu
-- `apple_cucumber_fresh` — wenig cremige, frische Frucht-Gemüse-Kombination
+- `strawberry_banana`
+- `tropical`
+- `green_mango`
+- `berry_breakfast`
+- `peanut_banana`
+- `watermelon_mint`
+- `silken_tofu_mango`
+- `apple_cucumber_fresh`
 
-Die verbindlichen automatisierten Corpus-Checks werden in der TypeScript-Mobile-Codebasis
-unter M1/M3 aufgebaut. Sie sollen Umfang, IDs, Ingredient-Referenzen, Mengenstrukturen,
-Substitutionen, Dubletten, Kategorie-/Stilabdeckung, Pantry-Matches und diesen
-Validierungs-Subset prüfen.
+Der Test prüft ausschließlich Softwareverträge: lokale Verfügbarkeit, gültige
+Mengen und endliche/nichtnegative Nährwerte. Eine reale Verkostung oder
+physische Verhältnisprüfung ist kein Bestandteil von M9.
