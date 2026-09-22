@@ -11,24 +11,28 @@ function readJson(path) {
   return JSON.parse(readFileSync(join(root, path), "utf8"));
 }
 
+const SKIP_DIRECTORIES = new Set([
+  ".git",
+  "node_modules",
+  "dist",
+  ".expo",
+  "android",
+  "ios",
+  "coverage",
+]);
+
 function walk(directory) {
   const full = join(root, directory);
   if (!existsSync(full)) return [];
   return readdirSync(full).flatMap((name) => {
+    if (SKIP_DIRECTORIES.has(name)) return [];
     const path = join(full, name);
     if (statSync(path).isDirectory()) return walk(relative(root, path));
     return [relative(root, path).replaceAll("\\", "/")];
   });
 }
 
-const allFiles = walk(".");
-const activeFiles = allFiles.filter(
-  (path) =>
-    !path.startsWith(".git/") &&
-    !path.startsWith("node_modules/") &&
-    !path.startsWith("dist/") &&
-    !path.startsWith(".expo/"),
-);
+const activeFiles = walk(".");
 
 const forbidden = activeFiles.filter((path) => {
   const lower = path.toLowerCase();
