@@ -34,3 +34,19 @@ export {
   type GeneratedSmoothieRoleAssignment,
   type SmoothieGenerationOptions,
 } from "./smoothieGenerator";
+
+export {
+  DEFAULT_SCORING_WEIGHTS,
+  calculateLiquidRatio,
+  rankGeneratedCandidates,
+  scoreCompatibility,
+  scoreFlavorBalance,
+  scoreGeneratedCandidate,
+  type CandidateScore,
+  type RankGeneratedCandidateOptions,
+  type ScoreComponents,
+  type ScorePenalties,
+  type ScoringContext,
+  type ScoringGoal,
+  type ScoringWeights,
+} from "./candidateScoring";
