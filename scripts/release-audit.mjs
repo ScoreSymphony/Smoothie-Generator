@@ -62,13 +62,13 @@ function validatePng(path) {
   }
   if (
     bitDepth !== 8 ||
-    colorType !== 6 ||
+    ![3, 6].includes(colorType) ||
     compression !== 0 ||
     filterMethod !== 0 ||
     interlace !== 0
   ) {
     fail(
-      `application icon must use non-interlaced 8-bit RGBA PNG encoding compatible with Expo/Jimp: ${path}`,
+      `application icon must use non-interlaced 8-bit indexed or RGBA PNG encoding compatible with Expo/Jimp: ${path}`,
     );
   }
   if (idat.length === 0) {
@@ -82,7 +82,7 @@ function validatePng(path) {
     fail(`application icon PNG image data cannot be inflated: ${path}`);
   }
 
-  const bytesPerPixel = 4;
+  const bytesPerPixel = colorType === 6 ? 4 : 1;
   const rowLength = width * bytesPerPixel;
   const expectedLength = height * (rowLength + 1);
   if (raw.length !== expectedLength) {
@@ -98,7 +98,7 @@ function validatePng(path) {
     }
   }
 
-  return { width, height };
+  return { width, height, colorType };
 }
 
 const SKIP_DIRECTORIES = new Set([
@@ -246,7 +246,7 @@ if (dependencyNames.some((name) => /server|express|next|vite/i.test(name))) {
 console.log("Mobile release audit PASS");
 console.log(`- App version: ${app.version}`);
 console.log(`- Android versionCode: ${app.android.versionCode}`);
-console.log(`- App icon: ${iconPath} (${iconInfo.width}x${iconInfo.height} RGBA PNG)`);
+console.log(`- App icon: ${iconPath} (${iconInfo.width}x${iconInfo.height} PNG, color type ${iconInfo.colorType})`);
 console.log("- Android APK variant: release");
 console.log(`- Expo platforms: ${platforms.join(", ")}`);
 console.log(`- Ingredient corpus: ${ingredients.length}`);

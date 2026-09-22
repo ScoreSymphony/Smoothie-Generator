@@ -7,7 +7,7 @@ Korrektur-Release für das native App-/Launcher-Icon.
 - Das ausgewählte **Fruit-Fusion-Icon** wurde als standardkonformes,
   nicht-interlaced 8-Bit-RGBA-PNG mit transparentem Hintergrund neu encodiert.
 - Der Expo-/Android-Prebuild kann das Icon jetzt zuverlässig über Jimp verarbeiten.
-- Der Release-Audit validiert künftig PNG-Signatur, Abmessungen, RGBA-Encoding,
+- Die Mobile-CI führt zusätzlich den nativen Android-Prebuild aus.\n- Der Release-Audit validiert künftig PNG-Signatur, Abmessungen, RGBA-Encoding,
   IDAT-Daten und alle PNG-Scanline-Filter, bevor ein Release gebaut wird.
 - Damit wird die konkrete v1.0.2-Regression
   `Unrecognised filter type - 115` künftig bereits im PR-/Release-Audit blockiert.
