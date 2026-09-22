@@ -120,7 +120,7 @@ class NutritionCalculator:
             grams = self._to_grams(item)
             per_100g = self.nutrition_catalog.require(item.ingredient_id)
             total = total + per_100g.scaled(grams / 100.0)
-        return total.rounded()
+        return total
 
     def _to_grams(self, item: QuantifiedIngredient) -> float:
         amount = item.quantity.amount
