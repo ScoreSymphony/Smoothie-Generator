@@ -1,10 +1,22 @@
 # Optionale reale Smoothie-Validierung
 
-Dieser Schritt ist bewusst manuell und **nicht Bestandteil des Software-Release-Gates**. Die technische Version kann ohne physische Verkostung abgeschlossen und veröffentlicht werden. Dieses Dokument dient nur als optionales Werkzeug für spätere empirische Feinabstimmung.
+Dieser Schritt ist bewusst manuell und **nicht Bestandteil des Software-Release-Gates**.
+Die technische Mobile-Version kann ohne physische Verkostung abgeschlossen werden. Dieses
+Dokument dient als optionales Werkzeug für spätere empirische Feinabstimmung.
 
-Automatisierte Tests können prüfen, ob
-Mengen innerhalb definierter Grenzen liegen, aber nicht, ob ein Smoothie
-tatsächlich angenehm schmeckt oder die Textur stimmt.
+Automatisierte Tests können prüfen, ob Mengen innerhalb definierter Grenzen liegen, aber
+nicht, ob ein Smoothie tatsächlich angenehm schmeckt oder die Textur stimmt.
+
+## Mobile-only Grundsatz
+
+Die Referenzrezepte für diese Validierung müssen aus demselben TypeScript-Domainpfad
+stammen, den auch die installierte Handy-App verwendet. Ein separater Python-, Web- oder
+Server-Runner ist nicht Teil des Projekts.
+
+Für M9 soll der mobile Generator für die unten definierten Fälle einen reproduzierbaren
+Testmodus bzw. eine TypeScript-Testhilfe bereitstellen. Bis dieser Pfad in M4–M6
+implementiert ist, bleibt dieses Dokument ein Validierungsprotokoll und behauptet keine
+bereits verfügbare Referenzgenerierung.
 
 ## Vorgehen
 
@@ -12,8 +24,13 @@ Für jeden Test:
 
 1. Genannte Zutaten in der App auswählen. **Wasser und Eis nur aktivieren, wenn sie im Testfall ausdrücklich genannt sind.**
 2. Eine Portion einstellen.
-3. Den reproduzierbaren Referenzvorschlag mit `python -m scripts.prepare_real_world_validation R1` (entsprechend R2–R6) erzeugen. **Dieser Runner ist für den M9-Test die maßgebliche Referenz.** Er verwendet Seed 0, Standardpräferenzen und denselben Generator-/Scoring-/Mengenpfad wie die App.
-4. Der Runner wählt den bestbewerteten gültigen Kandidaten, der **alle im jeweiligen Testfall genannten Zutaten enthält**. So können charakteristische Zutaten wie Spinat, Erdnussmus, Chiasamen oder Ingwer nicht durch das Ranking aus dem eigentlichen Test verschwinden.
+3. Den reproduzierbaren Referenzvorschlag über den bis M9 implementierten mobilen
+   TypeScript-Testpfad erzeugen. Dafür gelten Seed 0, Standardpräferenzen und derselbe
+   Generator-/Scoring-/Mengenpfad wie in der App.
+4. Der Referenzfall soll den bestbewerteten gültigen Kandidaten verwenden, der **alle im
+   jeweiligen Testfall genannten Zutaten enthält**. So können charakteristische Zutaten
+   wie Spinat, Erdnussmus, Chiasamen oder Ingwer nicht durch das Ranking aus dem
+   eigentlichen Test verschwinden.
 5. Genau dieses Referenzrezept mit den ausgegebenen Mengen zubereiten.
 6. Nichts spontan korrigieren, bevor die erste Bewertung notiert wurde.
 7. Erst danach eine sinnvolle Korrektur ausprobieren und dokumentieren.
@@ -29,7 +46,11 @@ Für jeden Test:
 | R5 | Blaubeere, Banane, Chiasamen, Mandeldrink | Samen/Textur |
 | R6 | Orange, Mango, Orangensaft, Ingwer | säure-/intensitätsreicher Grenzfall |
 
-Die Vorratslisten sind **exakt** zu verstehen: keine stillschweigend zusätzlich aktivierten Grundzutaten. Für die Referenzvalidierung sind zugleich alle genannten Zutaten Pflichtbestandteile des Testrezepts. R1–R4 bilden bei freiwilliger manueller Validierung die Kernfälle. R5–R6 dienen zusätzlich dazu, Textur- und Intensitätsgrenzen zu prüfen. Keiner dieser Fälle ist Voraussetzung für den technischen Release.
+Die Vorratslisten sind **exakt** zu verstehen: keine stillschweigend zusätzlich
+aktivierten Grundzutaten. Für die Referenzvalidierung sind zugleich alle genannten Zutaten
+Pflichtbestandteile des Testrezepts. R1–R4 bilden bei freiwilliger manueller Validierung
+die Kernfälle. R5–R6 dienen zusätzlich dazu, Textur- und Intensitätsgrenzen zu prüfen.
+Keiner dieser Fälle ist Voraussetzung für den technischen Release.
 
 ## Bewertungsbogen
 
@@ -61,30 +82,7 @@ Zusätzlich notieren:
 
 ## Tuning-Regel
 
-Änderungen an Mengenregeln oder Scoring-Gewichten sollten erst vorgenommen
-werden, wenn ein Problem reproduzierbar ist. Ein einzelner persönlicher
-Geschmackswunsch sollte bevorzugt über die vorhandenen Präferenzen abgebildet
-werden, nicht über eine globale Regeländerung.
-
-
-## Reproduzierbare Referenzrezepte
-
-Alle aktuellen Referenzrezepte können direkt aus dem Repository erzeugt werden:
-
-```bash
-python -m scripts.prepare_real_world_validation
-```
-
-Nur einzelne Fälle:
-
-```bash
-python -m scripts.prepare_real_world_validation R1 R2 R3 R4
-```
-
-Maschinenlesbare Ausgabe:
-
-```bash
-python -m scripts.prepare_real_world_validation --json
-```
-
-Damit werden keine Geschmacksergebnisse vorweggenommen; das Skript friert nur die technischen Eingaben für den physischen Test reproduzierbar ein und stellt sicher, dass der jeweilige Testzweck tatsächlich im Rezept enthalten ist.
+Änderungen an Mengenregeln oder Scoring-Gewichten sollten erst vorgenommen werden, wenn
+ein Problem reproduzierbar ist. Ein einzelner persönlicher Geschmackswunsch sollte
+bevorzugt über die vorhandenen Präferenzen abgebildet werden, nicht über eine globale
+Regeländerung.

@@ -17,20 +17,12 @@ The Smoothie Generator is:
 - locally persistent on the device;
 - usable without a mandatory backend or paid API.
 
-It is **not** a Streamlit app, website, browser product, Docker-hosted service
-or localhost application.
+The active repository contains only the mobile application runtime, mobile
+tooling, curated local data and mobile-oriented documentation. The earlier
+Python/Streamlit prototype is retained only in Git history and is not part of
+the current source tree or product architecture.
 
-## Current migration status
-
-The previous implementation was a Python/Streamlit web application. That
-runtime is being replaced by the native mobile architecture tracked in
-[issue #11](https://github.com/ScoreSymphony/Smoothie-Generator/issues/11).
-
-The curated data and proven rule-based domain behavior remain valuable
-migration inputs, but the shipped application will use TypeScript/mobile
-implementations.
-
-Current mobile foundation:
+## Current mobile foundation
 
 - Expo SDK 57
 - React Native + TypeScript
@@ -51,8 +43,8 @@ Current mobile foundation:
 - Expo Go or a development build when running on a physical phone, depending
   on the feature set being tested
 
-No Python, Streamlit, Docker, browser server, Gemini, Unsplash or paid AI API
-is required for the mobile application.
+No browser product, local application server, Docker deployment or paid API is
+required for the mobile application.
 
 ## Setup
 
@@ -75,7 +67,7 @@ Check that the installed Expo package versions match the SDK:
 npx expo install --check
 ```
 
-Start the mobile development server:
+Start the Expo development tooling:
 
 ```bash
 npm start
@@ -93,8 +85,8 @@ iOS:
 npm run ios
 ```
 
-The development server is tooling for loading the native app during
-development; the end-user product itself is not a browser/web application.
+The development server is tooling for loading the native application during
+development. The end-user product itself is an installed phone app.
 
 ## Quality checks
 
@@ -112,15 +104,16 @@ npm run typecheck
 npm test
 ```
 
-## Target project structure
+## Project structure
 
 ```text
 Smoothie-Generator/
 ├── .github/
 │   └── workflows/
-├── __tests__/
-├── data/                 # curated migration source data
-├── docs/
+├── __tests__/            # TypeScript/React Native tests
+├── assets/               # native app assets and branding
+├── data/                 # curated local application data
+├── docs/                 # mobile-oriented project documentation
 ├── src/
 │   ├── app/              # Expo Router routes/screens
 │   ├── components/       # reusable native UI
@@ -136,14 +129,14 @@ Smoothie-Generator/
 └── README.md
 ```
 
-During the migration, the old Python domain modules may remain temporarily as
-a reference for porting tested behavior. They are not part of the target
-runtime and must be removed once their TypeScript replacements are complete.
+Some target folders are introduced as their corresponding roadmap milestones
+are implemented.
 
 ## Architecture rules
 
-- The shipped product is mobile-only.
-- No Streamlit or Python runtime is used by the shipped app.
+- The product is mobile-only.
+- Android and iOS are the only configured Expo platforms.
+- Runtime and domain implementation use TypeScript/React Native.
 - Domain logic is plain TypeScript and independent of React Native components.
 - Core matching, generation, scoring and nutrition work offline.
 - Curated application data is bundled locally.
@@ -175,7 +168,3 @@ for the binding roadmap.
 Open-source projects reviewed during planning are documented in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Code is reused only when its
 license permits it and required notices are preserved.
-
-## License
-
-See [LICENSE](LICENSE).

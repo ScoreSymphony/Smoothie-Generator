@@ -13,16 +13,16 @@ generation (for example coconut water, coconut drink and coconut milk).
 ## Category and subcategory model
 
 The stable top-level categories are deliberately broad because generator and scoring
-logic already depend on them. More specific groups are represented through
-`subcategory`, including:
+logic depend on them. More specific groups are represented through `subcategory`,
+including:
 
 - `vegetable` and `leafy_green` under `greens`;
 - `dairy` and `plant_based` under liquid or creamy bases;
 - `grain` under boosters;
 - `juice`, `tea`, `coffee` and `water` under liquids.
 
-This preserves backward compatibility while allowing coverage checks for the richer
-ingredient taxonomy.
+This keeps the taxonomy stable while allowing coverage checks for the richer ingredient
+model.
 
 ## Sensory and generation metadata
 
@@ -40,5 +40,6 @@ products vary substantially by brand and recipe. Values therefore serve recipe c
 and rough estimation only and should be updated conservatively when the ingredient catalog
 changes.
 
-Every canonical ingredient must have exactly one nutrition entry because the existing M6
-nutrition loader intentionally rejects missing or unknown ingredient IDs.
+Every canonical ingredient must have exactly one nutrition entry. The TypeScript mobile
+nutrition loader introduced under M6 must reject missing or unknown ingredient IDs so the
+offline catalog stays internally consistent.
