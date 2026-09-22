@@ -269,6 +269,7 @@ def rank_stored_matches_with_preferences(
     return sorted(
         matches,
         key=lambda match: (
+            not match.exact,
             -(match.score + bonus(match)),
             len(match.missing_required),
             match.recipe.id,
