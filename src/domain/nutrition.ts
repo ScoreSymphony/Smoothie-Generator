@@ -151,5 +151,5 @@ export function calculateNutrition(
     );
   }
 
-  return roundNutritionFacts(total);
+  return total;
 }
