@@ -2,23 +2,28 @@
   "expo": {
     "name": "Smoothie Generator",
     "slug": "smoothie-generator",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "icon": "./assets/branding/smoothie-generator-icon.png",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "scheme": "smoothie-generator",
-    "platforms": ["android", "ios"],
+    "platforms": [
+      "android",
+      "ios"
+    ],
     "android": {
       "package": "com.scoresymphony.smoothiegenerator",
-      "versionCode": 2,
+      "versionCode": 3,
       "icon": "./assets/branding/smoothie-generator-icon.png"
     },
     "ios": {
       "bundleIdentifier": "com.scoresymphony.smoothiegenerator",
-      "buildNumber": "2",
+      "buildNumber": "3",
       "supportsTablet": false
     },
-    "plugins": ["expo-router"],
+    "plugins": [
+      "expo-router"
+    ],
     "experiments": {
       "typedRoutes": true
     }
