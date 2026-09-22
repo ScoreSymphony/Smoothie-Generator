@@ -23,7 +23,7 @@ describe("<PantryScreen />", () => {
   });
 
   test("restores pantry state and supports touch selection", async () => {
-    const screen = render(<PantryScreen />);
+    const screen = await render(<PantryScreen />);
 
     const banana = await screen.findByLabelText("Banane auswählen");
     fireEvent.press(banana);
@@ -40,7 +40,7 @@ describe("<PantryScreen />", () => {
   });
 
   test("accepts alias-based free text and reports unknown terms", async () => {
-    const screen = render(<PantryScreen />);
+    const screen = await render(<PantryScreen />);
 
     await screen.findByText("Was hast du da?");
 
@@ -62,7 +62,7 @@ describe("<PantryScreen />", () => {
   });
 
   test("searches aliases and switches category filters", async () => {
-    const screen = render(<PantryScreen />);
+    const screen = await render(<PantryScreen />);
 
     await screen.findByText("Was hast du da?");
     fireEvent.changeText(screen.getByLabelText("Zutaten suchen"), "Heidel");
