@@ -10,7 +10,8 @@ paid AI service.
 
 ## Current status
 
-The application now implements the functional roadmap through **M8**:
+The application now implements the functional roadmap through **M8** and the
+technical parts of **M9**:
 
 - searchable pantry input with aliases and category filtering
 - curated stored recipes plus deterministic pantry matching
@@ -23,8 +24,15 @@ The application now implements the functional roadmap through **M8**:
 - private local recipe history
 - mobile-friendly actions, empty/error/loading states, and a lightweight theme
 - pytest and GitHub Actions CI
+- 42 representative strict-pantry quality scenarios
+- reproducible Docker Compose deployment bound to localhost only
+- automated fresh-deployment health check in CI
+- documented private backup/update procedure
 
 No external API is required for the core user flow.
+
+The only remaining M9 release gate is the physical taste/texture validation
+described in [docs/REAL_WORLD_VALIDATION_DE.md](docs/REAL_WORLD_VALIDATION_DE.md).
 
 ## Requirements
 
@@ -33,6 +41,27 @@ No external API is required for the core user flow.
 
 No Gemini, Unsplash, paid AI API, or other external service is required to
 start the application.
+
+## Empfohlener privater Start mit Docker
+
+Für die alltägliche Nutzung ist Docker Compose der empfohlene Weg:
+
+```bash
+docker compose up -d --build
+```
+
+Danach im Browser öffnen:
+
+```text
+http://127.0.0.1:8501
+```
+
+Die mitgelieferte Konfiguration bindet den Port ausschließlich an localhost.
+Persönliche Einstellungen, Favoriten und Verlauf werden im gitignorierten
+Ordner `private-data/` gespeichert.
+
+Update, Backup und Restore sind ausführlich dokumentiert in
+[docs/PRIVATE_DEPLOYMENT_DE.md](docs/PRIVATE_DEPLOYMENT_DE.md).
 
 ## Local setup
 
@@ -139,6 +168,17 @@ The project roadmap is tracked in GitHub issues:
 10. M9 — Final validation and private deployment
 
 See issue #11 for the complete roadmap and dependency graph.
+
+## Release validation
+
+The technical release audit is documented in
+[docs/RELEASE_AUDIT_M9.md](docs/RELEASE_AUDIT_M9.md). The automated gates
+include domain tests, the 42-scenario pantry quality set, Streamlit end-to-end
+smoke coverage, and a Docker Compose deployment health check.
+
+The final manual gate is physical recipe validation. Results should be recorded
+in [docs/REAL_WORLD_VALIDATION_DE.md](docs/REAL_WORLD_VALIDATION_DE.md) before
+Issue #10 is closed.
 
 ## Third-party references
 
