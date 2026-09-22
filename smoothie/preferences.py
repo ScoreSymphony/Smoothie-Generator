@@ -9,6 +9,7 @@ from typing import Any
 
 from .generator import GeneratedSmoothie
 from .ingredient_catalog import IngredientCatalog
+from .matcher import RecipeMatch
 from .recipes import Recipe
 from .scoring import ScoringContext
 
@@ -209,6 +210,9 @@ def scoring_context_from_preferences(
         for key, value in preferences.feedback.items()
         if value == FeedbackValue.LIKED and key.startswith("generated:")
     }
+    liked.update(
+        key for key in preferences.favorite_recipes if key.startswith("generated:")
+    )
     return ScoringContext(
         pantry_ids=frozenset(pantry_ids),
         preferred_ids=frozenset(preferences.favorite_ingredients),
@@ -231,3 +235,42 @@ def set_feedback(
 
 def clear_feedback(preferences: UserPreferences) -> None:
     preferences.feedback.clear()
+
+
+def rank_stored_matches_with_preferences(
+    matches: list[RecipeMatch],
+    preferences: UserPreferences,
+) -> list[RecipeMatch]:
+    """Apply small, transparent soft boosts without overriding pantry availability."""
+
+    def bonus(match: RecipeMatch) -> float:
+        key = stored_feedback_key(match.recipe)
+        value = 0.0
+        if key in preferences.favorite_recipes:
+            value += 0.08
+        if preferences.feedback.get(key) == FeedbackValue.LIKED:
+            value += 0.08
+        required = {item.ingredient_id for item in match.recipe.required}
+        if preferences.favorite_ingredients and required:
+            value += (
+                len(required & preferences.favorite_ingredients) / len(required)
+            ) * 0.05
+        goal_tags = {
+            "breakfast": "frühstück",
+            "protein_rich": "protein",
+            "refreshing": "frisch",
+            "filling": "sättigend",
+        }
+        for goal, tag in goal_tags.items():
+            if getattr(preferences, goal) and tag in match.recipe.tags:
+                value += 0.03
+        return min(value, 0.20)
+
+    return sorted(
+        matches,
+        key=lambda match: (
+            -(match.score + bonus(match)),
+            len(match.missing_required),
+            match.recipe.id,
+        ),
+    )
