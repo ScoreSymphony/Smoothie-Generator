@@ -643,5 +643,2428 @@
       "beeren",
       "samen"
     ]
+  },
+  {
+    "id": "pear_vanilla_oat",
+    "name_de": "Birne-Vanille-Hafer",
+    "required": [
+      {
+        "ingredient_id": "pear",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "vanilla",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "fruchtig",
+      "cremig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "peach_oat_breakfast",
+    "name_de": "Pfirsich-Hafer-Frühstück",
+    "required": [
+      {
+        "ingredient_id": "peach",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "oats",
+        "amount": 35,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 220,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "cinnamon",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "peach",
+        "alternatives": [
+          "nectarine"
+        ]
+      },
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "frühstück",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "nectarine_yogurt",
+    "name_de": "Nektarinen-Joghurt",
+    "required": [
+      {
+        "ingredient_id": "nectarine",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "yogurt",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 120,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "honey",
+        "amount": 1,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "nectarine",
+        "alternatives": [
+          "peach"
+        ]
+      },
+      {
+        "target_id": "yogurt",
+        "alternatives": [
+          "greek_yogurt",
+          "coconut_yogurt"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "fruchtig",
+      "cremig"
+    ]
+  },
+  {
+    "id": "kiwi_apple_fresh",
+    "name_de": "Kiwi-Apfel-Frische",
+    "required": [
+      {
+        "ingredient_id": "kiwi",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "apple",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 180,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "lemon_juice",
+        "amount": 1,
+        "unit": "EL"
+      },
+      {
+        "ingredient_id": "ice",
+        "amount": 4,
+        "unit": "Würfel"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "water",
+        "alternatives": [
+          "coconut_water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "fruchtig",
+      "frisch",
+      "vegan"
+    ]
+  },
+  {
+    "id": "watermelon_mint",
+    "name_de": "Wassermelone-Minze",
+    "required": [
+      {
+        "ingredient_id": "watermelon",
+        "amount": 220,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 160,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "mint",
+        "amount": 4,
+        "unit": "g"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "lemon_juice",
+        "amount": 1,
+        "unit": "EL"
+      },
+      {
+        "ingredient_id": "ice",
+        "amount": 5,
+        "unit": "Würfel"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "frisch",
+      "erfrischend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "watermelon_strawberry",
+    "name_de": "Wassermelone-Erdbeere",
+    "required": [
+      {
+        "ingredient_id": "watermelon",
+        "amount": 180,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "strawberry",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 140,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "lemon_juice",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "mint",
+        "amount": 3,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "water",
+        "alternatives": [
+          "coconut_water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "beeren",
+      "frisch",
+      "vegan"
+    ]
+  },
+  {
+    "id": "cherry_vanilla",
+    "name_de": "Kirsch-Vanille",
+    "required": [
+      {
+        "ingredient_id": "cherry",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "vanilla",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "fruchtig",
+      "cremig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "cherry_cocoa",
+    "name_de": "Kirsch-Kakao",
+    "required": [
+      {
+        "ingredient_id": "cherry",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cocoa",
+        "amount": 1,
+        "unit": "EL"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "dates",
+        "amount": 2,
+        "unit": "Stück"
+      }
+    ],
+    "optional": [],
+    "substitutions": [
+      {
+        "target_id": "almond_milk",
+        "alternatives": [
+          "oat_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "schokolade",
+      "fruchtig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "blackberry_pear",
+    "name_de": "Brombeer-Birne",
+    "required": [
+      {
+        "ingredient_id": "blackberry",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "pear",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 210,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "flax_seeds",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "blackberry",
+        "alternatives": [
+          "raspberry",
+          "blueberry"
+        ]
+      },
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "beeren",
+      "fruchtig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "raspberry_peach",
+    "name_de": "Himbeer-Pfirsich",
+    "required": [
+      {
+        "ingredient_id": "raspberry",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "peach",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 180,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "mint",
+        "amount": 3,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "peach",
+        "alternatives": [
+          "nectarine"
+        ]
+      },
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "beeren",
+      "frisch",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mango_coconut_yogurt",
+    "name_de": "Mango-Kokos-Joghurt",
+    "required": [
+      {
+        "ingredient_id": "mango",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_yogurt",
+        "amount": 130,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 140,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "tropisch",
+      "cremig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "pineapple_coconut_yogurt",
+    "name_de": "Ananas-Kokos-Joghurt",
+    "required": [
+      {
+        "ingredient_id": "pineapple",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_yogurt",
+        "amount": 130,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 140,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "mint",
+        "amount": 3,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "water",
+        "alternatives": [
+          "coconut_water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "tropisch",
+      "cremig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "kiwi_pineapple_green",
+    "name_de": "Kiwi-Ananas-Grün",
+    "required": [
+      {
+        "ingredient_id": "kiwi",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "pineapple",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "spinach",
+        "amount": 40,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 180,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "ginger",
+        "amount": 3,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "spinach",
+        "alternatives": [
+          "kale"
+        ]
+      },
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "grün",
+      "tropisch",
+      "frisch",
+      "vegan"
+    ]
+  },
+  {
+    "id": "apple_kale_ginger",
+    "name_de": "Apfel-Grünkohl-Ingwer",
+    "required": [
+      {
+        "ingredient_id": "apple",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "kale",
+        "amount": 35,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 200,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "ginger",
+        "amount": 4,
+        "unit": "g"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "lemon_juice",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "kale",
+        "alternatives": [
+          "spinach"
+        ]
+      },
+      {
+        "target_id": "water",
+        "alternatives": [
+          "coconut_water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "grün",
+      "frisch",
+      "vegan"
+    ]
+  },
+  {
+    "id": "pear_spinach",
+    "name_de": "Birne-Spinat",
+    "required": [
+      {
+        "ingredient_id": "pear",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "spinach",
+        "amount": 45,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 200,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "cinnamon",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "spinach",
+        "alternatives": [
+          "kale"
+        ]
+      },
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "grün",
+      "mild",
+      "vegan"
+    ]
+  },
+  {
+    "id": "cucumber_kiwi_mint",
+    "name_de": "Gurke-Kiwi-Minze",
+    "required": [
+      {
+        "ingredient_id": "cucumber",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "kiwi",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 180,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "mint",
+        "amount": 4,
+        "unit": "g"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "ice",
+        "amount": 4,
+        "unit": "Würfel"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "frisch",
+      "erfrischend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "avocado_mango",
+    "name_de": "Avocado-Mango",
+    "required": [
+      {
+        "ingredient_id": "avocado",
+        "amount": 0.5,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "mango",
+        "amount": 130,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 200,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "lemon_juice",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "optional": [],
+    "substitutions": [
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "cremig",
+      "tropisch",
+      "vegan"
+    ]
+  },
+  {
+    "id": "green_protein",
+    "name_de": "Grüner Protein-Smoothie",
+    "required": [
+      {
+        "ingredient_id": "spinach",
+        "amount": 40,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "protein_powder",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 230,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "hemp_seeds",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "spinach",
+        "alternatives": [
+          "kale"
+        ]
+      },
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "grün",
+      "protein",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "silken_tofu_mango",
+    "name_de": "Mango-Seidentofu",
+    "required": [
+      {
+        "ingredient_id": "silken_tofu",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "mango",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "orange_juice",
+        "amount": 160,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "ginger",
+        "amount": 3,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "orange_juice",
+        "alternatives": [
+          "coconut_water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "protein",
+      "tropisch",
+      "cremig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "silken_tofu_berry",
+    "name_de": "Beeren-Seidentofu",
+    "required": [
+      {
+        "ingredient_id": "silken_tofu",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "raspberry",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "blueberry",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 180,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "maple_syrup",
+        "amount": 1,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "raspberry",
+        "alternatives": [
+          "strawberry",
+          "blackberry"
+        ]
+      },
+      {
+        "target_id": "almond_milk",
+        "alternatives": [
+          "oat_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "protein",
+      "beeren",
+      "cremig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "almond_date_breakfast",
+    "name_de": "Mandel-Dattel-Frühstück",
+    "required": [
+      {
+        "ingredient_id": "almonds",
+        "amount": 20,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "dates",
+        "amount": 2,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "oats",
+        "amount": 35,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 240,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "cinnamon",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "frühstück",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "cashew_vanilla_banana",
+    "name_de": "Cashew-Vanille-Banane",
+    "required": [
+      {
+        "ingredient_id": "cashews",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "banana",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "vanilla",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "optional": [],
+    "substitutions": [
+      {
+        "target_id": "almond_milk",
+        "alternatives": [
+          "oat_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "cremig",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "apple_pear_oats",
+    "name_de": "Apfel-Birne-Hafer",
+    "required": [
+      {
+        "ingredient_id": "apple",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "pear",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oats",
+        "amount": 35,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 220,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "cinnamon",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "frühstück",
+      "fruchtig",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "berry_oat_vegan",
+    "name_de": "Veganes Beeren-Hafer-Frühstück",
+    "required": [
+      {
+        "ingredient_id": "blueberry",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "raspberry",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oats",
+        "amount": 35,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 220,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "raspberry",
+        "alternatives": [
+          "strawberry",
+          "blackberry"
+        ]
+      },
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "frühstück",
+      "beeren",
+      "vegan"
+    ]
+  },
+  {
+    "id": "peanut_cocoa_date",
+    "name_de": "Erdnuss-Kakao-Dattel",
+    "required": [
+      {
+        "ingredient_id": "peanut_butter",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cocoa",
+        "amount": 1,
+        "unit": "EL"
+      },
+      {
+        "ingredient_id": "dates",
+        "amount": 2,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 240,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "banana",
+        "amount": 0.5,
+        "unit": "Stück"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "protein",
+      "schokolade",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mango_protein_oat",
+    "name_de": "Mango-Protein-Hafer",
+    "required": [
+      {
+        "ingredient_id": "mango",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "protein_powder",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oats",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 230,
+        "unit": "ml"
+      }
+    ],
+    "optional": [],
+    "substitutions": [
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "protein",
+      "frühstück",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "cocoa_protein_banana",
+    "name_de": "Schoko-Protein-Banane",
+    "required": [
+      {
+        "ingredient_id": "banana",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "cocoa",
+        "amount": 1,
+        "unit": "EL"
+      },
+      {
+        "ingredient_id": "protein_powder",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 240,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "peanut_butter",
+        "amount": 15,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "almond_milk",
+        "alternatives": [
+          "oat_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "protein",
+      "schokolade",
+      "cremig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "hemp_berry",
+    "name_de": "Hanf-Beeren",
+    "required": [
+      {
+        "ingredient_id": "strawberry",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "blueberry",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "hemp_seeds",
+        "amount": 15,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 190,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "maple_syrup",
+        "amount": 1,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "strawberry",
+        "alternatives": [
+          "raspberry"
+        ]
+      },
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "protein",
+      "beeren",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mango_chia",
+    "name_de": "Mango-Chia",
+    "required": [
+      {
+        "ingredient_id": "mango",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 15,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 220,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "vanilla",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "almond_milk",
+        "alternatives": [
+          "oat_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "tropisch",
+      "samen",
+      "vegan"
+    ]
+  },
+  {
+    "id": "flax_pear_berry",
+    "name_de": "Birne-Brombeer-Leinsamen",
+    "required": [
+      {
+        "ingredient_id": "pear",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "blackberry",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "flax_seeds",
+        "amount": 12,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 210,
+        "unit": "ml"
+      }
+    ],
+    "optional": [],
+    "substitutions": [
+      {
+        "target_id": "blackberry",
+        "alternatives": [
+          "raspberry",
+          "blueberry"
+        ]
+      },
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "beeren",
+      "samen",
+      "vegan"
+    ]
+  },
+  {
+    "id": "citrus_kiwi",
+    "name_de": "Orange-Kiwi-Eis",
+    "required": [
+      {
+        "ingredient_id": "orange",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "kiwi",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "orange_juice",
+        "amount": 140,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "ice",
+        "amount": 4,
+        "unit": "Würfel"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "ginger",
+        "amount": 3,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "orange_juice",
+        "alternatives": [
+          "coconut_water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "fruchtig",
+      "frisch",
+      "erfrischend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "orange_strawberry",
+    "name_de": "Orange-Erdbeere",
+    "required": [
+      {
+        "ingredient_id": "orange",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "strawberry",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 170,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "mint",
+        "amount": 3,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "beeren",
+      "frisch",
+      "vegan"
+    ]
+  },
+  {
+    "id": "peach_orange",
+    "name_de": "Pfirsich-Orange",
+    "required": [
+      {
+        "ingredient_id": "peach",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "orange",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 160,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "ice",
+        "amount": 4,
+        "unit": "Würfel"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "peach",
+        "alternatives": [
+          "nectarine"
+        ]
+      },
+      {
+        "target_id": "water",
+        "alternatives": [
+          "coconut_water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "fruchtig",
+      "frisch",
+      "vegan"
+    ]
+  },
+  {
+    "id": "pineapple_ginger",
+    "name_de": "Ananas-Ingwer",
+    "required": [
+      {
+        "ingredient_id": "pineapple",
+        "amount": 160,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "ginger",
+        "amount": 4,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 180,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "lemon_juice",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "mint",
+        "amount": 3,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "tropisch",
+      "frisch",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mango_mint_ice",
+    "name_de": "Mango-Minze-Eis",
+    "required": [
+      {
+        "ingredient_id": "mango",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "mint",
+        "amount": 4,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 170,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "ice",
+        "amount": 5,
+        "unit": "Würfel"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "lemon_juice",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "tropisch",
+      "erfrischend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "apple_cucumber_fresh",
+    "name_de": "Apfel-Gurke-Frische",
+    "required": [
+      {
+        "ingredient_id": "apple",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cucumber",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 180,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "lemon_juice",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "mint",
+        "amount": 3,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "water",
+        "alternatives": [
+          "coconut_water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "frisch",
+      "erfrischend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "pear_cucumber",
+    "name_de": "Birne-Gurke",
+    "required": [
+      {
+        "ingredient_id": "pear",
+        "amount": 130,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cucumber",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 180,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "lemon_juice",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "fruchtig",
+      "frisch",
+      "vegan"
+    ]
+  },
+  {
+    "id": "berry_coconut_water",
+    "name_de": "Beeren-Kokoswasser",
+    "required": [
+      {
+        "ingredient_id": "strawberry",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "blackberry",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 200,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "mint",
+        "amount": 3,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "blackberry",
+        "alternatives": [
+          "raspberry",
+          "blueberry"
+        ]
+      },
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "beeren",
+      "erfrischend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "blackberry_vanilla_yogurt",
+    "name_de": "Brombeer-Vanille-Joghurt",
+    "required": [
+      {
+        "ingredient_id": "blackberry",
+        "amount": 110,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "yogurt",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "vanilla",
+        "amount": 0.5,
+        "unit": "TL"
+      },
+      {
+        "ingredient_id": "water",
+        "amount": 100,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "honey",
+        "amount": 1,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "blackberry",
+        "alternatives": [
+          "blueberry",
+          "raspberry"
+        ]
+      },
+      {
+        "target_id": "yogurt",
+        "alternatives": [
+          "greek_yogurt",
+          "coconut_yogurt"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "beeren",
+      "cremig"
+    ]
+  },
+  {
+    "id": "cherry_yogurt",
+    "name_de": "Kirsch-Joghurt",
+    "required": [
+      {
+        "ingredient_id": "cherry",
+        "amount": 120,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "greek_yogurt",
+        "amount": 130,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 120,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "honey",
+        "amount": 1,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "greek_yogurt",
+        "alternatives": [
+          "yogurt",
+          "coconut_yogurt"
+        ]
+      },
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "fruchtig",
+      "cremig",
+      "protein"
+    ]
+  },
+  {
+    "id": "peach_coconut_yogurt",
+    "name_de": "Pfirsich-Kokos-Joghurt",
+    "required": [
+      {
+        "ingredient_id": "peach",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_yogurt",
+        "amount": 130,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 140,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "chia_seeds",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "peach",
+        "alternatives": [
+          "nectarine"
+        ]
+      },
+      {
+        "target_id": "almond_milk",
+        "alternatives": [
+          "oat_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "cremig",
+      "fruchtig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "nectarine_almond",
+    "name_de": "Nektarine-Mandel",
+    "required": [
+      {
+        "ingredient_id": "nectarine",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almonds",
+        "amount": 20,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 220,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "vanilla",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "nectarine",
+        "alternatives": [
+          "peach"
+        ]
+      },
+      {
+        "target_id": "almond_milk",
+        "alternatives": [
+          "oat_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "fruchtig",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "mango_cashew",
+    "name_de": "Mango-Cashew",
+    "required": [
+      {
+        "ingredient_id": "mango",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "cashews",
+        "amount": 25,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 190,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "vanilla",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "tropisch",
+      "cremig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "apple_peanut",
+    "name_de": "Apfel-Erdnuss-Zimt",
+    "required": [
+      {
+        "ingredient_id": "apple",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "peanut_butter",
+        "amount": 20,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 220,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "cinnamon",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "dates",
+        "amount": 1,
+        "unit": "Stück"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "sättigend",
+      "cremig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "berry_almond_oats",
+    "name_de": "Beeren-Mandel-Hafer",
+    "required": [
+      {
+        "ingredient_id": "strawberry",
+        "amount": 80,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "blueberry",
+        "amount": 70,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almonds",
+        "amount": 20,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "oats",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "almond_milk",
+        "amount": 220,
+        "unit": "ml"
+      }
+    ],
+    "optional": [],
+    "substitutions": [
+      {
+        "target_id": "strawberry",
+        "alternatives": [
+          "raspberry"
+        ]
+      },
+      {
+        "target_id": "almond_milk",
+        "alternatives": [
+          "oat_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "beeren",
+      "frühstück",
+      "sättigend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "tropical_tofu_protein",
+    "name_de": "Tropischer Tofu-Protein-Smoothie",
+    "required": [
+      {
+        "ingredient_id": "pineapple",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "silken_tofu",
+        "amount": 90,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "mango",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 170,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "ginger",
+        "amount": 3,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "tropisch",
+      "protein",
+      "cremig",
+      "vegan"
+    ]
+  },
+  {
+    "id": "cucumber_pineapple_refresh",
+    "name_de": "Gurke-Ananas-Erfrischung",
+    "required": [
+      {
+        "ingredient_id": "cucumber",
+        "amount": 110,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "pineapple",
+        "amount": 130,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "coconut_water",
+        "amount": 180,
+        "unit": "ml"
+      },
+      {
+        "ingredient_id": "lemon_juice",
+        "amount": 1,
+        "unit": "EL"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "mint",
+        "amount": 3,
+        "unit": "g"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "coconut_water",
+        "alternatives": [
+          "water"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "frisch",
+      "tropisch",
+      "erfrischend",
+      "vegan"
+    ]
+  },
+  {
+    "id": "banana_vanilla_yogurt",
+    "name_de": "Banane-Vanille-Joghurt",
+    "required": [
+      {
+        "ingredient_id": "banana",
+        "amount": 1,
+        "unit": "Stück"
+      },
+      {
+        "ingredient_id": "yogurt",
+        "amount": 140,
+        "unit": "g"
+      },
+      {
+        "ingredient_id": "vanilla",
+        "amount": 0.5,
+        "unit": "TL"
+      },
+      {
+        "ingredient_id": "oat_milk",
+        "amount": 140,
+        "unit": "ml"
+      }
+    ],
+    "optional": [
+      {
+        "ingredient_id": "cinnamon",
+        "amount": 0.5,
+        "unit": "TL"
+      }
+    ],
+    "substitutions": [
+      {
+        "target_id": "yogurt",
+        "alternatives": [
+          "greek_yogurt",
+          "coconut_yogurt"
+        ]
+      },
+      {
+        "target_id": "oat_milk",
+        "alternatives": [
+          "almond_milk"
+        ]
+      }
+    ],
+    "instructions_de": [
+      "Alle Zutaten in den Mixer geben.",
+      "Cremig mixen und direkt servieren."
+    ],
+    "tags": [
+      "cremig",
+      "mild"
+    ]
   }
 ]
