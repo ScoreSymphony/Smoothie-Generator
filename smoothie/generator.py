@@ -53,7 +53,13 @@ class SmoothieGenerator:
         # A liquid must materially contribute fluid; very dry/high-intensity combinations are rejected.
         if liquid.water_contribution < 3: return False
         if sum(x.intensity >= 5 for x in chosen) > 1: return False
-        tags=[set(x.compatibility_tags) for x in chosen if x.compatibility_tags]
-        # If ingredients declare compatibility vocabulary, require at least some shared affinity.
-        if len(tags)>=2 and not any(a & b for i,a in enumerate(tags) for b in tags[i+1:]): return False
+        ids = {item.id for item in chosen}
+        for item in chosen:
+            blocked = {
+                tag.split(":", 1)[1]
+                for tag in item.compatibility_tags
+                if tag.startswith("avoid:")
+            }
+            if blocked & ids:
+                return False
         return True
