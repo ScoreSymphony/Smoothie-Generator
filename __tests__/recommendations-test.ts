@@ -28,6 +28,25 @@ describe("mobile recommendation view model", () => {
     ).toBe(true);
   });
 
+  test("cycles to a different recommendation set on the next page", () => {
+    const firstPage = buildRecommendations(
+      pantry,
+      DEFAULT_USER_PREFERENCES,
+      17,
+      0,
+    );
+    const secondPage = buildRecommendations(
+      pantry,
+      DEFAULT_USER_PREFERENCES,
+      17,
+      1,
+    );
+
+    expect(secondPage.map((item) => item.key)).not.toEqual(
+      firstPage.map((item) => item.key),
+    );
+  });
+
   test("stored recommendation exposes quantities, availability and instructions", () => {
     const item = resolveRecommendationKey(
       "stored:strawberry_banana",

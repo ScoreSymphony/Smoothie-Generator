@@ -60,6 +60,18 @@ describe("<SuggestionsScreen />", () => {
       pathname: "/recipe",
       params: { key: expected.key },
     });
-    screen.getByText("Andere Kombinationen");
+
+    const alternate = buildRecommendations(
+      pantry,
+      DEFAULT_USER_PREFERENCES,
+      17,
+      1,
+    )[0];
+    const button = screen.getByLabelText(
+      "Andere Smoothie-Kombinationen erzeugen",
+    );
+    fireEvent.press(button);
+
+    await screen.findByLabelText(`${alternate.title} öffnen`);
   });
 });
