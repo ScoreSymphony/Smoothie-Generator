@@ -900,7 +900,7 @@
     "roles": [
       "sweetener"
     ],
-    "vegan": true,
+    "vegan": false,
     "allergens": [],
     "typical_amount": {
       "min": 5,
