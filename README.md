@@ -10,17 +10,21 @@ paid AI service.
 
 ## Current status
 
-This repository currently contains the **M0 project foundation**:
+The application now implements the functional roadmap through **M8**:
 
-- Streamlit application shell
-- modular Python package structure
-- local data directory
-- pytest smoke test using Streamlit's test harness
-- GitHub Actions CI
-- third-party attribution policy
+- searchable pantry input with aliases and category filtering
+- curated stored recipes plus deterministic pantry matching
+- rule-based generation from available ingredients
+- transparent scoring and recommendation ranking
+- serving-scaled quantities and fully offline approximate nutrition
+- private local preferences, restrictions, favorites, and feedback
+- polished German recipe cards with preparation instructions
+- alternative recommendation pages
+- private local recipe history
+- mobile-friendly actions, empty/error/loading states, and a lightweight theme
+- pytest and GitHub Actions CI
 
-The ingredient model and actual smoothie features are implemented in later
-roadmap issues.
+No external API is required for the core user flow.
 
 ## Requirements
 
@@ -75,12 +79,12 @@ Streamlit will print the local URL, usually `http://localhost:8501`.
 Run the test suite with:
 
 ```bash
-pytest -q
+python -m pytest -q
 ```
 
-The initial smoke test executes `app.py` through
-`streamlit.testing.v1.AppTest` and verifies that the application starts
-without an exception.
+The test suite covers the domain logic, persistence, ranking, quantities,
+nutrition, personalization, recommendation alternatives, and the Streamlit
+user flow through `streamlit.testing.v1.AppTest`.
 
 ## Project structure
 

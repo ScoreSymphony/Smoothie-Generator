@@ -2,18 +2,24 @@
 
 import streamlit as st
 
-from components.preferences_panel import render_preference_panel, render_recipe_feedback
+from components.preferences_panel import render_preference_panel
+from components.recipe_cards import (
+    render_generated_recipe_card,
+    render_library,
+    render_stored_recipe_card,
+)
 from smoothie import (
     CandidateScorer,
     IngredientCategory,
     NutritionCalculator,
     PreferenceStore,
     QuantityCalculator,
+    RecipeHistoryStore,
     ScoringWeights,
     SmoothieGenerator,
+    UserPreferences,
     candidate_allowed,
     filter_pantry,
-    generated_feedback_key,
     load_ingredient_catalog,
     load_nutrition_catalog,
     load_recipe_catalog,
@@ -23,7 +29,6 @@ from smoothie import (
     rank_stored_matches_with_preferences,
     recipe_allowed,
     scoring_context_from_preferences,
-    stored_feedback_key,
 )
 
 CATEGORY_LABELS = {
@@ -47,27 +52,78 @@ def _init_session() -> None:
     st.session_state.setdefault("servings", 2)
     st.session_state.setdefault("always_water", True)
     st.session_state.setdefault("always_ice", False)
+    st.session_state.setdefault("generation_seed", 0)
+    st.session_state.setdefault("selected_recipe_key", None)
+
+
+def _select_generated_page(ranked, seed: int, page_size: int = 3):
+    """Return a deterministic alternatives page from ranked candidates."""
+    if page_size < 1:
+        raise ValueError("page_size must be positive")
+    if not ranked:
+        return []
+    page_count = (len(ranked) + page_size - 1) // page_size
+    page = seed % page_count
+    start = page * page_size
+    return ranked[start : start + page_size]
+
+
+def _load_preferences(store: PreferenceStore) -> UserPreferences:
+    if "preferences" in st.session_state:
+        return st.session_state["preferences"]
+    try:
+        preferences = store.load()
+    except ValueError:
+        st.warning(
+            "Die lokalen persönlichen Einstellungen konnten nicht gelesen werden. "
+            "Für diese Sitzung werden Standardwerte verwendet."
+        )
+        preferences = UserPreferences()
+    st.session_state["preferences"] = preferences
+    return preferences
 
 
 def main() -> None:
-    st.set_page_config(page_title="Smoothie Generator", page_icon="🥤", layout="centered")
+    st.set_page_config(
+        page_title="Smoothie Generator",
+        page_icon="🥤",
+        layout="centered",
+        initial_sidebar_state="collapsed",
+    )
     _init_session()
-    catalog = load_ingredient_catalog()
-    ingredients = catalog.all()
+
+    try:
+        catalog = load_ingredient_catalog()
+        ingredients = catalog.all()
+        recipes = load_recipe_catalog(ingredient_catalog=catalog)
+        nutrition_catalog = load_nutrition_catalog(ingredient_catalog=catalog)
+    except ValueError:
+        st.error(
+            "Die lokalen Rezeptdaten konnten nicht geladen werden. "
+            "Bitte prüfe die Installation der App."
+        )
+        st.stop()
+
     by_id = {item.id: item for item in ingredients}
     quantity_calculator = QuantityCalculator(catalog)
-    nutrition_catalog = load_nutrition_catalog(ingredient_catalog=catalog)
     nutrition_calculator = NutritionCalculator(catalog, nutrition_catalog)
     preference_store = PreferenceStore()
-    if "preferences" not in st.session_state:
-        st.session_state["preferences"] = preference_store.load()
-    preferences = st.session_state["preferences"]
+    history_store = RecipeHistoryStore()
+    preferences = _load_preferences(preference_store)
 
     st.title("Smoothie Generator")
-    st.write("Was hast du gerade zu Hause? Wähle deine Zutaten aus.")
-    preferences = render_preference_panel(preferences, preference_store, ingredients)
+    st.write(
+        "Aus deinen vorhandenen Zutaten werden passende Smoothies zusammengestellt – "
+        "ohne zusätzliche Einkäufe und ohne externe Dienste."
+    )
 
-    query = st.text_input("Zutaten suchen", placeholder="z. B. Banane, Haferdrink oder Spinat")
+    st.subheader("1. Zutaten auswählen")
+    st.caption("Wähle aus, was gerade zu Hause ist. Wasser kann als Grundzutat mitgerechnet werden.")
+
+    query = st.text_input(
+        "Zutaten suchen",
+        placeholder="z. B. Banane, Haferdrink oder Spinat",
+    )
     normalized_query = catalog.normalize(query)
     visible = [
         item
@@ -78,12 +134,16 @@ def main() -> None:
     ]
 
     category_options = [
-        category for category in IngredientCategory if any(i.category == category for i in visible)
+        category
+        for category in IngredientCategory
+        if any(item.category == category for item in visible)
     ]
     selected_category = st.selectbox(
-        "Kategorie",
+        "Kategorie filtern",
         options=[None, *category_options],
-        format_func=lambda value: "Alle Kategorien" if value is None else CATEGORY_LABELS[value],
+        format_func=lambda value: (
+            "Alle Kategorien" if value is None else CATEGORY_LABELS[value]
+        ),
     )
     if selected_category is not None:
         visible = [item for item in visible if item.category == selected_category]
@@ -93,15 +153,26 @@ def main() -> None:
     chosen = st.multiselect(
         "Vorhandene Zutaten",
         options=[item.id for item in visible],
-        default=[item_id for item_id in st.session_state.pantry_ids if item_id in visible_ids],
+        default=[
+            item_id
+            for item_id in st.session_state.pantry_ids
+            if item_id in visible_ids
+        ],
         format_func=lambda item_id: labels[item_id],
         placeholder="Zutaten auswählen",
     )
-    retained = [item_id for item_id in st.session_state.pantry_ids if item_id not in visible_ids]
+    retained = [
+        item_id
+        for item_id in st.session_state.pantry_ids
+        if item_id not in visible_ids
+    ]
     st.session_state.pantry_ids = list(dict.fromkeys([*retained, *chosen]))
 
     with st.expander("Weitere Zutaten als Text eingeben"):
-        free_text = st.text_area("Freie Eingabe", placeholder="z. B. Banane, Haferdrink, Mango")
+        free_text = st.text_area(
+            "Freie Eingabe",
+            placeholder="z. B. Banane, Haferdrink, Mango",
+        )
         if st.button("Eingabe hinzufügen", use_container_width=True):
             resolved, unknown = parse_free_text(free_text, catalog)
             st.session_state.pantry_ids = list(
@@ -112,14 +183,19 @@ def main() -> None:
             if unknown:
                 st.warning("Nicht erkannt: " + ", ".join(unknown))
 
-    st.subheader("Grundausstattung")
-    col1, col2 = st.columns(2)
-    with col1:
-        st.checkbox("Wasser immer vorhanden", key="always_water")
-    with col2:
-        st.checkbox("Eis immer vorhanden", key="always_ice")
+    basics_left, basics_right = st.columns(2)
+    with basics_left:
+        st.checkbox("Wasser ist vorhanden", key="always_water")
+    with basics_right:
+        st.checkbox("Eiswürfel sind vorhanden", key="always_ice")
 
-    st.number_input("Portionen", min_value=1, max_value=12, step=1, key="servings")
+    st.number_input(
+        "Für wie viele Portionen?",
+        min_value=1,
+        max_value=12,
+        step=1,
+        key="servings",
+    )
 
     selected_ids = list(st.session_state.pantry_ids)
     if st.session_state.always_water and "water" not in selected_ids:
@@ -127,132 +203,162 @@ def main() -> None:
     if st.session_state.always_ice and "ice" not in selected_ids:
         selected_ids.append("ice")
 
-    usable_ids = filter_pantry(selected_ids, preferences, catalog)
-    blocked_ids = [item_id for item_id in selected_ids if item_id not in usable_ids]
-
-    st.subheader("Deine Auswahl")
-    if selected_ids:
-        st.write(", ".join(by_id[item_id].name_de for item_id in selected_ids))
-        st.caption(f"{len(selected_ids)} Zutaten · {st.session_state.servings} Portion(en)")
-        if blocked_ids:
+    if st.session_state.pantry_ids:
+        with st.expander("Aktuelle Auswahl", expanded=False):
+            st.write(", ".join(by_id[item_id].name_de for item_id in selected_ids))
             st.caption(
-                "Durch persönliche Einschränkungen ausgeschlossen: "
-                + ", ".join(by_id[item_id].name_de for item_id in blocked_ids)
+                f"{len(selected_ids)} berücksichtigte Zutaten · "
+                f"{st.session_state.servings} Portion(en)"
             )
-    else:
-        st.info("Wähle mindestens eine Zutat aus.")
 
-    if st.button("Auswahl zurücksetzen", use_container_width=True):
+    if st.button("Zutatenauswahl zurücksetzen", use_container_width=True):
         st.session_state.pantry_ids = []
+        st.session_state["selected_recipe_key"] = None
         st.rerun()
 
-    st.divider()
-    st.subheader("Neu aus deinen Zutaten generiert")
-    candidate_pool = SmoothieGenerator(catalog).generate(
-        usable_ids,
-        count=100,
-        seed=0,
-        vegan=preferences.vegan,
-        excluded_allergens=frozenset(
-            preferences.allergies | ({"milk"} if preferences.dairy_free else set())
-        ),
+    st.subheader("2. Vorlieben & Einschränkungen")
+    st.caption(
+        "Optional: Favoriten, Allergien oder gewünschte Eigenschaften beeinflussen "
+        "die Vorschläge und bleiben nur lokal gespeichert."
     )
-    candidate_pool = [
-        candidate
-        for candidate in candidate_pool
-        if candidate_allowed(candidate, preferences)
-    ]
-    generated = rank_generated_candidates(
-        candidate_pool,
-        CandidateScorer(
-            catalog,
-            ScoringWeights(preference_fit=2.0),
-            nutrition_catalog=nutrition_catalog,
-        ),
-        scoring_context_from_preferences(preferences, usable_ids),
-        limit=3,
+    preferences = render_preference_panel(
+        preferences,
+        preference_store,
+        ingredients,
     )
-    if generated:
-        for index, scored in enumerate(generated, 1):
-            candidate = scored.candidate
-            with st.container(border=True):
-                st.markdown(f"**Vorschlag {index} · {scored.total:.0f}/100**")
-                quantified = quantity_calculator.for_generated(
-                    candidate,
-                    servings=st.session_state.servings,
-                )
-                quantities = ", ".join(
-                    f"{by_id[item.ingredient_id].name_de} "
-                    f"({item.quantity.amount:g} {item.quantity.label_de})"
-                    for item in quantified.ingredients
-                )
-                st.write(quantities)
-                role_text = ", ".join(
-                    f"{by_id[item_id].name_de}: {role.replace('_', ' ')}"
-                    for item_id, role in candidate.roles
-                )
-                st.caption(role_text)
-                facts = nutrition_calculator.calculate(quantified.ingredients).rounded()
-                st.caption(
-                    f"ca. {facts.calories:g} kcal · {facts.protein_g:g} g Protein · "
-                    f"{facts.carbohydrates_g:g} g Kohlenhydrate · {facts.sugar_g:g} g Zucker · "
-                    f"{facts.fat_g:g} g Fett · {facts.fiber_g:g} g Ballaststoffe"
-                )
-                st.caption(" · ".join(scored.explanations))
-                render_recipe_feedback(
-                    generated_feedback_key(candidate),
-                    preferences,
-                    preference_store,
-                )
-    else:
-        st.caption(
-            "Für eine Generierung brauchst du mindestens Obst oder Beeren und eine passende Flüssigkeit."
+
+    usable_ids = filter_pantry(selected_ids, preferences, catalog)
+    blocked_ids = [item_id for item_id in selected_ids if item_id not in usable_ids]
+    if blocked_ids:
+        st.info(
+            "Nicht verwendet wegen deiner Einstellungen: "
+            + ", ".join(by_id[item_id].name_de for item_id in blocked_ids)
         )
 
-    st.subheader("Passende gespeicherte Rezepte")
-    recipes = [
-        recipe
-        for recipe in load_recipe_catalog(ingredient_catalog=catalog)
-        if recipe_allowed(recipe, preferences, catalog)
-    ]
-    matches = rank_stored_matches_with_preferences(
-        rank_recipes(recipes, set(usable_ids)),
-        preferences,
+    if not st.session_state.pantry_ids:
+        st.subheader("3. Deine Vorschläge")
+        st.info(
+            "Wähle zuerst mindestens eine Hauptzutat aus. Danach erscheinen hier "
+            "passende Smoothies."
+        )
+        render_library(
+            preferences,
+            preference_store,
+            history_store,
+            stored_titles={recipe.id: recipe.name_de for recipe in recipes},
+            by_id=by_id,
+        )
+        return
+
+    st.subheader("3. Deine Vorschläge")
+    st.caption(
+        "Die Mengen werden automatisch auf deine gewählte Portionszahl angepasst. "
+        "Nährwerte sind Näherungswerte."
     )
-    for match in matches[:5]:
-        percent = round(match.score * 100)
-        with st.container(border=True):
-            st.markdown(f"**{match.recipe.name_de} · {percent}% verfügbar**")
+
+    if st.button(
+        "Andere Vorschläge generieren",
+        key="generate-alternatives",
+        use_container_width=True,
+    ):
+        st.session_state["generation_seed"] += 1
+        st.session_state["selected_recipe_key"] = None
+        st.rerun()
+
+    with st.spinner("Passende Smoothies werden zusammengestellt …"):
+        candidate_pool = SmoothieGenerator(catalog).generate(
+            usable_ids,
+            count=300,
+            seed=st.session_state["generation_seed"],
+            vegan=preferences.vegan,
+            excluded_allergens=frozenset(
+                preferences.allergies
+                | ({"milk"} if preferences.dairy_free else set())
+            ),
+        )
+        candidate_pool = [
+            candidate
+            for candidate in candidate_pool
+            if candidate_allowed(candidate, preferences)
+        ]
+        ranked_generated = rank_generated_candidates(
+            candidate_pool,
+            CandidateScorer(
+                catalog,
+                ScoringWeights(preference_fit=2.0),
+                nutrition_catalog=nutrition_catalog,
+            ),
+            scoring_context_from_preferences(preferences, usable_ids),
+            limit=12,
+        )
+        generated = _select_generated_page(
+            ranked_generated,
+            st.session_state["generation_seed"],
+        )
+
+        allowed_recipes = [
+            recipe
+            for recipe in recipes
+            if recipe_allowed(recipe, preferences, catalog)
+        ]
+        stored_matches = rank_stored_matches_with_preferences(
+            rank_recipes(allowed_recipes, set(usable_ids)),
+            preferences,
+        )
+
+    st.markdown("#### Für dich generiert")
+    if generated:
+        for scored in generated:
+            quantified = quantity_calculator.for_generated(
+                scored.candidate,
+                servings=st.session_state.servings,
+            )
+            facts = nutrition_calculator.calculate(quantified.ingredients)
+            render_generated_recipe_card(
+                scored,
+                quantified,
+                facts,
+                by_id=by_id,
+                preferences=preferences,
+                preference_store=preference_store,
+                history_store=history_store,
+            )
+    else:
+        st.warning(
+            "Mit der aktuellen Auswahl und deinen Einschränkungen konnte kein "
+            "passender neuer Smoothie zusammengestellt werden. Ergänze z. B. Obst "
+            "oder Beeren und eine Flüssigkeit."
+        )
+
+    st.markdown("#### Passende gespeicherte Rezepte")
+    if stored_matches:
+        for match in stored_matches[:4]:
             quantified_recipe = quantity_calculator.for_stored(
                 match.recipe,
                 servings=st.session_state.servings,
             )
-            required = ", ".join(
-                f"{by_id[item.ingredient_id].name_de} "
-                f"({item.quantity.amount:g} {item.quantity.label_de})"
-                for item in quantified_recipe.required
+            facts = nutrition_calculator.calculate(quantified_recipe.required)
+            render_stored_recipe_card(
+                match,
+                quantified_recipe,
+                facts,
+                by_id=by_id,
+                preferences=preferences,
+                preference_store=preference_store,
+                history_store=history_store,
             )
-            st.write("Benötigt: " + required)
-            facts = nutrition_calculator.calculate(quantified_recipe.required).rounded()
-            st.caption(
-                f"ca. {facts.calories:g} kcal · {facts.protein_g:g} g Protein · "
-                f"{facts.carbohydrates_g:g} g Kohlenhydrate · {facts.sugar_g:g} g Zucker · "
-                f"{facts.fat_g:g} g Fett · {facts.fiber_g:g} g Ballaststoffe"
-            )
-            if match.missing_required:
-                missing = ", ".join(by_id[item_id].name_de for item_id in match.missing_required)
-                st.caption("Fehlt: " + missing)
-            if match.substitutions_used:
-                substitutions = ", ".join(
-                    f"{by_id[target].name_de} → {by_id[replacement].name_de}"
-                    for target, replacement in match.substitutions_used
-                )
-                st.caption("Mögliche Ersetzung: " + substitutions)
-            render_recipe_feedback(
-                stored_feedback_key(match.recipe),
-                preferences,
-                preference_store,
-            )
+    else:
+        st.info(
+            "Kein gespeichertes Rezept passt zu den aktuellen Einschränkungen."
+        )
+
+    render_library(
+        preferences,
+        preference_store,
+        history_store,
+        stored_titles={recipe.id: recipe.name_de for recipe in recipes},
+        by_id=by_id,
+    )
 
 
 if __name__ == "__main__":
