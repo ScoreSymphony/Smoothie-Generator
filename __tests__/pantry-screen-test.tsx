@@ -1,6 +1,12 @@
 import { fireEvent, render, waitFor } from "@testing-library/react-native";
 
 import PantryScreen from "@/app/pantry";
+
+const mockPush = jest.fn();
+
+jest.mock("expo-router", () => ({
+  useRouter: () => ({ push: mockPush }),
+}));
 import { loadPantryState, savePantryState } from "@/storage/pantryStorage";
 
 jest.mock("@/storage/pantryStorage", () => ({
@@ -14,6 +20,7 @@ const mockedSave = savePantryState as jest.MockedFunction<typeof savePantryState
 describe("<PantryScreen />", () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    mockPush.mockReset();
     mockedLoad.mockResolvedValue({
       selectedIds: [],
       alwaysAvailableIds: ["water", "ice"],
@@ -59,6 +66,17 @@ describe("<PantryScreen />", () => {
     );
 
     screen.getByText("Nicht erkannt: Mystery");
+  });
+
+  test("continues from pantry to preferences and recommendations", async () => {
+    const screen = await render(<PantryScreen />);
+
+    await screen.findByText("Was hast du da?");
+    await fireEvent.press(screen.getByText("Vorlieben einstellen"));
+    expect(mockPush).toHaveBeenCalledWith("/settings");
+
+    await fireEvent.press(screen.getByText("Empfehlungen anzeigen"));
+    expect(mockPush).toHaveBeenCalledWith("/suggestions");
   });
 
   test("searches aliases and switches category filters", async () => {
