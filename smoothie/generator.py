@@ -19,7 +19,7 @@ class SmoothieGenerator:
                  vegan: bool=False, excluded_allergens=frozenset()) -> list[GeneratedSmoothie]:
         allowed=[]
         allergens=set(excluded_allergens)
-        for item_id in dict.fromkeys(pantry_ids):
+        for item_id in sorted(set(pantry_ids)):
             ingredient=self.catalog.resolve(item_id)
             if ingredient is None: continue
             if vegan and not ingredient.vegan: continue
