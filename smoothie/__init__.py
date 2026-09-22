@@ -1,7 +1,6 @@
-"""Core Smoothie Generator domain package.
+"""Core Smoothie Generator domain package."""
 
-This package must remain independent from Streamlit so domain logic can be
-tested and reused without the UI.
-"""
+from .ingredient_catalog import IngredientCatalog, load_ingredient_catalog
+from .ingredients import AmountRange, Ingredient, IngredientCategory
 
-__all__: list[str] = []
+__all__=["AmountRange","Ingredient","IngredientCatalog","IngredientCategory","load_ingredient_catalog"]
