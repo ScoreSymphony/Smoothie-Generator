@@ -10,10 +10,11 @@ Für jeden Test:
 
 1. Genannte Zutaten in der App auswählen. **Wasser und Eis nur aktivieren, wenn sie im Testfall ausdrücklich genannt sind.**
 2. Eine Portion einstellen.
-3. Für einen reproduzierbaren Referenzvorschlag alternativ `python -m scripts.prepare_real_world_validation R1` (entsprechend R2–R6) ausführen. Das Skript verwendet exakt Seed 0, Standardpräferenzen und denselben Generator-/Scoring-/Mengenpfad wie die App.
-4. Den obersten generierten Vorschlag exakt mit den angezeigten Mengen zubereiten.
-5. Nichts spontan korrigieren, bevor die erste Bewertung notiert wurde.
-6. Erst danach eine sinnvolle Korrektur ausprobieren und dokumentieren.
+3. Den reproduzierbaren Referenzvorschlag mit `python -m scripts.prepare_real_world_validation R1` (entsprechend R2–R6) erzeugen. **Dieser Runner ist für den M9-Test die maßgebliche Referenz.** Er verwendet Seed 0, Standardpräferenzen und denselben Generator-/Scoring-/Mengenpfad wie die App.
+4. Der Runner wählt den bestbewerteten gültigen Kandidaten, der **alle im jeweiligen Testfall genannten Zutaten enthält**. So können charakteristische Zutaten wie Spinat, Erdnussmus, Chiasamen oder Ingwer nicht durch das Ranking aus dem eigentlichen Test verschwinden.
+5. Genau dieses Referenzrezept mit den ausgegebenen Mengen zubereiten.
+6. Nichts spontan korrigieren, bevor die erste Bewertung notiert wurde.
+7. Erst danach eine sinnvolle Korrektur ausprobieren und dokumentieren.
 
 ## Testset
 
@@ -26,7 +27,7 @@ Für jeden Test:
 | R5 | Blaubeere, Banane, Chiasamen, Mandeldrink | Samen/Textur |
 | R6 | Orange, Mango, Orangensaft, Ingwer | säure-/intensitätsreicher Grenzfall |
 
-Die Vorratslisten sind **exakt** zu verstehen: keine stillschweigend zusätzlich aktivierten Grundzutaten. Mindestens R1–R4 sollten vor dem finalen Release physisch getestet werden.
+Die Vorratslisten sind **exakt** zu verstehen: keine stillschweigend zusätzlich aktivierten Grundzutaten. Für die Referenzvalidierung sind zugleich alle genannten Zutaten Pflichtbestandteile des Testrezepts. Mindestens R1–R4 sollten vor dem finalen Release physisch getestet werden.
 R5–R6 dienen besonders dazu, Textur- und Intensitätsgrenzen zu prüfen.
 
 ## Bewertungsbogen
@@ -85,4 +86,4 @@ Maschinenlesbare Ausgabe:
 python -m scripts.prepare_real_world_validation --json
 ```
 
-Damit werden keine Geschmacksergebnisse vorweggenommen; das Skript friert nur die technischen Eingaben für den physischen Test reproduzierbar ein.
+Damit werden keine Geschmacksergebnisse vorweggenommen; das Skript friert nur die technischen Eingaben für den physischen Test reproduzierbar ein und stellt sicher, dass der jeweilige Testzweck tatsächlich im Rezept enthalten ist.

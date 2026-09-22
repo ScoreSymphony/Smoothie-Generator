@@ -17,24 +17,49 @@ from smoothie import (
 )
 
 VALIDATION_CASES = {
-    "R1": ("banana", "strawberry", "oat_milk"),
-    "R2": ("mango", "pineapple", "coconut_water"),
-    "R3": ("mango", "banana", "spinach", "water"),
-    "R4": ("banana", "peanut_butter", "oat_milk"),
-    "R5": ("blueberry", "banana", "chia_seeds", "almond_milk"),
-    "R6": ("orange", "mango", "orange_juice", "ginger"),
+    "R1": {
+        "pantry": ("banana", "strawberry", "oat_milk"),
+        "required": ("banana", "strawberry", "oat_milk"),
+    },
+    "R2": {
+        "pantry": ("mango", "pineapple", "coconut_water"),
+        "required": ("mango", "pineapple", "coconut_water"),
+    },
+    "R3": {
+        "pantry": ("mango", "banana", "spinach", "water"),
+        "required": ("mango", "banana", "spinach", "water"),
+    },
+    "R4": {
+        "pantry": ("banana", "peanut_butter", "oat_milk"),
+        "required": ("banana", "peanut_butter", "oat_milk"),
+    },
+    "R5": {
+        "pantry": ("blueberry", "banana", "chia_seeds", "almond_milk"),
+        "required": ("blueberry", "banana", "chia_seeds", "almond_milk"),
+    },
+    "R6": {
+        "pantry": ("orange", "mango", "orange_juice", "ginger"),
+        "required": ("orange", "mango", "orange_juice", "ginger"),
+    },
 }
 
 
 def build_case(case_id: str) -> dict:
     catalog = load_ingredient_catalog()
     nutrition = load_nutrition_catalog(ingredient_catalog=catalog)
-    pantry = VALIDATION_CASES[case_id]
+    case = VALIDATION_CASES[case_id]
+    pantry = case["pantry"]
+    required = frozenset(case["required"])
     preferences = UserPreferences()
 
     pool = SmoothieGenerator(catalog).generate(pantry, count=300, seed=0)
+    focused_pool = [
+        candidate
+        for candidate in pool
+        if required <= set(candidate.ingredient_ids)
+    ]
     ranked = rank_generated_candidates(
-        pool,
+        focused_pool,
         CandidateScorer(
             catalog,
             ScoringWeights(preference_fit=2.0),
@@ -44,13 +69,17 @@ def build_case(case_id: str) -> dict:
         limit=1,
     )
     if not ranked:
-        raise RuntimeError(f"{case_id}: no generated candidate")
+        raise RuntimeError(
+            f"{case_id}: no generated candidate contains required ingredients "
+            f"{sorted(required)}"
+        )
 
     candidate = ranked[0].candidate
     quantified = QuantityCalculator(catalog).for_generated(candidate, servings=1)
     return {
         "case": case_id,
         "pantry": list(pantry),
+        "required_ingredient_ids": sorted(required),
         "ingredient_ids": list(candidate.ingredient_ids),
         "score": ranked[0].total,
         "quantities": [
