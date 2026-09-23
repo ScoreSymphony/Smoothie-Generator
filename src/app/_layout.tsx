@@ -11,7 +11,7 @@ export default function RootLayout() {
           headerTitleAlign: "center",
         }}
       >
-        <Stack.Screen name="index" options={{ title: "Smoothie Generator" }} />
+        <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="pantry" options={{ title: "Meine Zutaten" }} />
         <Stack.Screen name="suggestions" options={{ title: "Empfehlungen" }} />
         <Stack.Screen name="recipe" options={{ title: "Rezept" }} />
