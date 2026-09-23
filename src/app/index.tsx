@@ -2,7 +2,6 @@ import { Link } from "expo-router";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { AppIntro } from "@/components/AppIntro";
 import { colors, spacing, typography } from "@/theme/tokens";
 
 const ACTIONS = [
@@ -17,7 +16,6 @@ export default function HomeScreen() {
   return (
     <SafeAreaView edges={["bottom"]} style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.container}>
-        <AppIntro />
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Was möchtest du machen?</Text>
           {ACTIONS.map((action) => (
