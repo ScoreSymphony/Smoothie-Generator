@@ -2,7 +2,7 @@
   "expo": {
     "name": "Smoothie Generator",
     "slug": "smoothie-generator",
-    "version": "1.0.2",
+    "version": "1.0.4",
     "icon": "./assets/branding/smoothie-generator-icon.png",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
@@ -13,12 +13,12 @@
     ],
     "android": {
       "package": "com.scoresymphony.smoothiegenerator",
-      "versionCode": 5,
+      "versionCode": 6,
       "icon": "./assets/branding/smoothie-generator-icon.png"
     },
     "ios": {
       "bundleIdentifier": "com.scoresymphony.smoothiegenerator",
-      "buildNumber": "5",
+      "buildNumber": "6",
       "supportsTablet": false
     },
     "plugins": [
